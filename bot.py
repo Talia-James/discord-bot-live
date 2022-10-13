@@ -678,6 +678,6 @@ async def armor(ctx):
         send_lines = [str(col)+': '+str(df.loc[found_armor][col]) for col in cols]
         await ctx.send(found_armor+':\n'+'\n'.join(send_lines))  
 
-bot.run('Njc1NDUzMTM5NDA2ODE1MjM3.XsVkHg.GLK7KaKgUE9XwW6ALbZqHpyHE5U')
+bot.run('[your_bot_token]')
 
 

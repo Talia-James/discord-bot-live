@@ -5,7 +5,8 @@ import pandas as pd
 import math
 import os
 from difflib import SequenceMatcher
-
+with open('../tok.txt') as f:
+    token = f.readlines()[0]
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
@@ -21,10 +22,13 @@ async def on_ready():
     print('Awaiting orders, Captain.')
 
 def name_check(ctx):
-    if ctx.message.author.nick == None:
+    try:
+        if ctx.message.author.nick == None:
+            sender = ctx.message.author.name
+        else:
+            sender = ctx.message.author.nick
+    except AttributeError:
         sender = ctx.message.author.name
-    else:
-        sender = ctx.message.author.nick
     return sender
 
 def load_titles():
@@ -170,13 +174,17 @@ async def info(ctx):
 
 @bot.command()
 async def refresh(ctx):
-    global titles
-    titles = []
     global votes
     votes = []
     with open('titles.csv','w') as f:
         writer = csv.writer(f)
-        writer.writerow(titles)
+        writer.writerow('')
+    with open('vote_hist.csv','w') as f:
+        writer = csv.writer(f)
+        writer.writerow('')
+    with open('votes.csv','w') as f:
+        writer = csv.writer(f)
+        writer.writerow('')
     sender = name_check(ctx)
     global vote_hist
     vote_hist = []
@@ -264,29 +272,54 @@ async def sw(ctx):
     await james.edit(nick='Cho')
     await jeannie.edit(nick='Culkoo')
 
-vote_hist = []
+# vote_hist = []
 
 @bot.command(pass_context=True)
 async def vote(ctx):
     sender = name_check(ctx)
     vote = ctx.message.content[6:]
     vote_entry = f'{sender}-{vote}'
+    with open("vote_hist.csv",'r') as f:
+        reader = csv.reader(f,delimiter=',')
+        i=0
+        for row in reader:
+            if i==0:
+                vote_hist = row
+                i+=1
+            else:
+                pass
     try:
         if vote_entry in vote_hist:
             await ctx.send(f'You have already voted for that title, Captain {sender}.')
         else:
             numvote = int(vote)
             votes.append(numvote)
+            with open('votes.csv','w') as f:
+                writer = csv.writer(f)
+                writer.writerow(votes)
+            vote_hist.append(vote_entry)
+            with open('vote_hist.csv','w') as f:
+                writer = csv.writer(f)
+                writer.writerow(vote_hist)
             await ctx.send(f'Vote recorded, Captain {sender}.')
     except ValueError:
         await ctx.send(f'That is not a number, Captain {sender}.')
 
 @bot.command(pass_context=True)
 async def votecount(ctx):
-    votecount = collections.Counter(votes)
+    with open("votes.csv",'r') as f:
+        reader = csv.reader(f,delimiter=',')
+        j=0
+        for row in reader:
+            if j==0:
+                votes_ = row
+                j+=1
+            else:
+                pass
+    votecount = collections.Counter(votes_)
     showtitles = load_titles()
     df = pd.Series(votecount).sort_values(ascending=False)
-    send_titles = [str(df.iloc[i])+': '+ showtitles[i] for i in range(len(df))]
+    send_titles = [f'{df.iloc[i]}: {showtitles[int(df.index[i])-1]}' for i in range(len(df))]
     await ctx.send('\n'.join(send_titles))
 
 @bot.command(pass_context=True)
@@ -678,6 +711,4 @@ async def armor(ctx):
         send_lines = [str(col)+': '+str(df.loc[found_armor][col]) for col in cols]
         await ctx.send(found_armor+':\n'+'\n'.join(send_lines))  
 
-bot.run('[your_bot_token]')
-
-
+bot.run(f'{token}')

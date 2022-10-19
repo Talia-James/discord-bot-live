@@ -26,21 +26,25 @@ def load_votes(csvfile):
                 pass
         return votes
 titles = load_csv('titles')
+indexed = list(enumerate(titles,start=1))
 try:
     votes = load_votes('votes')
 except UnboundLocalError:
     st.write('No votes cast yet, initializing list.')
     votes = []
-print(votes)
 st.markdown('Tabletop session titles!')
 for i in range(len(titles)):
     if st.checkbox(titles[i],key=f'{titles[i]}-{i}'):
-        votes.append(titles[i])
-        print(votes)
+        votes.append(indexed[i][0])
+        # print(votes)
 button_container = st.container()
 # if button_container.button('Name (for duplicate prevention):'):
-name = button_container.text_input('Name (for duplicate prevention):')
+# name = str(button_container.text_input('Name (for duplicate prevention):'))
 if button_container.button('Cast vote(s)'):
     with open('votes.csv','w') as f:
         writer = csv.writer(f)
         writer.writerow(votes)
+    st.markdown('Votes recorded!')
+    # with open('vote_hist.csv') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(f'{name}')

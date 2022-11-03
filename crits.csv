@@ -1,0 +1,30 @@
+﻿Rating,Severity,Result,Details
+01-05,1,Minor Knick,Suffer 1 strain.
+06-10,1,Slowed Down,May only act during last hero Initiative slot on next turn.
+11-15,1,Sudden Jolt,Drop whatever is in hand.
+16-20,1,Distracted,Cannot perform free maneuver on next turn.
+21-25,1,Off-Balance,Add 1 difficulty die to next skill check.
+26-30,1,Discouraging Wound,Flip one light destiny to dark.
+31-35,1,Stunned,Cannot perform action on next turn.
+36-40,1,Stinger,Increase difficulty of next check by 1 difficulty die.
+41-45,2,Bowled Over,Knocked prone and suffer 1 strain.
+46-50,2,Head Ringer,Increase difficulty of all Intellect and Cunning checks by 1 difficulty die until end of encounter.
+51-55,2,Fearsome Wound,Increase difficulty of all Presence and WIllpower checks by 1 difficulty die until end of encounter.
+56-60,2,Agonizing Wound,Increase difficulty of all Brawn and Agility checks by 1 difficulty die until end of encounter.
+61-65,2,Slightly Dazed,Add 1 difficulty die to all skill checks until end of encounter.
+66-70,2,Scattered Senses,Remove 1 boost die all from all skill checks until end of encounter.
+71-75,2,Hamstrung,Lose free maneuver until end of encounter.
+76-80,2,Staggered,Attacker may immediately attempt another free attack against you using same pool as original attack.
+81-85,2,Winded,Cannot voluntarily suffer strain to activate abilities or gain additional maneuvers until end of encounter.
+86-90,2,Compromised,Increase difficulty of all skill checks by 1 difficulty die by until end of encounter.
+91-95,3,At the Brink,"Until healed, suffer 1 strain each time you perform an action. Until healed,"
+96-100,3,Crippled,Limb crippled until healed or replaced. Increase difficulty of all checks that use that limb by 1 difficulty die.
+101-105,3,Maimed,"Limb permanently lost. Unless you have a cybernetic replacement, cannot perform actions that use that limb. Add 1 difficulty die to all other actions."
+106-110,3,Horrific Injury,"Roll Critical Injury Characteristic (!critchara). Until healed, treat that characteristic as one point lower."
+111-115,3,Temporarily Lame,"Until healed, may not perform more than one maneuver each turn."
+116-120,3,Blinded,"Can no longer see. Upgrade the difficulty of Perception and Vigilance checks three times, and all other checks twice."
+121-125,3,Knocked Senseless,Staggered until end of encounter (cannot use actions)
+126-130,4,Gruesome Injury,"Roll Critical Injury Characteristic (!critchara). Characteristic permanently reduced by 1, to minimum of 1."
+131-140,4,Bleeding Out,"Suffer 1 wound and 1 strain every round at the beginning of turn. For every 5 wounds suffered beyond wound threshold, suffer one additional Critical Injury (ignore the details for any result below this result)."
+141-150,4,The End is Nigh,Die after the last Initiative slot during the next round.
+151,4,Dead,"Complete, absolute death."

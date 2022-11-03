@@ -1,0 +1,28 @@
+﻿Quality,Activation,Description
+Accurate,Passive,Attacker adds a number of bonus die equal to Accurate rating to attack die pools.
+Auto-fire,1,"Increase combat check difficulty by 1 difficulty die . Deal an additional hit to target or another target engaged with the first target. May be activated multiple times. May activate Critical Hits multiple times, up to the number of hits scored."
+Breach,Passive,Ignore 1 point of ship Armor (10 points of soak) for every rating of Breach.
+Burn,2,Target suffers weapon’s base damage for a number of rounds equal to Burn rating at the start of turn. May be extinguished (see extinguish fire under environmental modifiers).
+Blast,2,"The weapon has a large spread, an explosive blast, or similar area of effect, like the detonation of a grenade or a warhead fired from a missile launcher. If the attack is successful and Blast activates, each character (friend or foe) engaged with the original target suffers damage equal to the weapon's Blast rating (plus an additional wound per success as usual). In a relatively small and enclosed area, the Game Master might decide that everyone in the room suffers damage. If the Blast quality doesn't activate, the ordnance still detonates, but bad luck or poor aim on the part of the firer (or quick reactions on the part of the victims) means the explosion may not catch anyone else in its radius. However, the user may also trigger Blast if the attack misses by spending 3 advantages. In this case, the original target and every target engaged with the original target suffers damage equal to the Blast rating of the weapon."
+Concussive,2,Target is staggered for a number of rounds equal to Concussive rating.
+Cortosis,Passive,Weapon ignores the Sunder quality. Armor ignores the Breach and Pierce qualities.
+Cumbersome,Passive,"For each point of Brawn less than the Cumbersome rating, increase check difficulty by 1 difficulty die."
+Defensive,Passive,Increase ranged and melee defense by Defensive rating until start of next turn.
+Deflection,Passive,Increase ranged defense by Deflection rating.
+Disorient,2,Target is disoriented for a number of rounds equal to Disorient rating.
+Ensnare,2,Target is immobilised for a number of rounds equal to Ensnare rating. Target may attempt Hard (3 difficulty die) Athletics check as an action to break free.
+Guided,3,"If attack misses, may make ability dice check at end of round with a number of equal to Guided rating and difficulty calculated by comparing 0 silhouette to silhouette of target. If successful, weapon hits target."
+Knockdown,2,Requires additional advantage per silhouette of target beyond 1. Target is knocked prone.
+Inferior,Passive,Weapon automatically generates 1 threat on all checks and base damage decreased by 1. Armor has encumbrance increased by 1 and soak value decreased by 1.
+Ion,Passive,"Damage dealt to target’s strain threshold, after reducing by armor and soak."
+Limited Ammo,Passive,Expends ammo which must be purchased or obtained separately and requires maneuver to reload after Limited Ammo rating number of attacks.
+Linked,1,Deal an additional hit to target. May be activated multiple times.
+Pierce,Passive,Ignore one point of soak for every rating of Pierce.
+Slow-firing,Passive,Must wait Slow-firing rating number of rounds after firing weapon before it can fire again.
+Snapshot,2,"Deal an additional hit to target. May be activated multiple times. May activate Critical Hits multiple times, up to the number of hits scored."
+Stun,2,Inflict strain equal to Stun rating.
+Stun Damage,Passive,"Damage dealt as strain, after reducing by soak."
+Sunder,1,"Item openly wielded by target is damaged one step: Minor, Moderate, Major, Destroyed. May be activated multiple times."
+Superior,Passive,Weapon automatically generates 1 advantage on all checks and base damage increased by 1. Armor has encumbrance decreased by 1 and soak value increased by 1.
+Tractor,Passive,"If attack successful, target may not use Starship Maneuvers unless pilot makes successful Piloting check, with a number of difficulty die equal to Tractor rating, as an action to break free."
+Vicious,Passive,"On a critical hit, add 10x Vicious rating to critical hit roll."

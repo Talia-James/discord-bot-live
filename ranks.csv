@@ -75,7 +75,7 @@ Sorry About The Mess,Offense,0,1,0,0,0,0,0
 Stalker,Situational,0,0,0,2,3,0,0
 Stim Application,Medical,0,0,1,0,0,0,0
 Stimpack Specialization,Medical,0,0,2,0,0,0,0
-Strong Arm,Offense,0,0,0,0,1,0,0
+Strong Arm,Offense,1,0,0,0,1,0,0
 Stunning Blow,Offense,0,0,0,0,1,0,0
 Surgeon,Medical,0,0,2,0,0,2,0
 Swift,Situational,0,0,0,1,0,0,0
@@ -86,8 +86,8 @@ Touch Of Fate,Force,0,0,0,0,0,0,0
 Toughened,Defense,6,4,4,4,4,0,0
 Tricky Target,Piloting,0,0,1,0,0,0,0
 True Aim,Offense,0,0,0,1,0,0,0
-Uncanny Reactions,Force,0,1,2,1,0,0,0
-Uncanny Senses,Force,0,1,2,0,0,0,0
+Uncanny Reactions,Force,1,1,2,1,0,0,0
+Uncanny Senses,Force,1,1,2,0,0,0,0
 Unmatched Devestation,Offense,0,0,0,1,0,0,0
 Utility Belt,Situational,0,0,0,0,1,0,0
 Vehicle Combat Training,Situational,0,1,0,0,0,0,0

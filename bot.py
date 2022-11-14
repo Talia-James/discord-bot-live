@@ -1,4 +1,5 @@
-import discord, random, re, time, csv
+import discord, random, re, time, csv#, threading
+from datetime import datetime as dt
 from discord.ext import commands
 import collections
 import pandas as pd
@@ -15,11 +16,25 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 client = discord.Client(intents=intents)
 intents.members = True
 
+# def calendar():
+#     time.sleep(10)
+#     print('Success!')
+# cal_start = threading.Thread(target=calendar,daemon=True)
 
+# offsets = {
+# 183026490890256384:-5, #talia)
+# 213737842625609730:-7, #heather)
+# # jeannie = await ctx.guild.fetch_member(213789322309009418)
+# 220377751906025472:-8, #angela)
+# # james = await ctx.guild.fetch_member(286536094990729216)
+# # jason = await ctx.guild.fetch_member(171473872078635015)
+# 147036443120762880:-8 #mike
+# }
 
 @bot.event
 async def on_ready():
     print('Awaiting orders, Captain.')
+    # cal_start.start()
 
 def name_check(ctx):
     try:
@@ -48,6 +63,45 @@ async def transvestite(ctx):
     await ctx.send('I see you shiver with antici...')
     time.sleep(5)
     await ctx.send('...pation!')
+
+@bot.command()
+async def set_gametime(ctx):
+    game_and_time = (ctx.message.content)[14:]
+    # schedule = pd.read_csv('schedule.csv',usecols=[1,2])
+    if game_and_time[0].lower()=='s':
+        game = 'sw'
+        time = game_and_time[2:]
+        year,month,day_hour = time.split(sep='-')
+        day, hour = day_hour.split(sep=' ')
+        hour,minute = hour.split(sep=':')
+        epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
+        new_time = int(epoch)
+        # schedule[schedule[f'{game}']==game.lower()]['time'] = new_time
+        # schedule.to_csv('schedule.csv')
+        with open(f'{game}.txt','w') as f:
+            f.write(str(new_time))
+        await ctx.send(f'Next Star Wars game at <t:{str(new_time)}>')
+    elif game_and_time[0].lower()=='c':
+        game='coc'
+        time = game_and_time[3:]
+        year,month,day_hour = time.split(sep='-')
+        day, hour = day_hour.split(sep=' ')
+        hour,minute = hour.split(sep=':')
+        epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
+        new_time = int(epoch)
+        with open(f'{game}.txt','w') as f:
+            f.write(str(new_time))
+        await ctx.send(f'Next Call of Cthulhu game at <t:{str(new_time)}>')
+
+
+
+
+@bot.command()
+async def gametime(ctx):
+    game = (ctx.message.content)[10:]
+    with open(f'{game}.txt','r') as f:
+        time = f.readlines()[0]
+    await ctx.send(f'Next {game} session is at <t:{time}>')
 
 @bot.command()
 async def roll(ctx):

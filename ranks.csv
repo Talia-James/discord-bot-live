@@ -100,4 +100,6 @@ Blooded,Situational,0,0,0,1,0,0,0
 Unstoppable,Defensive,0,1,0,0,0,0,0
 Contraption,Ground Mechanics,1,0,0,0,0,0,0
 Natural Tinkerer,Ground Mechanics,1,0,0,0,0,0,0
-Street Smarts,Situational,0,0,0,1,0,0,0
+Street Smarts,Situational,1,0,0,1,0,0,0
+Reflect,Defensive,0,1,0,1,0,0,0
+Shien Technique,Situational,0,0,0,1,0,0,0

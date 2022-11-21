@@ -295,7 +295,7 @@ async def coc(ctx):
     james = await ctx.guild.fetch_member(286536094990729216)
     jason = await ctx.guild.fetch_member(171473872078635015)
     await jason.edit(nick='Alan')
-    await talia.edit(nick='Claire')
+    await talia.edit(nick='Anii')
     await heather.edit(nick='Siobhan')
     await angela.edit(nick='Kenzo')
     await james.edit(nick='Tom')

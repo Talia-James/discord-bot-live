@@ -34,6 +34,7 @@ intents.members = True
 @bot.event
 async def on_ready():
     print('Awaiting orders, Captain.')
+    # await send()
     # cal_start.start()
 
 def name_check(ctx):
@@ -377,11 +378,23 @@ async def votecount(ctx):
     await ctx.send('\n'.join(send_titles))
 
 @bot.command(pass_context=True)
+async def test(ctx):
+    guild = bot.get_guild(675451203412295779)
+    await guild.text_channels[0].send('Yeah')
+
+@bot.command(pass_context=True)
 async def userinfo(ctx):
     guild = ctx.message.guild
-    async for member in guild.fetch_members(limit=150):
-        print(member.name)
-        print(member.id)
+    channel = ctx.message.channel.id
+    print(guild)
+    print(channel)
+    # async for member in guild.fetch_members(limit=150):
+    #     print(member.name)
+    #     print(member.id)
+    #     print(ctx.message.channel)
+    #     print(ctx.message.guild)
+    #     channel = ctx.message.channel
+    #     channel
 
 @bot.command(pass_context=True)
 async def stim(ctx):
@@ -509,9 +522,6 @@ async def status(ctx):
         await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
     else:
         await ctx.send('Uh, what?')
-
-    
-    
 
 @bot.command(pass_context=True)
 async def crit(ctx):

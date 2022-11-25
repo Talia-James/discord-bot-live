@@ -1,4 +1,4 @@
-import discord, random, re, time, csv#, threading
+import discord, random, re, time, csv, threading, asyncio
 from datetime import datetime as dt
 from discord.ext import commands
 import collections
@@ -16,26 +16,45 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 client = discord.Client(intents=intents)
 intents.members = True
 
-# def calendar():
-#     time.sleep(10)
-#     print('Success!')
-# cal_start = threading.Thread(target=calendar,daemon=True)
-
-# offsets = {
-# 183026490890256384:-5, #talia)
-# 213737842625609730:-7, #heather)
-# # jeannie = await ctx.guild.fetch_member(213789322309009418)
-# 220377751906025472:-8, #angela)
-# # james = await ctx.guild.fetch_member(286536094990729216)
-# # jason = await ctx.guild.fetch_member(171473872078635015)
-# 147036443120762880:-8 #mike
-# }
-
+def get_times():
+    with open('sw.txt','r') as f:
+        global sw_time
+        sw_time = int(f.readlines()[0])
+    with open('coc.txt','r') as f:
+        global coc_time
+        coc_time = int(f.readlines()[0])
+debug = 5
+one_hour = 3600
+one_day = 86400
 @bot.event
 async def on_ready():
-    print('Awaiting orders, Captain.')
-    # await send()
-    # cal_start.start()
+    try:
+        print('Awaiting orders, Captain.')
+        get_times()
+        server = bot.get_guild(399052850488934401)
+        sw_channel = server.get_channel(801970982663225414)
+        coc_channel = server.get_channel(794640287741902903)
+        while True: 
+            sw_alert_2 = sw_time-7200
+            coc_alert_2 = coc_time-7200
+            await asyncio.sleep(one_hour)
+            now = dt.now().timestamp()
+            if (now > sw_alert_2) and (now < sw_time):
+                await sw_channel.send('Star Wars in 2 hours!')
+                await asyncio.sleep(one_hour)
+                await sw_channel.send('Star Wars in 1 hour!')
+            elif (now > coc_alert_2) and (now < coc_time):
+                await coc_channel.send('Call of Cthulhu in 2 hours!')
+                await asyncio.sleep(one_hour)
+                await coc_channel.send('Call of Cthulhu in 1 hour!')
+    except TypeError:
+        print(type(sw_time))
+        print(type(coc_time))
+        print(type(sw_alert_2))
+        print(type(coc_alert_2))
+        print(type(now))
+
+
 
 def name_check(ctx):
     try:
@@ -62,7 +81,7 @@ def load_titles():
 @bot.command()
 async def transvestite(ctx):
     await ctx.send('I see you shiver with antici...')
-    time.sleep(5)
+    await asyncio.sleep(5)
     await ctx.send('...pation!')
 
 @bot.command()
@@ -81,6 +100,8 @@ async def set_gametime(ctx):
         # schedule.to_csv('schedule.csv')
         with open(f'{game}.txt','w') as f:
             f.write(str(new_time))
+        global sw
+        sw = new_time
         await ctx.send(f'Next Star Wars game at <t:{str(new_time)}>')
     elif game_and_time[0].lower()=='c':
         game='coc'
@@ -92,9 +113,9 @@ async def set_gametime(ctx):
         new_time = int(epoch)
         with open(f'{game}.txt','w') as f:
             f.write(str(new_time))
+        global coc
+        coc = new_time
         await ctx.send(f'Next Call of Cthulhu game at <t:{str(new_time)}>')
-
-
 
 
 @bot.command()
@@ -380,11 +401,14 @@ async def votecount(ctx):
 @bot.command(pass_context=True)
 async def test(ctx):
     guild = bot.get_guild(675451203412295779)
-    await guild.text_channels[0].send('Yeah')
+    print(guild.text_channels)
+    sw_channel = bot.get_channel(675451203907354624)
+    print(sw_channel)
+    await guild.sw_channel.send('Yeah')
 
 @bot.command(pass_context=True)
 async def userinfo(ctx):
-    guild = ctx.message.guild
+    guild = ctx.message.guild.id
     channel = ctx.message.channel.id
     print(guild)
     print(channel)

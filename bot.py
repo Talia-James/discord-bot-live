@@ -24,6 +24,7 @@ def get_times():
         global coc_time
         coc_time = int(f.readlines()[0])
 debug = 5
+minutes_15 = 900
 one_hour = 3600
 one_day = 86400
 @bot.event
@@ -35,23 +36,25 @@ async def on_ready():
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
         while True: 
-            sw_alert_2 = sw_time-7200
-            coc_alert_2 = coc_time-7200
-            await asyncio.sleep(one_hour)
+            sw_alert_1 = sw_time-one_hour
+            coc_alert_1 = coc_time-one_hour
+            sw_alert_prev_day = sw_time-one_day
+            coc_alert_prev_day = coc_time-one_day
+            await asyncio.sleep(minutes_15)
             now = dt.now().timestamp()
-            if (now > sw_alert_2) and (now < sw_time):
-                await sw_channel.send('Star Wars in 2 hours!')
-                await asyncio.sleep(one_hour)
+            if (now > sw_alert_1) and (now < sw_time):
                 await sw_channel.send('Star Wars in 1 hour!')
-            elif (now > coc_alert_2) and (now < coc_time):
-                await coc_channel.send('Call of Cthulhu in 2 hours!')
-                await asyncio.sleep(one_hour)
+            elif (now > sw_alert_prev_day) and (now<sw_time) and (now<sw_alert_1):
+                await sw_channel.send('Star Wars tomorrow!')
+            elif (now > coc_alert_1) and (now < coc_time):
                 await coc_channel.send('Call of Cthulhu in 1 hour!')
+            elif (now>coc_alert_prev_day) and (now<coc_time) and (now<coc_alert_1):
+                await coc_channel.send('Call of Cthulhu tomorrow!')
     except TypeError:
         print(type(sw_time))
         print(type(coc_time))
-        print(type(sw_alert_2))
-        print(type(coc_alert_2))
+        print(type(sw_alert_1))
+        print(type(coc_alert_1))
         print(type(now))
 
 

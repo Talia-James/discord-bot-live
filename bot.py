@@ -44,12 +44,14 @@ async def on_ready():
             now = dt.now().timestamp()
             if (now > sw_alert_1) and (now < sw_time):
                 await sw_channel.send('Star Wars in 1 hour!')
-            elif (now > sw_alert_prev_day) and (now<sw_time) and (now<sw_alert_1):
-                await sw_channel.send('Star Wars tomorrow!')
+                await asyncio.sleep(one_hour)
+         #   elif (now > sw_alert_prev_day) and (now<sw_time) and (now<sw_alert_1):
+           #     await sw_channel.send('Star Wars tomorrow!')
             elif (now > coc_alert_1) and (now < coc_time):
                 await coc_channel.send('Call of Cthulhu in 1 hour!')
-            elif (now>coc_alert_prev_day) and (now<coc_time) and (now<coc_alert_1):
-                await coc_channel.send('Call of Cthulhu tomorrow!')
+                await asyncio.sleep(one_hour)
+      #      elif (now>coc_alert_prev_day) and (now<coc_time) and (now<coc_alert_1):
+             #   await coc_channel.send('Call of Cthulhu tomorrow!')
     except TypeError:
         print(type(sw_time))
         print(type(coc_time))

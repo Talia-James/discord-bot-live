@@ -39,7 +39,9 @@ async def on_ready():
         server = bot.get_guild(399052850488934401)
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
+        global coc_alert
         coc_alert = False
+        global sw_alert
         sw_alert = False
         while True: 
             get_times()
@@ -121,8 +123,8 @@ async def set_gametime(ctx):
         # schedule.to_csv('schedule.csv')
         with open(f'{game}.txt','w') as f:
             f.write(str(new_time))
-        global sw
-        sw = new_time
+        global sw_time
+        sw_time = new_time
         await ctx.send(f'Next Star Wars game at <t:{str(new_time)}>')
     elif game_and_time[0].lower()=='c':
         game='coc'
@@ -140,11 +142,21 @@ async def set_gametime(ctx):
 
 
 @bot.command()
+async def stamp(ctx):
+    time = ctx.message.content[7:]
+    year,month,day_hour = time.split(sep='-')
+    day, hour = day_hour.split(sep=' ')
+    hour,minute = hour.split(sep=':')
+    epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
+    new_time = int(epoch)
+    await ctx.send(new_time)
+
+@bot.command()
 async def gametime(ctx):
     game = (ctx.message.content)[10:]
     with open(f'{game}.txt','r') as f:
         time = f.readlines()[0]
-    await ctx.send(f'Next {game} session is at <t:{time}>')
+    await ctx.send(f'Next {game} session is at <t:{time}>, <t:{time}:R>')
 
 @bot.command()
 async def roll(ctx):

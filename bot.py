@@ -381,6 +381,19 @@ async def sw(ctx):
     await james.edit(nick='Cho')
     await jeannie.edit(nick='Culkoo')
 
+@bot.command(pass_context=True)
+async def dnd2(ctx):
+    talia = await ctx.guild.fetch_member(183026490890256384)
+    heather = await ctx.guild.fetch_member(213737842625609730)
+    jeannie = await ctx.guild.fetch_member(213789322309009418)
+    angela = await ctx.guild.fetch_member(220377751906025472)
+    james = await ctx.guild.fetch_member(286536094990729216)
+    await talia.edit(nick='Virai')
+    await heather.edit(nick='Khaylia')
+    await angela.edit(nick='Kavin')
+    await james.edit(nick='Cho')
+    await jeannie.edit(nick='Culkoo')
+
 # vote_hist = []
 
 @bot.command(pass_context=True)
@@ -445,13 +458,13 @@ async def userinfo(ctx):
     channel = ctx.message.channel.id
     print(guild)
     print(channel)
-    # async for member in guild.fetch_members(limit=150):
-    #     print(member.name)
-    #     print(member.id)
-    #     print(ctx.message.channel)
-    #     print(ctx.message.guild)
-    #     channel = ctx.message.channel
-    #     channel
+     async for member in guild.fetch_members(limit=150):
+         print(member.name)
+         print(member.id)
+         print(ctx.message.channel)
+         print(ctx.message.guild)
+         channel = ctx.message.channel
+         channel
 
 @bot.command(pass_context=True)
 async def stim(ctx):

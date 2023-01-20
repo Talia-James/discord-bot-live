@@ -94,3 +94,12 @@ Utility Belt,Situational,"The character may spend one Destiny Point to perform a
 Vehicle Combat Training,Situational,Gunnery and Piloting - Planetary are career skills
 Contraption,Ground Mechanics,"Once per game session, the character can take a Contraption action. With a successful Hard Mechanics check, the character can fashion a device to solve a current problem using the tools and parts on hand. This device must be approved by the GM and functions for the duration of the current encounter only. Those tools are destroyed in the process. A Triumph may be spent to allow the tools to be reused later."
 Natural Tinkerer,Ground Mechanics,"Once per game session, the character may reroll any one Mechanics check."
+Counterstrike,Defense,"When an attack misses the character and generates a despair or 2 threat, may upgrade the next Lightsaber (Cunning) check against attacker during encounter once."
+Djem So Deflection,Defense,"After using Reflect, may spend 1 destiny point to perform Move manauver as out-of-turn incidental to close distance with or engage opponent."
+Falling Avalanche,Offense,Suffer 2 strain to add damage equal to Brawn to next Lightsaber combat check made that turn.
+Improved Reflect,Defense,"When reflecting a hit that generated a despair or 3 threat, may hit one target in medium range with the same damage as the initial hit, after original attack resolves."
+Supreme reflect,Defense,"If the user did not make a combat check during previous turn, may suffer 1 strain to use Reflect"
+Saber Throw,Offense,"Perform Saber Throw action, make Lightsaber combat check as ranged attack at target within medium range, adding Force die no greater than force rating. Must spend one force pip to hit target and one additional pip to have weapon return to hand."
+Disruptive Strike,Offense,"Perform Disruptive Strike action, make a Lightsaber (Cunning) combat check, adding force die no greater than force rating. Spend one pip to add a failure to the next combat check the target makes."
+Street Smarts,Situational,Remove setback die equal to Street Smarts rating from Streetwise and Knowledge (underworld) checks.
+Feral Strength,Offense,Add 1 damage per rank of Feral Strength to one hit of a successful melee or brawl attack.

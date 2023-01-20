@@ -23,7 +23,7 @@ Forager,Situational,0,0,1,1,0,0,0
 Frenzied Attack,Offense,0,0,0,0,2,0,0
 Full Throttle,Piloting,0,0,1,0,0,0,0
 Gearhead,Ground Mechanics,1,0,0,0,0,2,0
-Grit,Defense,5,5,4,2,7,0,0
+Grit,Defense,5,5,4,6,7,0,0
 Heightened Awareness,Situational,0,0,0,0,1,0,0
 Heroic Fortitude,Defense,0,1,0,0,0,0,0
 Heroic Resilience,Defense,0,1,0,0,0,0,0
@@ -37,7 +37,7 @@ Inventor,Ground Mechanics,1,0,0,0,0,0,0
 It's Not That Bad,Medical,0,0,1,0,0,0,0
 Jump Up,Situational,0,0,1,1,2,0,0
 Jury Rigged,Ground Mechanics,0,0,0,0,0,0,0
-Knockdown,Offense,0,0,0,0,1,0,0
+Knockdown,Offense,0,1,0,0,1,0,0
 Known Schematic,Situational,0,0,0,0,0,0,0
 Lethal Blows,Offense,0,0,0,3,0,0,0
 Let's Ride,Piloting,0,0,1,0,1,0,0
@@ -50,7 +50,7 @@ Natural Hunter,Situational,0,0,0,0,1,0,0
 Natural Programmer,Computers,0,0,0,0,0,0,0
 Outdoorsman,Situational,1,0,1,2,0,0,0
 Parry,Defense,0,1,0,0,0,0,0
-Physical Training,Situational,2,0,0,0,1,0,0
+Physical Training,Situational,2,2,0,0,1,0,0
 Point Blank,Offense,1,0,0,0,1,0,0
 Precise Aim,Offense,0,0,0,2,0,0,0
 Quick Draw,Offense,0,1,1,1,0,0,0
@@ -75,7 +75,7 @@ Sorry About The Mess,Offense,0,1,0,0,0,0,0
 Stalker,Situational,0,0,0,2,3,0,0
 Stim Application,Medical,0,0,1,0,0,0,0
 Stimpack Specialization,Medical,0,0,2,0,0,0,0
-Strong Arm,Offense,1,0,0,0,1,0,0
+Strong Arm,Offense,1,1,0,0,1,0,0
 Stunning Blow,Offense,0,0,0,0,1,0,0
 Surgeon,Medical,0,0,2,0,0,2,0
 Swift,Situational,0,0,0,1,0,0,0
@@ -83,7 +83,7 @@ Tactical Combat Training,Situational,0,0,1,0,0,0,0
 Targeted Blow,Offense,0,0,0,1,0,0,0
 Tinkerer,Ground Mechanics,1,0,0,0,0,0,0
 Touch Of Fate,Force,0,0,0,0,0,0,0
-Toughened,Defense,6,4,4,7,4,0,0
+Toughened,Defense,7,4,4,7,4,0,0
 Tricky Target,Piloting,0,0,1,0,0,0,0
 True Aim,Offense,0,0,0,1,0,0,0
 Uncanny Reactions,Force,1,1,2,1,0,0,0
@@ -94,7 +94,7 @@ Vehicle Combat Training,Situational,0,1,0,0,0,0,0
 Prey On The Weak,Offense,0,1,0,0,0,0,0
 Dodge,Defense,0,0,0,2,0,0,0
 Technical Aptitude,Situational,1,0,0,0,0,0,0
-Enduring,Defense,1,0,0,0,0,0,0
+Enduring,Defense,1,0,1,0,0,0,0
 Natural Outdoorsman,Situational,0,0,0,1,0,0,0
 Blooded,Situational,0,0,0,1,0,0,0
 Unstoppable,Defensive,0,1,0,0,0,0,0
@@ -103,3 +103,10 @@ Natural Tinkerer,Ground Mechanics,1,0,0,0,0,0,0
 Street Smarts,Situational,1,0,0,1,0,0,0
 Reflect,Defensive,0,1,0,1,0,0,0
 Shien Technique,Situational,0,0,0,1,0,0,0
+Djem So Deflection,Defense,0,0,0,0,0,0,0
+Falling Avalanche,Offense,0,0,0,0,0,0,0
+Disruptive Strike,Offense,0,0,0,0,0,0,0
+Counterstrike,Defense,0,0,0,0,0,0,0
+Supreme Reflect,Defense,0,0,0,0,0,0,0
+Improved Reflect,Defense,0,0,0,1,0,0,0
+Feral Strength,Offense,0,1,0,0,0,0,0

@@ -42,7 +42,7 @@ async def on_ready():
         global coc_alert
         coc_alert = False
         global sw_alert
-        sw_alert = False
+        sw_alert = True
         while True: 
             get_times()
             sw_alert_1 = sw_time-one_hour
@@ -383,16 +383,18 @@ async def sw(ctx):
 
 @bot.command(pass_context=True)
 async def dnd2(ctx):
-    talia = await ctx.guild.fetch_member(183026490890256384)
+    estrolof = await ctx.guild.fetch_member(465335472995041291)
     heather = await ctx.guild.fetch_member(213737842625609730)
-    jeannie = await ctx.guild.fetch_member(213789322309009418)
-    angela = await ctx.guild.fetch_member(220377751906025472)
-    james = await ctx.guild.fetch_member(286536094990729216)
-    await talia.edit(nick='Virai')
-    await heather.edit(nick='Khaylia')
-    await angela.edit(nick='Kavin')
-    await james.edit(nick='Cho')
-    await jeannie.edit(nick='Culkoo')
+    raj = await ctx.guild.fetch_member(204817747983466497)
+    peregryn = await ctx.guild.fetch_member(204816776326807553)
+    beans = await ctx.guild.fetch_member(204076896059785225)
+    mike = await ctx.guild.fetch_member(147036443120762880)
+    await estrolof.edit(nick='DM - Estrolof')
+    await heather.edit(nick="Roan'Myra Torian")
+    await raj.edit(nick='Larkin Blacksilver')
+    await peregryn.edit(nick='Syndra Greybane')
+    await beans.edit(nick='Gronn Madmun')
+    await mike.edit(nick='Kira Longbrooke')
 
 # vote_hist = []
 
@@ -454,17 +456,18 @@ async def test(ctx):
 
 @bot.command(pass_context=True)
 async def userinfo(ctx):
-    guild = ctx.message.guild.id
+    guild_id = ctx.message.guild.id
     channel = ctx.message.channel.id
+    guild = bot.get_guild(guild_id)
     print(guild)
     print(channel)
-     async for member in guild.fetch_members(limit=150):
-         print(member.name)
-         print(member.id)
-         print(ctx.message.channel)
-         print(ctx.message.guild)
-         channel = ctx.message.channel
-         channel
+    async for member in guild.fetch_members(limit=150):
+        print(member.name)
+        print(member.id)
+        print(ctx.message.channel)
+        print(ctx.message.guild)
+        channel = ctx.message.channel
+        channel
 
 @bot.command(pass_context=True)
 async def stim(ctx):

@@ -14,7 +14,7 @@ Codebreaker,Computers,1,0,0,0,0,2,0
 Deadly Accuracy,Offense,0,0,0,1,0,0,0
 Defensive Slicing,Computers,1,0,0,0,0,0,0
 Defensive Stance,Defense,1,0,0,0,1,0,0
-Disorient,Offense,0,2,0,0,1,0,0
+Disorient,Offense,0,2,0,0,2,0,0
 Durable,Defense,1,3,0,0,1,0,0
 Dynamic Fire,Offense,0,0,1,0,0,0,0
 Expert Tracker,Situational,0,0,0,1,0,0,0
@@ -42,7 +42,7 @@ Known Schematic,Situational,0,0,0,0,0,0,0
 Lethal Blows,Offense,0,0,0,3,0,0,0
 Let's Ride,Piloting,0,0,1,0,1,0,0
 Master Doctor,Medical,0,0,1,0,0,0,0
-Master Of Shadows,Situational,0,0,0,1,0,0,0
+Master Of Shadows,Situational,0,0,0,1,1,0,0
 Master Pilot,Piloting,0,0,1,0,0,0,0
 Move,Force,0,1,0,0,0,0,0
 Natural Brawler,Offense,0,0,0,0,1,0,0
@@ -110,3 +110,5 @@ Counterstrike,Defense,0,0,0,0,0,0,0
 Supreme Reflect,Defense,0,0,0,0,0,0,0
 Improved Reflect,Defense,0,0,0,1,0,0,0
 Feral Strength,Offense,0,1,0,0,0,0,0
+Natural Rogue,Situational,0,0,0,0,1,0,0
+Intense Focus,Situational,1,0,0,0,0,0,0

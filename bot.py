@@ -23,15 +23,18 @@ def get_times():
     with open('coc.txt','r') as f:
         global coc_time
         coc_time = int(f.readlines()[0])
+#Necessary step in case the game falls on a Monday, in which the integer subtraction would have -1 for a day, which does not exist.
 def monday_check(day):
     if day==-1:
         return 7
     else:
         return day
+#Pre-defined intervals for utility
 debug = 5
 minutes_15 = 900
 one_hour = 3600
 one_day = 86400
+
 @bot.event
 async def on_ready():
     try:
@@ -42,7 +45,7 @@ async def on_ready():
         global coc_alert
         coc_alert = False
         global sw_alert
-        sw_alert = True
+        sw_alert = False
         while True: 
             get_times()
             sw_alert_1 = sw_time-one_hour
@@ -55,19 +58,19 @@ async def on_ready():
             today = dt.now().weekday()
             if (now > sw_alert_1) and (now < sw_time):
                 await sw_channel.send('Star Wars in 1 hour!')
-                print('SW 1 fired')
+                #print('SW 1 fired') Debugging messages to ensure the messages are being sent.
                 await asyncio.sleep(one_hour)
             elif (int(dt.now().strftime('%H'))>12) and (today==sw_alert_prev_day) and (sw_alert==False):
                 sw_alert=True
-                print('SW 24 fired')
+                #print('SW 24 fired')
                 await sw_channel.send('Star Wars tomorrow!')
             elif (now > coc_alert_1) and (now < coc_time):
                 await coc_channel.send('Call of Cthulhu in 1 hour!')
-                print('CoC 1 fired')
+                #print('CoC 1 fired')
                 await asyncio.sleep(one_hour)
             elif (int(dt.now().strftime('%H'))>12) and (today==coc_alert_prev_day) and (coc_alert==False):
                 coc_alert=True
-                print('CoC 24 fired')
+                #print('CoC 24 fired')
                 await coc_channel.send('Call of Cthulhu tomorrow!')
             await asyncio.sleep(minutes_15)
     except TypeError:
@@ -78,7 +81,7 @@ async def on_ready():
         print(type(now))
 
 
-
+#Checks to see if the user has a nickname or not
 def name_check(ctx):
     try:
         if ctx.message.author.nick == None:
@@ -89,6 +92,7 @@ def name_check(ctx):
         sender = ctx.message.author.name
     return sender
 
+#Loads titles from .csv file in case of bot interruption
 def load_titles():
     with open('titles.csv',newline='') as f:
         reader = csv.reader(f,delimiter=',')
@@ -101,6 +105,7 @@ def load_titles():
                 pass
     return titles_
 
+#Easter egg from Rocky Horror Picture Show
 @bot.command()
 async def transvestite(ctx):
     await ctx.send('I see you shiver with antici...')
@@ -110,7 +115,6 @@ async def transvestite(ctx):
 @bot.command()
 async def set_gametime(ctx):
     game_and_time = (ctx.message.content)[14:]
-    # schedule = pd.read_csv('schedule.csv',usecols=[1,2])
     if game_and_time[0].lower()=='s':
         game = 'sw'
         time = game_and_time[2:]
@@ -119,12 +123,12 @@ async def set_gametime(ctx):
         hour,minute = hour.split(sep=':')
         epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
         new_time = int(epoch)
-        # schedule[schedule[f'{game}']==game.lower()]['time'] = new_time
-        # schedule.to_csv('schedule.csv')
         with open(f'{game}.txt','w') as f:
             f.write(str(new_time))
         global sw_time
         sw_time = new_time
+        global sw_alert
+        sw_alert = False
         await ctx.send(f'Next Star Wars game at <t:{str(new_time)}>')
     elif game_and_time[0].lower()=='c':
         game='coc'
@@ -136,8 +140,10 @@ async def set_gametime(ctx):
         new_time = int(epoch)
         with open(f'{game}.txt','w') as f:
             f.write(str(new_time))
-        global coc
-        coc = new_time
+        global coc_time
+        coc_time = new_time
+        global coc_alert
+        coc_alert = False
         await ctx.send(f'Next Call of Cthulhu game at <t:{str(new_time)}>')
 
 
@@ -205,33 +211,6 @@ async def roll(ctx):
         else:
             await ctx.send(sender + ' rolled ' + str(amt + modifier) + ' out of a possible ' + str((dN * multiplier)+modifier) + '!')
 
-
-@bot.command()
-async def rouler(ctx, inp):
-    if ctx.message.author.nick == None:
-        sender = ctx.message.author.name
-    else:
-        sender = ctx.message.author.nick
-    diesearch = re.compile(r'(\d+)(d)*(\d*)', re.I)
-    userinput = ctx.message.content
-    diceformat = diesearch.search(userinput)
-    if diceformat.group(2) is None:
-        dN = int(diceformat.group(0))
-        dice = random.randint(1, dN)
-        await ctx.send(sender + ' a roulé ' + str(dice) + " sur un dé " + str(dN) + '!')
-    elif diceformat.group(3) == '':
-        dN = int(diceformat.group(1))
-        dice = random.randint(1, dN)
-        await ctx.send(sender + ' a roulé ' + str(dice) + " sur un dé " + str(dN) + '!')
-    else:
-        dN = int(diceformat.group(3))
-        multiplier = int(diceformat.group(1))
-        amt = 0
-        for i in range(multiplier):
-            amt += random.randint(1, dN)
-        await ctx.send(sender + ' a roulé ' + str(amt) + " sur un total possible " + str(dN * multiplier) + '!')
-
-
 @bot.command()
 async def pick(ctx):
     listmake = (re.compile(r'[^,]*'))
@@ -251,35 +230,10 @@ async def pick(ctx):
             picker = ctx.message.author.nick
         await ctx.send(picker + ' has randomly chosen ' + random.choice(cleanedchoices) + '!')
 
-
-@bot.command()
-async def choisir(ctx):
-    listmake = (re.compile(r'[^,]*'))
-    choices = listmake.findall(str(ctx.message.content))
-    cleanedchoices = []
-    if len(choices) == 2:
-        await ctx.send("Captaine, je ne peux pas choisir avec ce que vous avez saisi.")
-    else:
-        cleanedchoices.append((choices[0]).split()[1])
-        for i in range(len(choices)):
-            if choices[i] != '' and '.pick' not in choices[i]:
-                stripped = choices[i].strip()
-                cleanedchoices.append(stripped)
-        if ctx.message.author.nick == None:
-            picker = ctx.message.author.name
-        else:
-            picker = ctx.message.author.nick
-        await ctx.send(picker + ' a choisi ' + random.choice(cleanedchoices) + ' au hasard!')
-
 entrants = []
 showtitles = {}
 votes = []
 index = 1
-
-@bot.command()
-async def info(ctx):
-    print(ctx.message.author)
-    print(ctx.message.author.name)
 
 @bot.command()
 async def refresh(ctx):
@@ -308,7 +262,7 @@ async def s(ctx):
     with open('titles.csv','w') as f:
         writer = csv.writer(f)
         writer.writerow(titles)
-    await ctx.send('Titled added, Captain ' + sender)
+    await ctx.send('Title added, Captain ' + sender)
 
 @bot.command()
 async def titles(ctx):
@@ -396,8 +350,6 @@ async def dnd2(ctx):
     await beans.edit(nick='Gronn Madmun')
     await mike.edit(nick='Kira Longbrooke')
 
-# vote_hist = []
-
 @bot.command(pass_context=True)
 async def vote(ctx):
     sender = name_check(ctx)
@@ -445,29 +397,6 @@ async def votecount(ctx):
     df = pd.Series(votecount).sort_values(ascending=False)
     send_titles = [f'{df.iloc[i]}: {showtitles[int(df.index[i])-1]}' for i in range(len(df))]
     await ctx.send('\n'.join(send_titles))
-
-@bot.command(pass_context=True)
-async def test(ctx):
-    guild = bot.get_guild(675451203412295779)
-    print(guild.text_channels)
-    sw_channel = bot.get_channel(675451203907354624)
-    print(sw_channel)
-    await guild.sw_channel.send('Yeah')
-
-@bot.command(pass_context=True)
-async def userinfo(ctx):
-    guild_id = ctx.message.guild.id
-    channel = ctx.message.channel.id
-    guild = bot.get_guild(guild_id)
-    print(guild)
-    print(channel)
-    async for member in guild.fetch_members(limit=150):
-        print(member.name)
-        print(member.id)
-        print(ctx.message.channel)
-        print(ctx.message.guild)
-        channel = ctx.message.channel
-        channel
 
 @bot.command(pass_context=True)
 async def stim(ctx):
@@ -594,7 +523,7 @@ async def status(ctx):
         status = int(df.loc[name])
         await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
     else:
-        await ctx.send('Uh, what?')
+        await ctx.send('I do not believe there is someone with that name, captain.')
 
 @bot.command(pass_context=True)
 async def crit(ctx):
@@ -847,5 +776,26 @@ async def armor(ctx):
         cols = df.columns
         send_lines = [str(col)+': '+str(df.loc[found_armor][col]) for col in cols]
         await ctx.send(found_armor+':\n'+'\n'.join(send_lines))  
+
+#Next two commands are utility for finding out user and server information. They will print to the console, not send anywhere on the server
+@bot.command()
+async def info(ctx):
+    print(ctx.message.author)
+    print(ctx.message.author.name)
+
+@bot.command(pass_context=True)
+async def userinfo(ctx):
+    guild_id = ctx.message.guild.id
+    channel = ctx.message.channel.id
+    guild = bot.get_guild(guild_id)
+    print(guild)
+    print(channel)
+    async for member in guild.fetch_members(limit=150):
+        print(member.name)
+        print(member.id)
+        print(ctx.message.channel)
+        print(ctx.message.guild)
+        channel = ctx.message.channel
+        channel
 
 bot.run(f'{token}')

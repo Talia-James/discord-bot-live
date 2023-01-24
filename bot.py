@@ -43,7 +43,7 @@ async def on_ready():
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
         global coc_alert
-        coc_alert = False
+        coc_alert = True
         global sw_alert
         sw_alert = False
         while True: 
@@ -651,61 +651,87 @@ async def pc(ctx):
 
 @bot.command(pass_context=True)
 async def upgrade(ctx):
-    df = pd.read_csv('ranks.csv',index_col=['Ability'])
-    synt = ctx.message.content[9:].lower().split()
-    if synt[0].startswith('v'):
-        pc = 'Virai'
-    elif synt[0].startswith('kh'):
-        pc = 'Khaylia'
-    elif synt[0].startswith('ka'):
-        pc = 'Kavin'
-    elif synt[0].startswith('ch'):
-        pc = 'Okchota'
-    elif synt[0].startswith('cu'):
-        pc = 'Culkoo'
-    elif synt[0].startswith('d'):
-        pc = 'Doc'
-    ability = ' '.join(synt[1:])
-    if ability == "it's not that bad":
-        ability = "It's Not That Bad"
-    elif ability == "let's ride":
-        ability = "Let's Ride"
-    else:
-        ability = ability.title()
-    rank = int(df.at[ability,pc])
-    rank += 1
-    df.at[ability,pc] = rank
-    df.to_csv('ranks.csv')
-    await ctx.send(pc+"'s rank in "+ability+' upgraded to '+str(rank))
+    try:
+        df = pd.read_csv('ranks.csv',index_col=['Ability'])
+        synt = ctx.message.content[9:].lower().split()
+        if synt[0].startswith('v'):
+            pc = 'Virai'
+        elif synt[0].startswith('kh'):
+            pc = 'Khaylia'
+        elif synt[0].startswith('ka'):
+            pc = 'Kavin'
+        elif synt[0].startswith('ch'):
+            pc = 'Okchota'
+        elif synt[0].startswith('cu'):
+            pc = 'Culkoo'
+        elif synt[0].startswith('d'):
+            pc = 'Doc'
+        ability = ' '.join(synt[1:])
+        if ability == "it's not that bad":
+            ability = "It's Not That Bad"
+        elif ability == "let's ride":
+            ability = "Let's Ride"
+        else:
+            ability = ability.title()
+        rank = int(df.at[ability,pc])
+        rank += 1
+        df.at[ability,pc] = rank
+        df.to_csv('ranks.csv')
+        await ctx.send(pc+"'s rank in "+ability+' upgraded to '+str(rank))
+    except KeyError:
+        await ctx.send('That ability is not in the records.')
 
 @bot.command(pass_context=True)
 async def downgrade(ctx):
+    try:
+        df = pd.read_csv('ranks.csv',index_col=['Ability'])
+        synt = ctx.message.content[11:].lower().split()
+        if synt[0].startswith('v'):
+            pc = 'Virai'
+        elif synt[0].startswith('kh'):
+            pc = 'Khaylia'
+        elif synt[0].startswith('ka'):
+            pc = 'Kavin'
+        elif synt[0].startswith('ch'):
+            pc = 'Okchota'
+        elif synt[0].startswith('cu'):
+            pc = 'Culkoo'
+        elif synt[0].startswith('d'):
+            pc = 'Doc'
+        ability = ' '.join(synt[1:])
+        if ability == "it's not that bad":
+            ability = "It's Not That Bad"
+        elif ability == "let's ride":
+            ability = "Let's Ride"
+        else:
+            ability = ability.title()
+        rank = int(df.at[ability,pc])
+        rank += -1
+        df.at[ability,pc] = rank
+        df.to_csv('ranks.csv')
+        await ctx.send(pc+"'s rank in "+ability+' downgraded to '+str(rank))
+    except KeyError:
+        await ctx.send('That ability is not in the records.')
+
+@bot.command(pass_context=True)
+async def rank_init(ctx):
+    raw = ctx.message.content[11:].title().split(',')
+    ability = raw[0].strip()
+    ab_type = [raw[1].strip().title()]
     df = pd.read_csv('ranks.csv',index_col=['Ability'])
-    synt = ctx.message.content[11:].lower().split()
-    if synt[0].startswith('v'):
-        pc = 'Virai'
-    elif synt[0].startswith('kh'):
-        pc = 'Khaylia'
-    elif synt[0].startswith('ka'):
-        pc = 'Kavin'
-    elif synt[0].startswith('ch'):
-        pc = 'Okchota'
-    elif synt[0].startswith('cu'):
-        pc = 'Culkoo'
-    elif synt[0].startswith('d'):
-        pc = 'Doc'
-    ability = ' '.join(synt[1:])
-    if ability == "it's not that bad":
-        ability = "It's Not That Bad"
-    elif ability == "let's ride":
-        ability = "Let's Ride"
+    if ab_type[0] in df.Type.unique():
+        for i in range(len(df.columns[1:])):
+            ab_type.append(0)
+        df.loc[f'{ability}'] = ab_type
+        df.to_csv('ranks.csv')
+        await ctx.send(f'{ability} added as {ab_type[0]} ability.')
     else:
-        ability = ability.title()
-    rank = int(df.at[ability,pc])
-    rank += -1
-    df.at[ability,pc] = rank
-    df.to_csv('ranks.csv')
-    await ctx.send(pc+"'s rank in "+ability+' downgraded to '+str(rank))
+        ab_list = ', '.join(list(df.Type.unique()))
+        await ctx.send(f'{ab_type[0]} is not one of the listed ability types, the available types are {ab_list}.')
+
+
+    
+
 
 command_descriptions = {
     'vote':'Vote for a number in the title list. You can vote for higher numbers that are not in the list, but why would you do that? !vote [title number]',

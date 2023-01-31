@@ -1,5 +1,6 @@
 import discord, random, re, time, csv, threading, asyncio
 from datetime import datetime as dt
+from datetime import timedelta as td
 from discord.ext import commands
 import collections
 import pandas as pd
@@ -23,12 +24,12 @@ def get_times():
     with open('coc.txt','r') as f:
         global coc_time
         coc_time = int(f.readlines()[0])
-#Necessary step in case the game falls on a Monday, in which the integer subtraction would have -1 for a day, which does not exist.
-def monday_check(day):
-    if day==-1:
-        return 7
-    else:
-        return day
+#Necessary step in case the game falls on a Monday, in which the integer subtraction would have -1 for a day, which does not exist. !!!! deprecated since switching to timedelta, will remove after further testing
+# def monday_check(day):
+#     if day==-1:
+#         return 7
+#     else:
+#         return day
 #Pre-defined intervals for utility
 debug = 5
 minutes_15 = 900
@@ -43,19 +44,21 @@ async def on_ready():
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
         global coc_alert
-        coc_alert = True
+        coc_alert = False
         global sw_alert
         sw_alert = False
         while True: 
             get_times()
             sw_alert_1 = sw_time-one_hour
             coc_alert_1 = coc_time-one_hour
-            sw_alert_prev_day = (dt.fromtimestamp(sw_time).weekday())-1
-            sw_alert_prev_day = monday_check(sw_alert_prev_day)
-            coc_alert_prev_day = (dt.fromtimestamp(coc_time).weekday())-1
-            coc_alert_prev_day = monday_check(coc_alert_prev_day)
+            sw_alert_prev_day = (dt.fromtimestamp(sw_time)-td(1)).strftime('%d')
+            coc_alert_prev_day = (dt.fromtimestamp(coc_time)-td(1)).strftime('%d')
+            # sw_alert_prev_day = (dt.fromtimestamp(sw_time).weekday())-1
+            # sw_alert_prev_day = monday_check(sw_alert_prev_day)
+            # coc_alert_prev_day = (dt.fromtimestamp(coc_time).weekday())-1
+            # coc_alert_prev_day = monday_check(coc_alert_prev_day)
             now = dt.now().timestamp()
-            today = dt.now().weekday()
+            today = dt.now().strftime('%d')
             if (now > sw_alert_1) and (now < sw_time):
                 await sw_channel.send('Star Wars in 1 hour!')
                 #print('SW 1 fired') Debugging messages to ensure the messages are being sent.

@@ -17,6 +17,41 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 client = discord.Client(intents=intents)
 intents.members = True
 
+#Checks message input to parse out AM or PM and adjust timestamping accordingly
+def time_check(str):
+    str = str.lower()
+    ampm = ''
+    if '.' in str:
+        str = str.replace('.','')
+    if 'm' in str:
+        str = str.replace('m','')
+    if 'a' in str:
+        str = str.replace('a','')
+        ampm = 'am'
+    if 'p' in str:
+        str = str.replace('p','')
+        ampm = 'pm'
+    str = str.strip()
+    return str, ampm
+
+#Second step of checking AM/PM, adds 12 to the hour when appropriate
+def mid_noon(hour,ampm):
+    hour = int(hour)
+    if ampm == '':
+        return hour
+    elif ampm == 'am':
+        if hour == 12:
+            hour = 0
+            return hour
+        else:
+            return hour
+    elif ampm == 'pm':
+        if hour == 12:
+            return hour
+        else:
+            hour += 12
+            return hour
+
 def get_times():
     with open('sw.txt','r') as f:
         global sw_time
@@ -44,7 +79,7 @@ async def on_ready():
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
         global coc_alert
-        coc_alert = False
+        coc_alert = True
         global sw_alert
         sw_alert = False
         while True: 
@@ -53,28 +88,24 @@ async def on_ready():
             coc_alert_1 = coc_time-one_hour
             sw_alert_prev_day = (dt.fromtimestamp(sw_time)-td(1)).strftime('%d')
             coc_alert_prev_day = (dt.fromtimestamp(coc_time)-td(1)).strftime('%d')
-            # sw_alert_prev_day = (dt.fromtimestamp(sw_time).weekday())-1
-            # sw_alert_prev_day = monday_check(sw_alert_prev_day)
-            # coc_alert_prev_day = (dt.fromtimestamp(coc_time).weekday())-1
-            # coc_alert_prev_day = monday_check(coc_alert_prev_day)
             now = dt.now().timestamp()
             today = dt.now().strftime('%d')
             if (now > sw_alert_1) and (now < sw_time):
-                await sw_channel.send('Star Wars in 1 hour!')
+                await sw_channel.send(f'Star Wars <t:{sw_time}:R>!')
                 #print('SW 1 fired') Debugging messages to ensure the messages are being sent.
                 await asyncio.sleep(one_hour)
             elif (int(dt.now().strftime('%H'))>12) and (today==sw_alert_prev_day) and (sw_alert==False):
                 sw_alert=True
                 #print('SW 24 fired')
-                await sw_channel.send('Star Wars tomorrow!')
+                await sw_channel.send(f'Star Wars tomorrow, <t:{sw_time}:R>!')
             elif (now > coc_alert_1) and (now < coc_time):
-                await coc_channel.send('Call of Cthulhu in 1 hour!')
+                await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
                 #print('CoC 1 fired')
                 await asyncio.sleep(one_hour)
             elif (int(dt.now().strftime('%H'))>12) and (today==coc_alert_prev_day) and (coc_alert==False):
                 coc_alert=True
                 #print('CoC 24 fired')
-                await coc_channel.send('Call of Cthulhu tomorrow!')
+                await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
             await asyncio.sleep(minutes_15)
     except TypeError:
         print(type(sw_time))
@@ -118,12 +149,14 @@ async def transvestite(ctx):
 @bot.command()
 async def set_gametime(ctx):
     game_and_time = (ctx.message.content)[14:]
+    game_and_time, ampm = time_check(game_and_time)
     if game_and_time[0].lower()=='s':
         game = 'sw'
         time = game_and_time[2:]
         year,month,day_hour = time.split(sep='-')
         day, hour = day_hour.split(sep=' ')
         hour,minute = hour.split(sep=':')
+        hour = mid_noon(hour,ampm)
         epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
         new_time = int(epoch)
         with open(f'{game}.txt','w') as f:
@@ -139,6 +172,7 @@ async def set_gametime(ctx):
         year,month,day_hour = time.split(sep='-')
         day, hour = day_hour.split(sep=' ')
         hour,minute = hour.split(sep=':')
+        hour = mid_noon(hour,ampm)
         epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
         new_time = int(epoch)
         with open(f'{game}.txt','w') as f:
@@ -153,12 +187,32 @@ async def set_gametime(ctx):
 @bot.command()
 async def stamp(ctx):
     time = ctx.message.content[7:]
-    year,month,day_hour = time.split(sep='-')
-    day, hour = day_hour.split(sep=' ')
-    hour,minute = hour.split(sep=':')
-    epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
-    new_time = int(epoch)
-    await ctx.send(new_time)
+    time, ampm = time_check(time)
+    if len(time.split())==2:
+        year,month,day_hour = time.split(sep='-')
+        day, hour = day_hour.split(sep=' ')
+        hour,minute = hour.split(sep=':')
+        hour = mid_noon(hour,ampm)
+        epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
+        new_time = int(epoch)
+        await ctx.send(new_time)
+    elif len(time.split(sep=':'))==2:
+        hour,minute=time.split(sep=':')
+        hour = mid_noon(hour,ampm)
+        now=dt.now()
+        new_time = int(dt(now.year,now.month,now.day,int(hour),int(minute)).timestamp())
+        await ctx.send(str(new_time))
+
+@bot.command()
+async def day_convert(ctx):
+    time = ctx.message.content[13:]
+    time, ampm = time_check(time)
+    hour,minute = time.split(sep=':')
+    hour = mid_noon(hour,ampm)
+    now = dt.now()
+    new_time = int(dt(now.year,now.month,now.day,int(hour),int(minute)).timestamp())
+    await ctx.send(f'<t:{new_time}:t>, <t:{new_time}:R>')
+
 
 @bot.command()
 async def gametime(ctx):

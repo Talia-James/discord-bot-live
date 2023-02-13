@@ -6,6 +6,7 @@ import collections
 import pandas as pd
 import math
 import os
+from dice import *
 from difflib import SequenceMatcher
 with open('../tok.txt') as f:
     token = f.readlines()[0]
@@ -221,52 +222,84 @@ async def gametime(ctx):
         time = f.readlines()[0]
     await ctx.send(f'Next {game} session is at <t:{time}>, <t:{time}:R>')
 
+#Needed dictionary to store variables
+dice_types = {
+    'ability':ability,
+    'proficiency':proficiency,
+    'boost':boost,
+    'difficulty':difficulty,
+    'challenge':challenge,
+    'setback':setback,
+    'force':force
+}
+
 @bot.command()
 async def roll(ctx):
-    #This check will assign a name for the bot to respond to. It can be removed so long as the 'sender' variable is removed from the return.
     if ctx.message.author.nick == None:
         sender = ctx.message.author.name
     else:
         sender = ctx.message.author.nick
-    diesearch = re.compile(r'(\d+)(d)*(\d*)([+/-]\d*)?', re.I)
-    userinput = ctx.message.content
-    diceformat = diesearch.search(userinput)
-    try:
-        diceformat[4] == None
-        modifier = int(diceformat[4][1:])
-        sign = diceformat[4][0]
-    except TypeError:
-        modifier = 0
-        sign = ''
-    if diceformat.group(2) is None:
-        dN = int(diceformat.group(1))
-        print(type(diceformat.group(0)))
-        dice = random.randint(1, dN)
-        print('-' in diceformat.group(0))
-        if '-' in diceformat.group(0):
-            await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
-        elif '+' in diceformat.group(0):
-            await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')
-        else:
-            await ctx.send(sender + ' rolled ' + str(dice) + ' from a d' + str(dN) + '!')
-    elif diceformat.group(3) == '':
-        sign = diceformat[4][0]
-        dN = int(diceformat.group(1))
-        dice = random.randint(1, dN)
-        if sign == '-':
-            await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
-        else:
-            await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')        
-    else:
-        dN = int(diceformat.group(3))
-        multiplier = int(diceformat.group(1))
-        amt = 0
-        for _ in range(multiplier):
-            amt += random.randint(1, dN)
-        if sign == '-':
-            await ctx.send(sender + ' rolled ' + str(amt - modifier) + ' out of a possible ' + str((dN * multiplier)-modifier) + '!')
-        else:
-            await ctx.send(sender + ' rolled ' + str(amt + modifier) + ' out of a possible ' + str((dN * multiplier)+modifier) + '!')
+    raw = (ctx.message.content)[6:]
+    number_and_die = [i.strip() for i in raw.split(',')]
+    number = []
+    die_ = []
+    for i in number_and_die:
+        substring = i.split(' ')
+        number.append(int(substring[0]))
+        die_type = dice_types[substring[1]]
+        die_.append(die_type)
+    result_ = roll_sw_dice(number,die_)
+    await ctx.send(f'{sender} rolled {result_}')
+
+
+
+#Kept in for legacy, but changing to work for Star Wars TTRPG
+# @bot.command()
+# async def roll(ctx):
+#     #This check will assign a name for the bot to respond to. It can be removed so long as the 'sender' variable is removed from the return.
+#     if ctx.message.author.nick == None:
+#         sender = ctx.message.author.name
+#     else:
+#         sender = ctx.message.author.nick
+#     diesearch = re.compile(r'(\d+)(d)*(\d*)([+/-]\d*)?', re.I)
+#     userinput = ctx.message.content
+#     diceformat = diesearch.search(userinput)
+#     try:
+#         diceformat[4] == None
+#         modifier = int(diceformat[4][1:])
+#         sign = diceformat[4][0]
+#     except TypeError:
+#         modifier = 0
+#         sign = ''
+#     if diceformat.group(2) is None:
+#         dN = int(diceformat.group(1))
+#         print(type(diceformat.group(0)))
+#         dice = random.randint(1, dN)
+#         print('-' in diceformat.group(0))
+#         if '-' in diceformat.group(0):
+#             await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
+#         elif '+' in diceformat.group(0):
+#             await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')
+#         else:
+#             await ctx.send(sender + ' rolled ' + str(dice) + ' from a d' + str(dN) + '!')
+#     elif diceformat.group(3) == '':
+#         sign = diceformat[4][0]
+#         dN = int(diceformat.group(1))
+#         dice = random.randint(1, dN)
+#         if sign == '-':
+#             await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
+#         else:
+#             await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')        
+#     else:
+#         dN = int(diceformat.group(3))
+#         multiplier = int(diceformat.group(1))
+#         amt = 0
+#         for _ in range(multiplier):
+#             amt += random.randint(1, dN)
+#         if sign == '-':
+#             await ctx.send(sender + ' rolled ' + str(amt - modifier) + ' out of a possible ' + str((dN * multiplier)-modifier) + '!')
+#         else:
+#             await ctx.send(sender + ' rolled ' + str(amt + modifier) + ' out of a possible ' + str((dN * multiplier)+modifier) + '!')
 
 @bot.command()
 async def pick(ctx):

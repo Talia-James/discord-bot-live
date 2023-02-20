@@ -23,7 +23,7 @@ Forager,Situational,0,0,1,1,0,0,0
 Frenzied Attack,Offense,0,0,0,0,2,0,0
 Full Throttle,Piloting,0,0,1,0,0,0,0
 Gearhead,Ground Mechanics,1,0,0,0,0,2,0
-Grit,Defense,5,5,4,6,7,0,0
+Grit,Defense,5,5,5,6,7,0,0
 Heightened Awareness,Situational,0,0,0,0,1,0,0
 Heroic Fortitude,Defense,0,1,0,0,0,0,0
 Heroic Resilience,Defense,0,1,0,0,0,0,0
@@ -83,10 +83,10 @@ Tactical Combat Training,Situational,0,0,1,0,0,0,0
 Targeted Blow,Offense,0,0,0,1,0,0,0
 Tinkerer,Ground Mechanics,1,0,0,0,0,0,0
 Touch Of Fate,Force,0,0,0,0,0,0,0
-Toughened,Defense,7,4,4,7,4,0,0
+Toughened,Defense,8,4,4,7,4,0,0
 Tricky Target,Piloting,0,0,1,0,0,0,0
 True Aim,Offense,0,0,0,1,0,0,0
-Uncanny Reactions,Force,1,1,2,1,0,0,0
+Uncanny Reactions,Force,2,1,2,1,0,0,0
 Uncanny Senses,Force,1,1,2,0,0,0,0
 Unmatched Devestation,Offense,0,0,0,1,0,0,0
 Utility Belt,Situational,0,0,0,0,1,0,0
@@ -96,7 +96,7 @@ Dodge,Defense,0,0,0,2,0,0,0
 Technical Aptitude,Situational,1,0,0,0,0,0,0
 Enduring,Defense,1,0,1,0,0,0,0
 Natural Outdoorsman,Situational,0,0,0,1,0,0,0
-Blooded,Situational,0,0,0,1,0,0,0
+Blooded,Situational,0,1,0,1,0,0,0
 Unstoppable,Defensive,0,1,0,0,0,0,0
 Contraption,Ground Mechanics,1,0,0,0,0,0,0
 Natural Tinkerer,Ground Mechanics,1,0,0,0,0,0,0

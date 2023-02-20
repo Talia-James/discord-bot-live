@@ -71,6 +71,7 @@ debug = 5
 minutes_15 = 900
 one_hour = 3600
 one_day = 86400
+quarter_hours = [0,15,30,45]
 
 @bot.event
 async def on_ready():
@@ -80,7 +81,7 @@ async def on_ready():
         sw_channel = server.get_channel(801970982663225414)
         coc_channel = server.get_channel(794640287741902903)
         global coc_alert
-        coc_alert = True
+        coc_alert = False
         global sw_alert
         sw_alert = False
         while True: 
@@ -93,21 +94,37 @@ async def on_ready():
             today = dt.now().strftime('%d')
             if (now > sw_alert_1) and (now < sw_time):
                 await sw_channel.send(f'Star Wars <t:{sw_time}:R>!')
-                #print('SW 1 fired') Debugging messages to ensure the messages are being sent.
                 await asyncio.sleep(one_hour)
-            elif (int(dt.now().strftime('%H'))>12) and (today==sw_alert_prev_day) and (sw_alert==False):
+            elif (int(dt.now().strftime('%H'))>=12) and (today==sw_alert_prev_day) and (sw_alert==False):
                 sw_alert=True
-                #print('SW 24 fired')
                 await sw_channel.send(f'Star Wars tomorrow, <t:{sw_time}:R>!')
             elif (now > coc_alert_1) and (now < coc_time):
                 await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
-                #print('CoC 1 fired')
                 await asyncio.sleep(one_hour)
-            elif (int(dt.now().strftime('%H'))>12) and (today==coc_alert_prev_day) and (coc_alert==False):
+            elif (int(dt.now().strftime('%H'))>=12) and (today==coc_alert_prev_day) and (coc_alert==False):
                 coc_alert=True
-                #print('CoC 24 fired')
                 await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
-            await asyncio.sleep(minutes_15)
+            if dt.now().minute not in quarter_hours:
+                for i in range(len(quarter_hours)-1):
+                    curr_minutes = dt.now().minute
+                    if (quarter_hours[i]<curr_minutes) and (curr_minutes<quarter_hours[i+1]):
+                        date_holder = dt.now()
+                        year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
+                        sleep_time = (dt(year,month,day,hour,quarter_hours[i+1])-dt.now()).seconds
+                        if sleep_time > 0:
+                            await asyncio.sleep(sleep_time)
+                        else:                    
+                            await asyncio.sleep(60)
+                    elif curr_minutes>quarter_hours[-1]:
+                        date_holder = dt.now()
+                        year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
+                        sleep_time = (dt(year,month,day,hour+1,quarter_hours[0])-dt.now()).seconds
+                        if sleep_time > 0:
+                            await asyncio.sleep(sleep_time)
+                        else:
+                            await asyncio.sleep(60)
+            else:
+                await asyncio.sleep(minutes_15)
     except TypeError:
         print(type(sw_time))
         print(type(coc_time))

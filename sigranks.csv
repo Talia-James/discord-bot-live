@@ -1,0 +1,343 @@
+Talent,loc,Kavin,Virai,Khaylia,Culkoo,Okchota,Doc
+Always Get My Mark,base,False,False,False,False,False,False
+Always Get My Mark,top1,False,False,False,False,False,False
+Always Get My Mark,top2,False,False,False,False,False,False
+Always Get My Mark,top3,False,False,False,False,False,False
+Always Get My Mark,top4,False,False,False,False,False,False
+Always Get My Mark,bot1,False,False,False,False,False,False
+Always Get My Mark,bot2,False,False,False,False,False,False
+Always Get My Mark,bot3,False,False,False,False,False,False
+Always Get My Mark,bot4,False,False,False,False,False,False
+Counterespionage,base,False,False,False,False,False,False
+Counterespionage,top1,False,False,False,False,False,False
+Counterespionage,top2,False,False,False,False,False,False
+Counterespionage,top3,False,False,False,False,False,False
+Counterespionage,top4,False,False,False,False,False,False
+Counterespionage,bot1,False,False,False,False,False,False
+Counterespionage,bot2,False,False,False,False,False,False
+Counterespionage,bot3,False,False,False,False,False,False
+Counterespionage,bot4,False,False,False,False,False,False
+Deadly Reputation,base,False,False,False,False,False,False
+Deadly Reputation,top1,False,False,False,False,False,False
+Deadly Reputation,top2,False,False,False,False,False,False
+Deadly Reputation,top3,False,False,False,False,False,False
+Deadly Reputation,top4,False,False,False,False,False,False
+Deadly Reputation,bot1,False,False,False,False,False,False
+Deadly Reputation,bot2,False,False,False,False,False,False
+Deadly Reputation,bot3,False,False,False,False,False,False
+Deadly Reputation,bot4,False,False,False,False,False,False
+Diplomatic Solution,base,False,False,False,False,False,False
+Diplomatic Solution,top1,False,False,False,False,False,False
+Diplomatic Solution,top2,False,False,False,False,False,False
+Diplomatic Solution,top3,False,False,False,False,False,False
+Diplomatic Solution,top4,False,False,False,False,False,False
+Diplomatic Solution,bot1,False,False,False,False,False,False
+Diplomatic Solution,bot2,False,False,False,False,False,False
+Diplomatic Solution,bot3,False,False,False,False,False,False
+Diplomatic Solution,bot4,False,False,False,False,False,False
+Fated Duel,base,False,False,False,False,False,False
+Fated Duel,top1,False,False,False,False,False,False
+Fated Duel,top2,False,False,False,False,False,False
+Fated Duel,top3,False,False,False,False,False,False
+Fated Duel,top4,False,False,False,False,False,False
+Fated Duel,bot1,False,False,False,False,False,False
+Fated Duel,bot2,False,False,False,False,False,False
+Fated Duel,bot3,False,False,False,False,False,False
+Fated Duel,bot4,False,False,False,False,False,False
+Insightful Revelation,base,False,False,False,False,False,False
+Insightful Revelation,top1,False,False,False,False,False,False
+Insightful Revelation,top2,False,False,False,False,False,False
+Insightful Revelation,top3,False,False,False,False,False,False
+Insightful Revelation,top4,False,False,False,False,False,False
+Insightful Revelation,bot1,False,False,False,False,False,False
+Insightful Revelation,bot2,False,False,False,False,False,False
+Insightful Revelation,bot3,False,False,False,False,False,False
+Insightful Revelation,bot4,False,False,False,False,False,False
+Inventive Creation,base,False,False,False,False,False,False
+Inventive Creation,top1,False,False,False,False,False,False
+Inventive Creation,top2,False,False,False,False,False,False
+Inventive Creation,top3,False,False,False,False,False,False
+Inventive Creation,top4,False,False,False,False,False,False
+Inventive Creation,bot1,False,False,False,False,False,False
+Inventive Creation,bot2,False,False,False,False,False,False
+Inventive Creation,bot3,False,False,False,False,False,False
+Inventive Creation,bot4,False,False,False,False,False,False
+Last One Standing,base,False,False,False,False,False,False
+Last One Standing,top1,False,False,False,False,False,False
+Last One Standing,top2,False,False,False,False,False,False
+Last One Standing,top3,False,False,False,False,False,False
+Last One Standing,top4,False,False,False,False,False,False
+Last One Standing,bot1,False,False,False,False,False,False
+Last One Standing,bot2,False,False,False,False,False,False
+Last One Standing,bot3,False,False,False,False,False,False
+Last One Standing,bot4,False,False,False,False,False,False
+Much to Learn,base,False,False,False,False,False,False
+Much to Learn,top1,False,False,False,False,False,False
+Much to Learn,top2,False,False,False,False,False,False
+Much to Learn,top3,False,False,False,False,False,False
+Much to Learn,top4,False,False,False,False,False,False
+Much to Learn,bot1,False,False,False,False,False,False
+Much to Learn,bot2,False,False,False,False,False,False
+Much to Learn,bot3,False,False,False,False,False,False
+Much to Learn,bot4,False,False,False,False,False,False
+My City,base,False,False,False,False,False,False
+My City,top1,False,False,False,False,False,False
+My City,top2,False,False,False,False,False,False
+My City,top3,False,False,False,False,False,False
+My City,top4,False,False,False,False,False,False
+My City,bot1,False,False,False,False,False,False
+My City,bot2,False,False,False,False,False,False
+My City,bot3,False,False,False,False,False,False
+My City,bot4,False,False,False,False,False,False
+Narrow Escape,base,False,False,False,False,False,False
+Narrow Escape,top1,False,False,False,False,False,False
+Narrow Escape,top2,False,False,False,False,False,False
+Narrow Escape,top3,False,False,False,False,False,False
+Narrow Escape,top4,False,False,False,False,False,False
+Narrow Escape,bot1,False,False,False,False,False,False
+Narrow Escape,bot2,False,False,False,False,False,False
+Narrow Escape,bot3,False,False,False,False,False,False
+Narrow Escape,bot4,False,False,False,False,False,False
+Peerless Interception,base,False,False,False,False,False,False
+Peerless Interception,top1,False,False,False,False,False,False
+Peerless Interception,top2,False,False,False,False,False,False
+Peerless Interception,top3,False,False,False,False,False,False
+Peerless Interception,top4,False,False,False,False,False,False
+Peerless Interception,bot1,False,False,False,False,False,False
+Peerless Interception,bot2,False,False,False,False,False,False
+Peerless Interception,bot3,False,False,False,False,False,False
+Peerless Interception,bot4,False,False,False,False,False,False
+Prophecy,base,False,False,False,False,False,False
+Prophecy,top1,False,False,False,False,False,False
+Prophecy,top2,False,False,False,False,False,False
+Prophecy,top3,False,False,False,False,False,False
+Prophecy,top4,False,False,False,False,False,False
+Prophecy,bot1,False,False,False,False,False,False
+Prophecy,bot2,False,False,False,False,False,False
+Prophecy,bot3,False,False,False,False,False,False
+Prophecy,bot4,False,False,False,False,False,False
+Rousing Oratory,base,False,False,False,False,False,False
+Rousing Oratory,top1,False,False,False,False,False,False
+Rousing Oratory,top2,False,False,False,False,False,False
+Rousing Oratory,top3,False,False,False,False,False,False
+Rousing Oratory,top4,False,False,False,False,False,False
+Rousing Oratory,bot1,False,False,False,False,False,False
+Rousing Oratory,bot2,False,False,False,False,False,False
+Rousing Oratory,bot3,False,False,False,False,False,False
+Rousing Oratory,bot4,False,False,False,False,False,False
+Sudden Discovery,base,False,False,False,False,False,False
+Sudden Discovery,top1,False,False,False,False,False,False
+Sudden Discovery,top2,False,False,False,False,False,False
+Sudden Discovery,top3,False,False,False,False,False,False
+Sudden Discovery,top4,False,False,False,False,False,False
+Sudden Discovery,bot1,False,False,False,False,False,False
+Sudden Discovery,bot2,False,False,False,False,False,False
+Sudden Discovery,bot3,False,False,False,False,False,False
+Sudden Discovery,bot4,False,False,False,False,False,False
+The Bigger They Are...,base,False,False,False,False,False,False
+The Bigger They Are...,top1,False,False,False,False,False,False
+The Bigger They Are...,top2,False,False,False,False,False,False
+The Bigger They Are...,top3,False,False,False,False,False,False
+The Bigger They Are...,top4,False,False,False,False,False,False
+The Bigger They Are...,bot1,False,False,False,False,False,False
+The Bigger They Are...,bot2,False,False,False,False,False,False
+The Bigger They Are...,bot3,False,False,False,False,False,False
+The Bigger They Are...,bot4,False,False,False,False,False,False
+The Harder They Fall,base,False,False,False,False,False,False
+The Harder They Fall,top1,False,False,False,False,False,False
+The Harder They Fall,top2,False,False,False,False,False,False
+The Harder They Fall,top3,False,False,False,False,False,False
+The Harder They Fall,top4,False,False,False,False,False,False
+The Harder They Fall,bot1,False,False,False,False,False,False
+The Harder They Fall,bot2,False,False,False,False,False,False
+The Harder They Fall,bot3,False,False,False,False,False,False
+The Harder They Fall,bot4,False,False,False,False,False,False
+This One is Mine,base,False,False,False,False,False,False
+This One is Mine,top1,False,False,False,False,False,False
+This One is Mine,top2,False,False,False,False,False,False
+This One is Mine,top3,False,False,False,False,False,False
+This One is Mine,top4,False,False,False,False,False,False
+This One is Mine,bot1,False,False,False,False,False,False
+This One is Mine,bot2,False,False,False,False,False,False
+This One is Mine,bot3,False,False,False,False,False,False
+This One is Mine,bot4,False,False,False,False,False,False
+Unexpected Demise,base,False,False,False,False,False,False
+Unexpected Demise,top1,False,False,False,False,False,False
+Unexpected Demise,top2,False,False,False,False,False,False
+Unexpected Demise,top3,False,False,False,False,False,False
+Unexpected Demise,top4,False,False,False,False,False,False
+Unexpected Demise,bot1,False,False,False,False,False,False
+Unexpected Demise,bot2,False,False,False,False,False,False
+Unexpected Demise,bot3,False,False,False,False,False,False
+Unexpected Demise,bot4,False,False,False,False,False,False
+Unmatched Authority,base,False,False,False,False,False,False
+Unmatched Authority,top1,False,False,False,False,False,False
+Unmatched Authority,top2,False,False,False,False,False,False
+Unmatched Authority,top3,False,False,False,False,False,False
+Unmatched Authority,top4,False,False,False,False,False,False
+Unmatched Authority,bot1,False,False,False,False,False,False
+Unmatched Authority,bot2,False,False,False,False,False,False
+Unmatched Authority,bot3,False,False,False,False,False,False
+Unmatched Authority,bot4,False,False,False,False,False,False
+Unmatched Calibration,base,False,False,False,False,False,False
+Unmatched Calibration,top1,False,False,False,False,False,False
+Unmatched Calibration,top2,False,False,False,False,False,False
+Unmatched Calibration,top3,False,False,False,False,False,False
+Unmatched Calibration,top4,False,False,False,False,False,False
+Unmatched Calibration,bot1,False,False,False,False,False,False
+Unmatched Calibration,bot2,False,False,False,False,False,False
+Unmatched Calibration,bot3,False,False,False,False,False,False
+Unmatched Calibration,bot4,False,False,False,False,False,False
+Unmatched Courage,base,False,False,False,False,False,False
+Unmatched Courage,top1,False,True,False,False,False,False
+Unmatched Courage,top2,False,False,False,False,False,False
+Unmatched Courage,top3,False,False,False,False,False,False
+Unmatched Courage,top4,False,False,False,False,False,False
+Unmatched Courage,bot1,False,False,False,False,False,False
+Unmatched Courage,bot2,False,False,False,False,False,False
+Unmatched Courage,bot3,False,False,False,False,False,False
+Unmatched Courage,bot4,False,False,False,False,False,False
+Unmatched Destiny,base,False,False,False,False,False,False
+Unmatched Destiny,top1,False,False,False,False,False,False
+Unmatched Destiny,top2,False,False,False,False,False,False
+Unmatched Destiny,top3,False,False,False,False,False,False
+Unmatched Destiny,top4,False,False,False,False,False,False
+Unmatched Destiny,bot1,False,False,False,False,False,False
+Unmatched Destiny,bot2,False,False,False,False,False,False
+Unmatched Destiny,bot3,False,False,False,False,False,False
+Unmatched Destiny,bot4,False,False,False,False,False,False
+Unmatched Devastation,base,False,False,False,True,False,False
+Unmatched Devastation,top1,False,False,False,False,False,False
+Unmatched Devastation,top2,False,False,False,False,False,False
+Unmatched Devastation,top3,False,False,False,False,False,False
+Unmatched Devastation,top4,False,False,False,False,False,False
+Unmatched Devastation,bot1,False,False,False,False,False,False
+Unmatched Devastation,bot2,False,False,False,False,False,False
+Unmatched Devastation,bot3,False,False,False,False,False,False
+Unmatched Devastation,bot4,False,False,False,False,False,False
+Unmatched Expertise,base,False,False,False,False,False,False
+Unmatched Expertise,top1,False,False,False,False,False,False
+Unmatched Expertise,top2,False,False,False,False,False,False
+Unmatched Expertise,top3,False,False,False,False,False,False
+Unmatched Expertise,top4,False,False,False,False,False,False
+Unmatched Expertise,bot1,False,False,False,False,False,False
+Unmatched Expertise,bot2,False,False,False,False,False,False
+Unmatched Expertise,bot3,False,False,False,False,False,False
+Unmatched Expertise,bot4,False,False,False,False,False,False
+Unmatched Ferocity,base,False,False,False,False,False,False
+Unmatched Ferocity,top1,False,False,False,False,False,False
+Unmatched Ferocity,top2,False,False,False,False,False,False
+Unmatched Ferocity,top3,False,False,False,False,False,False
+Unmatched Ferocity,top4,False,False,False,False,False,False
+Unmatched Ferocity,bot1,False,False,False,False,False,False
+Unmatched Ferocity,bot2,False,False,False,False,False,False
+Unmatched Ferocity,bot3,False,False,False,False,False,False
+Unmatched Ferocity,bot4,False,False,False,False,False,False
+Unmatched Fortune,base,False,False,False,False,False,False
+Unmatched Fortune,top1,False,False,False,False,False,False
+Unmatched Fortune,top2,False,False,False,False,False,False
+Unmatched Fortune,top3,False,False,False,False,False,False
+Unmatched Fortune,top4,False,False,False,False,False,False
+Unmatched Fortune,bot1,False,False,False,False,False,False
+Unmatched Fortune,bot2,False,False,False,False,False,False
+Unmatched Fortune,bot3,False,False,False,False,False,False
+Unmatched Fortune,bot4,False,False,False,False,False,False
+Unmatched Heroism,base,False,False,False,False,False,False
+Unmatched Heroism,top1,False,False,False,False,False,False
+Unmatched Heroism,top2,False,False,False,False,False,False
+Unmatched Heroism,top3,False,False,False,False,False,False
+Unmatched Heroism,top4,False,False,False,False,False,False
+Unmatched Heroism,bot1,False,False,False,False,False,False
+Unmatched Heroism,bot2,False,False,False,False,False,False
+Unmatched Heroism,bot3,False,False,False,False,False,False
+Unmatched Heroism,bot4,False,False,False,False,False,False
+Unmatched Ingenuity,base,False,False,False,False,False,False
+Unmatched Ingenuity,top1,False,False,False,False,False,False
+Unmatched Ingenuity,top2,False,False,False,False,False,False
+Unmatched Ingenuity,top3,False,False,False,False,False,False
+Unmatched Ingenuity,top4,False,False,False,False,False,False
+Unmatched Ingenuity,bot1,False,False,False,False,False,False
+Unmatched Ingenuity,bot2,False,False,False,False,False,False
+Unmatched Ingenuity,bot3,False,False,False,False,False,False
+Unmatched Ingenuity,bot4,False,False,False,False,False,False
+Unmatched Insight,base,False,False,False,False,False,False
+Unmatched Insight,top1,False,False,False,False,False,False
+Unmatched Insight,top2,False,False,False,False,False,False
+Unmatched Insight,top3,False,False,False,False,False,False
+Unmatched Insight,top4,False,False,False,False,False,False
+Unmatched Insight,bot1,False,False,False,False,False,False
+Unmatched Insight,bot2,False,False,False,False,False,False
+Unmatched Insight,bot3,False,False,False,False,False,False
+Unmatched Insight,bot4,False,False,False,False,False,False
+Unmatched Mobility,base,False,False,False,False,False,False
+Unmatched Mobility,top1,False,False,False,False,False,False
+Unmatched Mobility,top2,False,False,False,False,False,False
+Unmatched Mobility,top3,False,False,False,False,False,False
+Unmatched Mobility,top4,False,False,False,False,False,False
+Unmatched Mobility,bot1,False,False,False,False,False,False
+Unmatched Mobility,bot2,False,False,False,False,False,False
+Unmatched Mobility,bot3,False,False,False,False,False,False
+Unmatched Mobility,bot4,False,False,False,False,False,False
+Unmatched Negotiation,base,False,False,False,False,False,False
+Unmatched Negotiation,top1,False,False,False,False,False,False
+Unmatched Negotiation,top2,False,False,False,False,False,False
+Unmatched Negotiation,top3,False,False,False,False,False,False
+Unmatched Negotiation,top4,False,False,False,False,False,False
+Unmatched Negotiation,bot1,False,False,False,False,False,False
+Unmatched Negotiation,bot2,False,False,False,False,False,False
+Unmatched Negotiation,bot3,False,False,False,False,False,False
+Unmatched Negotiation,bot4,False,False,False,False,False,False
+Unmatched Protection,base,False,False,False,False,False,False
+Unmatched Protection,top1,False,False,False,False,False,False
+Unmatched Protection,top2,False,False,False,False,False,False
+Unmatched Protection,top3,False,False,False,False,False,False
+Unmatched Protection,top4,False,False,False,False,False,False
+Unmatched Protection,bot1,False,False,False,False,False,False
+Unmatched Protection,bot2,False,False,False,False,False,False
+Unmatched Protection,bot3,False,False,False,False,False,False
+Unmatched Protection,bot4,False,False,False,False,False,False
+Unmatched Pursuit,base,False,False,False,False,False,False
+Unmatched Pursuit,top1,False,False,False,False,False,False
+Unmatched Pursuit,top2,False,False,False,False,False,False
+Unmatched Pursuit,top3,False,False,False,False,False,False
+Unmatched Pursuit,top4,False,False,False,False,False,False
+Unmatched Pursuit,bot1,False,False,False,False,False,False
+Unmatched Pursuit,bot2,False,False,False,False,False,False
+Unmatched Pursuit,bot3,False,False,False,False,False,False
+Unmatched Pursuit,bot4,False,False,False,False,False,False
+Unmatched Survivability,base,False,False,False,False,False,False
+Unmatched Survivability,top1,False,False,False,False,False,False
+Unmatched Survivability,top2,False,False,False,False,False,False
+Unmatched Survivability,top3,False,False,False,False,False,False
+Unmatched Survivability,top4,False,False,False,False,False,False
+Unmatched Survivability,bot1,False,False,False,False,False,False
+Unmatched Survivability,bot2,False,False,False,False,False,False
+Unmatched Survivability,bot3,False,False,False,False,False,False
+Unmatched Survivability,bot4,False,False,False,False,False,False
+Unmatched Teamwork,base,False,False,False,False,False,False
+Unmatched Teamwork,top1,False,False,False,False,False,False
+Unmatched Teamwork,top2,False,False,False,False,False,False
+Unmatched Teamwork,top3,False,False,False,False,False,False
+Unmatched Teamwork,top4,False,False,False,False,False,False
+Unmatched Teamwork,bot1,False,False,False,False,False,False
+Unmatched Teamwork,bot2,False,False,False,False,False,False
+Unmatched Teamwork,bot3,False,False,False,False,False,False
+Unmatched Teamwork,bot4,False,False,False,False,False,False
+Unmatched Tradecraft,base,False,False,False,False,False,False
+Unmatched Tradecraft,top1,False,False,False,False,False,False
+Unmatched Tradecraft,top2,False,False,False,False,False,False
+Unmatched Tradecraft,top3,False,False,False,False,False,False
+Unmatched Tradecraft,top4,False,False,False,False,False,False
+Unmatched Tradecraft,bot1,False,False,False,False,False,False
+Unmatched Tradecraft,bot2,False,False,False,False,False,False
+Unmatched Tradecraft,bot3,False,False,False,False,False,False
+Unmatched Tradecraft,bot4,False,False,False,False,False,False
+Unmatched Vigilance,base,False,False,False,False,False,False
+Unmatched Vigilance,top1,False,False,False,False,False,False
+Unmatched Vigilance,top2,False,False,False,False,False,False
+Unmatched Vigilance,top3,False,False,False,False,False,False
+Unmatched Vigilance,top4,False,False,False,False,False,False
+Unmatched Vigilance,bot1,False,False,False,False,False,False
+Unmatched Vigilance,bot2,False,False,False,False,False,False
+Unmatched Vigilance,bot3,False,False,False,False,False,False
+Unmatched Vigilance,bot4,False,False,False,False,False,False

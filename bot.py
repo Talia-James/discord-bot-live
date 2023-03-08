@@ -60,12 +60,7 @@ def get_times():
     with open('coc.txt','r') as f:
         global coc_time
         coc_time = int(f.readlines()[0])
-#Necessary step in case the game falls on a Monday, in which the integer subtraction would have -1 for a day, which does not exist. !!!! deprecated since switching to timedelta, will remove after further testing
-# def monday_check(day):
-#     if day==-1:
-#         return 7
-#     else:
-#         return day
+
 #Pre-defined intervals for utility
 debug = 5
 minutes_15 = 900
@@ -156,6 +151,37 @@ def load_titles():
             else:
                 pass
     return titles_
+
+def sim_search(synt,df,search=False):
+    similarities = {}
+    for i in range(len(df)):
+        word = df.iloc[i].name
+        similarity = similar(synt,word)
+        similarities[word] = similarity
+    sdf = pd.DataFrame.from_dict(similarities,orient='index',columns=['sim'])
+    sdf.sort_values(by='sim',ascending=False,inplace=True)
+    if search:
+        send = ', '.join(list(sdf.head(5).sim.index))
+        return send
+    else:
+        found_tal = sdf.iloc[0].name
+        return found_tal
+    
+def name_sim(player,players):
+    if player.lower()=='bd':
+        return 'BD'
+    else:
+        similarities = []
+        for i in range(len(players)):
+            word = players[i]
+            similarity = similar(player,word)
+            similarities.append((similarity,word))
+        similarities.sort(reverse=True)
+        name = similarities[0][1]
+        if name == 'bd':
+            return 'BD'
+        else:
+            return name.title()
 
 #Easter egg from Rocky Horror Picture Show
 @bot.command()
@@ -267,8 +293,6 @@ async def roll(ctx):
         die_.append(die_type)
     result_ = roll_sw_dice(number,die_)
     await ctx.send(f'{sender} rolled {result_}')
-
-
 
 #Kept in for legacy, but changing to work for Star Wars TTRPG
 # @bot.command()
@@ -390,8 +414,6 @@ async def tirer(ctx):
             await ctx.send(file=discord.File('D:\Python\\jpno.gif'))
     else:
         await ctx.send('La liste est vide.')
-                    
-
 
 @bot.command()
 async def clearlist(ctx):
@@ -507,91 +529,29 @@ async def votecount(ctx):
 
 @bot.command(pass_context=True)
 async def stim(ctx):
-    df = pd.read_csv('stims.csv',index_col=['Name'])
-    target = str(ctx.message.content)[6:]
-    low = target.lower()
-    if low.startswith('v'):
-        name = 'Virai'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Virai stimmed.')
-    elif low.startswith('kh'):
-        name = 'Khaylia'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Khaylia stimmed.')
-    elif low.startswith('ka'):
-        name = 'Kavin'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Kavin stimmed.')
-    elif low.startswith('ch'):
-        name = 'Cho'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Cho stimmed.')
-    elif low.startswith('cu'):
-        name = 'Culkoo'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Culkooo stimmed.')
-    elif low.startswith('d'):
-        name = 'Doc'
-        num = int(df['Status'][name])+1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Doc stimmed.')
-    else:
-        await ctx.send('Uh, what?')
+    df = pd.read_csv('stims.csv',encoding='utf-8',index_col=['Name'])
+    synt = (ctx.message.content[6:]).lower()
+    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    pcs = [name.lower() for name in pc_list]
+    name = name_sim(synt,pcs)
+    old = df.loc[name].Status
+    new = old+1
+    df.loc[name].Status=new
+    df.to_csv('stims.csv',encoding='utf-8')
+    await ctx.send(f'{name} stimmed, {5-new} left.')
 
 @bot.command(pass_context=True)
 async def undo(ctx):
-    df = pd.read_csv('stims.csv',index_col=['Name'])
-    target = str(ctx.message.content)[6:]
-    low = target.lower()
-    if low.startswith('v'):
-        name = 'Virai'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Virai whoopsied.')
-    elif low.startswith('kh'):
-        name = 'Khaylia'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Khaylia whoopsied.')
-    elif low.startswith('ka'):
-        name = 'Kavin'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Kavin whoopsied.')
-    elif low.startswith('ch'):
-        name = 'Cho'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Cho whoopsied.')
-    elif low.startswith('cu'):
-        name = 'Culkoo'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Culkooo whoopsied.')
-    elif low.startswith('d'):
-        name = 'Doc'
-        num = int(df['Status'][name])-1
-        df.loc[name] = num
-        df.to_csv('stims.csv')
-        await ctx.send('Doc whoopsied.')
-    else:
-        await ctx.send('Uh, what?')
+    df = pd.read_csv('stims.csv',encoding='utf-8',index_col=['Name'])
+    synt = (ctx.message.content[6:]).lower()
+    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    pcs = [name.lower() for name in pc_list]
+    name = name_sim(synt,pcs)
+    old = df.loc[name].Status
+    new = old-1
+    df.loc[name].Status=new
+    df.to_csv('stims.csv',encoding='utf-8')
+    await ctx.send(f'Stim removed from {name}, {5-new} left.')
  
 @bot.command(pass_context=True)
 async def heal(ctx):
@@ -603,34 +563,18 @@ async def heal(ctx):
 
 @bot.command(pass_context=True)
 async def status(ctx):
+    synt = ctx.message.content[8:]
     df = pd.read_csv('stims.csv',index_col=['Name'])
-    low = (ctx.message.content)[8:].lower()
-    if low.startswith('v'):
-        name = 'Virai'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
-    elif low.startswith('kh'):
-        name = 'Khaylia'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
-    elif low.startswith('ka'):
-        name = 'Kavin'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
-    elif low.startswith('ch'):
-        name = 'Cho'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
-    elif low.startswith('cu'):
-        name = 'Culkoo'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
-    elif low.startswith('d'):
-        name = 'Doc'
-        status = int(df.loc[name])
-        await ctx.send(name+' has been stimmed '+str(status)+' times and has '+str(5-status)+' jabs left.')
+    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    if synt == '':
+        mess = []
+        for pc in pc_list:
+            mess.append(f'{pc} has been stimmed {df.loc[pc].Status} time(s), {5-df.loc[pc].Status} jab(s) remaining.')
+        await ctx.send('\n'.join(mess))
     else:
-        await ctx.send('I do not believe there is someone with that name, captain.')
+        pcs = [ele.lower() for ele in pc_list]
+        name = name_sim(synt.lower(),pcs)
+        await ctx.send(f'{name} has been stimmed {df.loc[name].Status} time(s), {5-df.loc[name].Status} jab(s) remaining.')
 
 @bot.command(pass_context=True)
 async def crit(ctx):
@@ -689,156 +633,325 @@ async def quality(ctx):
 
 @bot.command(pass_context=True)
 async def talent(ctx):
-    df = pd.read_csv('abilities.csv',index_col=['Ability'])
-    synt = ctx.message.content[8:].lower()
-    annoying = ["let's ride","it's not that bad"]
-    talents = [i.lower() for i in list(df.index)]
-    if synt == "it's not that bad":
-        await ctx.send(df.iloc[35]['Description'])
-    elif synt == "let's ride":
-        await ctx.send(df.iloc[41]['Description'])
-    elif (synt in talents) and (synt not in annoying): 
-        await ctx.send(df.loc[synt.title()]['Description'])
-    elif synt[:4] == 'list':
-        type = synt[5:].title()
-        group_talents = list(df[df['Type']==type].index)
-        send_talents = [group_talents[i] for i in range(len(group_talents))]
-        await ctx.send('\n'.join(send_talents))
-    elif synt[:5] == 'types':
-        types = list(df['Type'].unique())
-        send_types = [types[i] for i in range(len(types))]
-        await ctx.send('\n'.join(send_types))
+    master = pd.read_csv('master_talents.csv',index_col=['Talent'])
+    synt = ctx.message.content[8:]
+    if '?' in synt:
+        res = sim_search(synt,master,search=True)
+        await ctx.send(f'The top 5 results matching your criteria are as follows: {res}')
     else:
-        await ctx.send('I believe you have a typo, Captain.')
+        talent = sim_search(synt,master)
+        entry = master.loc[talent]
+        name = entry.name
+        act = entry.Activation
+        desc = entry.Description
+        ranked = entry.Ranked
+        link = entry.link
+        if act == 'Force Ability':
+            await ctx.send(f'Talent: {name}\nActivation: {act}\nRanked: {ranked}\nDescription: {desc}\nLink: <{link}>\nFor more detailed information use !force {name}')
+        elif act == 'Signature Ability':
+            await ctx.send(f'Talent: {name}\nActivation: {act}\nRanked: {ranked}\nDescription: {desc}\nLink: <{link}>\nFor more detailed information use !sig {name}')
+        else:
+            await ctx.send(f'Talent: {name}\nActivation: {act}\nRanked: {ranked}\nDescription: {desc}\nLink: <{link}>')
+
+@bot.command(pass_context=True)
+async def sig(ctx):
+    df = pd.read_csv('signature_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
+    synt = ctx.message.content[5:]
+    tal = sim_search(synt,df)
+    cut = df.loc[tal]
+    link = cut.link
+    if cut.imp:
+        cols = ['top1', 'top2', 'top3', 'top4', 'bot1', 'bot2', 'bot3', 'bot4']
+        desc = ['top1_desc', 'top2_desc', 'top3_desc', 'top4_desc', "bot1_desc", 'bot2_desc', 'bot3_desc' ,'bot4_desc']
+        mess = []
+        for i in range(len(cols)):
+            if 'top' in cols[i]:
+                mess.append(f'Top slot {i+1}: {cut[cols[i]]} - {cut[desc[i]]}')
+            elif 'bot' in cols[i]:
+                mess.append(f'Bottom slot {i+1}: {cut[cols[i]]} - {cut[desc[i]]}')
+        await ctx.send(f'{tal}\nBase: {cut.Base}\nAssociated career: {cut.Career}\n'+'\n'.join(mess)+f'\nMore: <{link}>')
+    else:
+        with open('to_add.txt','a') as f:
+            f.writelines(f'\n{tal}')
+        await ctx.send(f'{tal} is not yet implemented, it has been appended to the list for Talia to add. Here is the link: {link}')
+
+@bot.command(pass_context=True)
+async def force(ctx):
+    df = pd.read_csv('force_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
+    synt = ctx.message.content[7:]
+    tal = sim_search(synt,df)
+    cut = df.loc[tal].copy()
+    link = cut.link
+    if cut.imp:
+        cut.dropna(inplace=True)
+        cut.drop('imp',axis=0,inplace=True)
+        base = cut.Base
+        grid = [ele for ele in list(cut.index) if ele[-1].isnumeric()]
+        mess = []
+        for loc in grid:
+            desc = f'{loc}-desc'
+            mess.append(f'Row {loc[1]} Spot {loc[3]}: {cut[loc]} - {cut[desc]}')
+        raw_send_message = f'{tal}\nBase: {base}\n'+'\n'.join(mess)+f'\nLink: <{link}>'
+        if len(raw_send_message) < 2000:
+            await ctx.send(raw_send_message)
+        else:
+            splitpoint = int(len(mess)/2)
+            await ctx.send(f'{tal}\nBase: {base}\n'+'\n'.join(mess[:splitpoint]))
+            await ctx.send('\n'.join(mess[splitpoint:])+f'\nLink: <{link}>')
+    else:
+        with open('to_add.txt','a') as f:
+            f.writelines(f'\n{tal}')
+        await ctx.send(f'{tal} is not yet implemented, it has been appended to the list for Talia to add. Here is the link: {link}')  
 
 @bot.command(pass_context=True)
 async def pc(ctx):
-    df = pd.read_csv('ranks.csv',index_col=['Ability'])
+    master = pd.read_csv('master_talents.csv',index_col=['Talent'])
     synt = ctx.message.content[4:].lower().split()
-    typeclass = [i.lower() for i in list(df['Type'].unique())]
-    annoying = ["let's ride","it's not that bad"]
-    if synt[0].startswith('v'):
-        pcname = 'Virai'
-    elif synt[0].startswith('kh'):
-        pcname = 'Khaylia'
-    elif synt[0].startswith('ka'):
-        pcname = 'Kavin'
-    elif synt[0].startswith('ch'):
-        pcname = 'Okchota'
-    elif synt[0].startswith('cu'):
-        pcname = 'Culkoo'
-    elif synt[0].startswith('d'):
-        pcname = 'Doc'
-    elif synt[0] == 'bd':
-        pcname = 'BD'
-    if len(synt)==1:
-        abilities = list(df[pcname][df[pcname]!=0].index)
-        send_abilities = [abilities[i] for i in range(len(abilities))]
-        await ctx.send('\n'.join(send_abilities))
-    elif ' '.join(synt[1:]) in typeclass:
-        subtype = ' '.join(synt[1:]).title()
-        abilities = list(df[(df['Type']==subtype)&(df[pcname]!=0)].index)
-        send_abilities = [abilities[i] for i in range(len(abilities))]
-        try:
-            await ctx.send('\n'.join(send_abilities))
-        except discord.errors.HTTPException:
-            await ctx.send('I do not believe that player has any abilities in that category.')
-    elif synt[1] not in typeclass:
-        if ' '.join(synt[1:]) not in annoying:
-            ability = ' '.join(synt[1:]).title()
-        elif ' '.join(synt[1:]) == "it's not that bad":
-            ability = "It's Not That Bad"
-        elif ' '.join(synt[1:]) == "let's ride":
-            ability = "Let's Ride"
-        rank = df.loc[ability][pcname]
-        await ctx.send(pcname + ', ' + ability+': Rank '+str(rank))
+    if len(synt) ==1:
+        pc = synt[0]
+        rank = pd.read_csv('ranked_talents.csv',encoding='utf-8')
+        pcs = [name.lower() for name in list(rank.columns)]
+        name = name_sim(pc,pcs)
+        unrank = pd.read_csv('unranked_talents.csv',encoding='utf-8')
+        ranktals = list(rank[rank[name]!=0].Talent.values)
+        unranktals = list(unrank[unrank[name]=='True'].Talent.values)
+        force = pd.read_csv('force_ranks.csv',encoding='utf-8',index_col=['Talent','grid'])
+        sigranks = pd.read_csv('sigranks.csv',encoding='utf-8',index_col=['Talent','loc'])
+        forcetals = list((force[name][:,'base'])[force[name][:,'base']].index)
+        sigtals = list((sigranks[name][:,'base'])[sigranks[name][:,'base']].index)
+        all_tals = ranktals+unranktals+forcetals+sigtals
+        all_tals.sort()
+        to_send = '\n'.join(all_tals)
+        await ctx.send(f'{name} has these talents:\n{to_send}')
     else:
-        await ctx.send('I believe you have a typo, Captain')
+        pc,raw_tal = synt[0],' '.join(synt[1:])
+        tal = sim_search(raw_tal,master)
+        ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp
+        pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc'] ##TODO: write this and timestamps to shelf
+        pcs = [name.lower() for name in pc_list]
+        name = name_sim(pc,pcs)
+        if force and comp:
+            df = pd.read_csv('force_ranks.csv',encoding='utf-8',index_col=['Talent','grid'])
+            view = df.loc[tal][name]
+            if view.base:
+                if True not in view.drop('base',axis=0).unique():
+                    await ctx.send(f'{name} has just the basic ability for {tal}.')
+                else:
+                    filt = view[view].index[1:]
+                    force_ref = (pd.read_csv('force_abilities_expanded.csv',encoding='utf-8',index_col='Talent')).loc[tal][filt]
+                    have_tals = force_ref.values 
+                    mess = []
+                    for i in range(len(filt)):
+                        mess.append(f'{have_tals[i]} from Row {filt[i][1]} Spot {filt[i][3]}')
+                    await ctx.send(f'In addition to the base ability, {name} has:\n'+'\n'.join(mess))
+            else:
+                await ctx.send(f'{name} does not have {tal}.')
+        elif force!=True and comp:
+            df = pd.read_csv('sigranks.csv',encoding='utf-8',index_col=['Talent','loc'])
+            view = df.loc[tal][name]
+            if view['base']:
+                locs=list(view[view].index[1:])
+                if locs==[]:
+                    await ctx.send(f'{name} has just the base ability for {tal}')
+                else:
+                    sigex = pd.read_csv('signature_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
+                    ups = list(sigex.loc[tal][locs].values)
+                    locs = [loc.replace('bot','bottom') for loc in locs]
+                    mess = []
+                    for i in range(len(locs)):
+                        mess.append(f'{ups[i]} from {locs[i][:-1]} slot {locs[i][-1]}')
+                    await ctx.send(f'{name} has:\n' + '\n'.join(mess) + f'\nin addition to the base ability of {tal}.')
+            else:
+                await ctx.send(f'{name} does not have {tal}.')
+        elif ranked:
+            df = pd.read_csv('ranked_talents.csv',encoding='utf-8',index_col=['Talent'])
+            ranks = df.loc[tal][name]
+            if ranks == 1:
+                plur = 'rank'
+            else:
+                plur = 'ranks'
+            await ctx.send(f'{name} has {ranks} {plur} in {tal}.')
+        else:
+            df = pd.read_csv('unranked_talents.csv',encoding='utf-8',index_col=['Talent'])
+            if df.loc[tal][name]=='True':
+                await ctx.send(f'{name} has {tal}.')
+            else:
+                await ctx.send(f'{name} does not have {tal}.')
         
-
 @bot.command(pass_context=True)
 async def upgrade(ctx):
-    try:
-        df = pd.read_csv('ranks.csv',index_col=['Ability'])
-        synt = ctx.message.content[9:].lower().split()
-        if synt[0].startswith('v'):
-            pc = 'Virai'
-        elif synt[0].startswith('kh'):
-            pc = 'Khaylia'
-        elif synt[0].startswith('ka'):
-            pc = 'Kavin'
-        elif synt[0].startswith('ch'):
-            pc = 'Okchota'
-        elif synt[0].startswith('cu'):
-            pc = 'Culkoo'
-        elif synt[0].startswith('d'):
-            pc = 'Doc'
-        ability = ' '.join(synt[1:])
-        if ability == "it's not that bad":
-            ability = "It's Not That Bad"
-        elif ability == "let's ride":
-            ability = "Let's Ride"
+    synt = ctx.message.content[9:].split()
+    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    pcs = [name.lower() for name in pc_list]
+    for ele in synt[1:]:
+        if ele[0].isnumeric():
+            loc = ele
+            synt.remove(ele)
+            break
         else:
-            ability = ability.title()
-        rank = int(df.at[ability,pc])
-        rank += 1
-        df.at[ability,pc] = rank
-        df.to_csv('ranks.csv')
-        await ctx.send(pc+"'s rank in "+ability+' upgraded to '+str(rank))
-    except KeyError:
-        await ctx.send('That ability is not in the records.')
+            loc = None
+    name = name_sim(synt[0],pcs)
+    master = pd.read_csv('master_talents.csv',index_col=['Talent'])
+    tal = sim_search(' '.join(synt[1:]),master)
+    ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp
+    if force and comp:
+        df = pd.read_csv('force_ranks.csv',encoding='utf-8',index_col=['Talent','grid'])
+        if loc == None:
+            loc = 'base'
+            if df.loc[tal,loc][name]:
+                await ctx.send(f'{name} already has the base ability for {tal}.')
+            else:
+                df.loc[tal,loc][name] = True
+                df.to_csv('force_ranks.csv',encoding='utf-8')
+                await ctx.send(f'{name} now has the base ability for {tal}.')
+        else:
+            fref = pd.read_csv('force_abilities_expanded.csv',encoding='utf-8',index_col='Talent') 
+            loc = f't{loc}'
+            up = fref.loc[tal][loc]
+            if df.loc[tal,loc][name]:
+                await ctx.send(f'{name} already has {up} in Row {loc[1]} Slot {loc[3]} of {tal}.')
+            else:
+                df.loc[tal,loc][name] = True
+                df.to_csv('force_ranks.csv',encoding='utf-8')
+                await ctx.send(f'{name} now has {up} in Row {loc[1]} Slot {loc[3]} of {tal}.')
+    elif force!=True and comp:
+        df = pd.read_csv('sigranks.csv',encoding='utf-8',index_col=['Talent','loc'])
+        if loc == None:
+            loc = 'base'
+            if df.loc[tal,loc][name]:
+                await ctx.send(f'{name} already has the base ability for {tal}.')
+            else:
+                df.loc[tal,loc][name] = True
+                df.to_csv('sigranks.csv',encoding='utf-8')
+                await ctx.send(f'{name} now has the base ability for {tal}.')
+        else:
+            sref = pd.read_csv('signature_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
+            if sref.loc[tal].imp:
+                if loc[0]=='1':
+                    loc = loc.replace('1.','top')
+                    row = 'top'
+                else:
+                    loc = loc.replace('2.','bot')
+                    row = 'bottom'
+                up = sref.loc[tal][loc]
+                if df.loc[tal,loc][name]:
+                    await ctx.send(f'{name} already has {up} in the {row} slot {loc[-1]} for {tal}.')
+                else:
+                    df.loc[tal,loc][name] = True
+                    df.to_csv('sigranks.csv',encoding='utf-8')
+                    await ctx.send(f'{name} now has {up} in the {row} slot {loc[-1]} for {tal}.')
+            else:
+                with open('to_add.txt','a') as f:
+                    f.writelines(f'\n{tal}')
+                await ctx.send(f'{tal} is not yet implemented, it has been appended to the list for Talia to add.')
+    elif ranked:
+        df = pd.read_csv('ranked_talents.csv',encoding='utf-8',index_col='Talent')
+        rank = int(df.loc[tal][name])+1
+        df.loc[tal][name] = rank
+        df.to_csv('ranked_talents.csv',encoding='utf-8')
+        if rank == 1:
+            await ctx.send(f'{name} now has {rank} rank in {tal}.')
+        else:
+            await ctx.send(f'{name} now has {rank} ranks in {tal}.')
+    elif ranked != True:
+        df = pd.read_csv('unranked_talents.csv',encoding='utf-8',index_col='Talent')
+        if df.loc[tal][name]:
+            await ctx.send(f'{name} already has {tal}.')
+        else:
+            df.loc[tal][name]=True
+            df.to_csv('unranked_talents.csv',encoding='utf-8')
+            await ctx.send(f'{name} now has {tal}.')
+    else:
+        await ctx.send('There was an error with either the input or programming.')
 
 @bot.command(pass_context=True)
 async def downgrade(ctx):
-    try:
-        df = pd.read_csv('ranks.csv',index_col=['Ability'])
-        synt = ctx.message.content[11:].lower().split()
-        if synt[0].startswith('v'):
-            pc = 'Virai'
-        elif synt[0].startswith('kh'):
-            pc = 'Khaylia'
-        elif synt[0].startswith('ka'):
-            pc = 'Kavin'
-        elif synt[0].startswith('ch'):
-            pc = 'Okchota'
-        elif synt[0].startswith('cu'):
-            pc = 'Culkoo'
-        elif synt[0].startswith('d'):
-            pc = 'Doc'
-        ability = ' '.join(synt[1:])
-        if ability == "it's not that bad":
-            ability = "It's Not That Bad"
-        elif ability == "let's ride":
-            ability = "Let's Ride"
+    synt = ctx.message.content[11:].split()
+    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    pcs = [name.lower() for name in pc_list]
+    for ele in synt[1:]:
+        if ele[0].isnumeric():
+            loc = ele
+            synt.remove(ele)
+            break
         else:
-            ability = ability.title()
-        rank = int(df.at[ability,pc])
-        rank += -1
-        df.at[ability,pc] = rank
-        df.to_csv('ranks.csv')
-        await ctx.send(pc+"'s rank in "+ability+' downgraded to '+str(rank))
-    except KeyError:
-        await ctx.send('That ability is not in the records.')
-
-@bot.command(pass_context=True)
-async def rank_init(ctx):
-    raw = ctx.message.content[11:].title().split(',')
-    ability = raw[0].strip()
-    ab_type = [raw[1].strip().title()]
-    df = pd.read_csv('ranks.csv',index_col=['Ability'])
-    if ab_type[0] in df.Type.unique():
-        for i in range(len(df.columns[1:])):
-            ab_type.append(0)
-        df.loc[f'{ability}'] = ab_type
-        df.to_csv('ranks.csv')
-        await ctx.send(f'{ability} added as {ab_type[0]} ability.')
+            loc = None
+    name = name_sim(synt[0],pcs)
+    master = pd.read_csv('master_talents.csv',index_col=['Talent'])
+    tal = sim_search(' '.join(synt[1:]),master)
+    ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp
+    if force and comp:
+        df = pd.read_csv('force_ranks.csv',encoding='utf-8',index_col=['Talent','grid'])
+        if loc == None:
+            loc = 'base'
+            if df.loc[tal,loc][name]:
+                df.loc[tal,loc][name] = False
+                df.to_csv('force_ranks.csv',encoding='utf-8')
+                await ctx.send(f'{tal} base ability removed from repertoire of {name}.')
+            else:
+                await ctx.send(f'{name} already does not have the base ability for {tal}.')
+        else:
+            fref = pd.read_csv('force_abilities_expanded.csv',encoding='utf-8',index_col='Talent') 
+            loc = f't{loc}'
+            up = fref.loc[tal][loc]
+            if df.loc[tal,loc][name]:
+                df.loc[tal,loc][name] = False
+                df.to_csv('force_ranks.csv',encoding='utf-8')
+                await ctx.send(f'{up} in Row {loc[1]} Slot {loc[3]} of {tal} removed from repertoire of {name}.')
+            else:
+                await ctx.send(f'{name} already does not have {up} in Row {loc[1]} Slot {loc[3]} of {tal}.')
+    elif force!=True and comp:
+        df = pd.read_csv('sigranks.csv',encoding='utf-8',index_col=['Talent','loc'])
+        if loc == None:
+            loc = 'base'
+            if df.loc[tal,loc][name]:
+                df.loc[tal,loc][name] = False
+                df.to_csv('sigranks.csv',encoding='utf-8')
+                await ctx.send(f'{tal} base ability removed from repertoire of {name}.')
+            else:
+                await ctx.send(f'{name} already does not have the base ability for {tal}.')
+        else:
+            sref = pd.read_csv('signature_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
+            if sref.loc[tal].imp:
+                if loc[0]=='1':
+                    loc = loc.replace('1.','top')
+                    row = 'top'
+                else:
+                    loc = loc.replace('2.','bot')
+                    row = 'bottom'
+                up = sref.loc[tal][loc]
+                if df.loc[tal,loc][name]:
+                    row = row.title()
+                    df.loc[tal,loc][name] = True
+                    df.to_csv('sigranks.csv',encoding='utf-8')
+                    await ctx.send(f'{row} slot {loc[-1]} for {tal} removed from repertoire of {name}.')
+                else:
+                    await ctx.send(f'{name} already does not have {up} in the {row} slot {loc[-1]} for {tal}.')
+            else:
+                with open('to_add.txt','a') as f:
+                    f.writelines(f'\n{tal}')
+                await ctx.send(f'{tal} is not yet implemented, it has been appended to the list for Talia to add.')
+    elif ranked:
+        df = pd.read_csv('ranked_talents.csv',encoding='utf-8',index_col='Talent')
+        rank = int(df.loc[tal][name])-1
+        if rank<0:
+            rank=0
+        df.loc[tal][name] = rank
+        df.to_csv('ranked_talents.csv',encoding='utf-8')
+        if rank == 1:
+            await ctx.send(f'{name} now has {rank} rank in {tal}.')
+        else:
+            await ctx.send(f'{name} now has {rank} ranks in {tal}.')
+    elif ranked != True:
+        df = pd.read_csv('unranked_talents.csv',encoding='utf-8',index_col='Talent')
+        if df.loc[tal][name]:
+            df.loc[tal][name]=False
+            df.to_csv('unranked_talents.csv',encoding='utf-8')
+            await ctx.send(f'{tal} removed from repertoire of {name}.')
+        else:
+            await ctx.send(f'{name} already does not have {tal}.')
     else:
-        ab_list = ', '.join(list(df.Type.unique()))
-        await ctx.send(f'{ab_type[0]} is not one of the listed ability types, the available types are {ab_list}.')
-
-
-    
-
+        await ctx.send('There was an error with either the input or programming.')
 
 command_descriptions = {
     'vote':'Vote for a number in the title list. You can vote for higher numbers that are not in the list, but why would you do that? !vote [title number]',
@@ -849,10 +962,10 @@ command_descriptions = {
     'crit':'!crit [crit rating]. Input a number to find out what the description and severity a crit of that number has.',
     'critchara':'Get a crit that affects a random characteristic? Find out which one with !critchara',
     'quality':'Provides a description of an item quality, whether it is passive or active, and what is needed to trigger it if relevant.\nType !quality [quality name] to get a description or just !quality if you want a list of all of them.',
-    'talent':'Provides a description or list of talent(s).\n!talent types will give you all the groups of talents.\n!talent list [type] will give you all abilities of that type.\n!talent [talent] will give you a description of that talent.',
-    'pc':'Provides information about a certain PC (or BD).\n!pc [name] will list all the talents for the character.\n!pc [name] [type] will list all talents of that type for that character.\n!pc [name] [talent] will give you the rank of the ability for that PC.',
-    'upgrade':'Rank up a talent. !upgrade [name] [talent]',
-    'downgrade':'Rank down a talent. !downgrade [name] [talent]',
+    'talent':'Provides a description of a talent.\n!talent [talent] will give you a description of that talent and relevant information.',
+    'pc':'Provides information about a certain PC (or BD).\n!pc [name] will list all the talents for the character.\n!pc [name] [talent] will tell you if the pc has that ability or not, and the current rank if relevant. If the talent is a signature or force ability that is not the base description, then you will also need to provide the coordinates for the talent in the form of [row].[spot] with the row count starting from the first row below the base ability then the spot count starting with the first ability from the left of the row. ',
+    'upgrade':'Rank up or add a talent. !upgrade [name] [talent] [coordinates-if needed for signature or force ability]',
+    'downgrade':'Rank down or remove a talent. !downgrade [name] [talent] [coordinates-if needed for signature or force ability]',
     'weapon':'Look up stats for a weapon !weapon [weapon] or search for similar names with !weapon search [search term]',
     'armor':'Look up stats for armor !armor [armor] or search for similar name with !armor search [search term]'
 }
@@ -862,7 +975,7 @@ async def bothelp(ctx):
     synt = ctx.message.content[9:].lower()
     botcommands = ['vote','stim','undo','status','heal','crit','critchara','quality','talent','pc','upgrade','downgrade']
     if synt=='':
-        await ctx.send('Here is a list of the commands you can use:\nvote\nstim\nundo\nheal\ncrit\ncritchara\nquality\ntalent\npc\nupgrade\ndowngrade\n\nIf a command asks for your name, you only need to provide the first two letters of the name to differentiate it from others. All input is case inensitive.\nFor more information on a command, type !bothelp then the command.')
+        await ctx.send('Here is a list of the commands you can use:\nvote\nstim\nundo\nheal\ncrit\ncritchara\nquality\ntalent\npc\nupgrade\ndowngrade\n\nIf a command asks for your name, you only need to provide enough spelling to differentiate yourself, it will search for the closest match.\nFor more information on a command, type !bothelp then the command.')
     elif synt in botcommands:
         await ctx.send(command_descriptions[synt])
     else:

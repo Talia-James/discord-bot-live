@@ -130,3 +130,18 @@ dmypy.json
 
 #Scratch file for testing new functions
 scratch.py
+scratch2.py
+#Backups just in case
+unranked_talents_legacy.csv
+ranked_talents_legacy.csv
+master_talents_old_desc.csv
+non-complex_abilities.csv
+force_abilities_backup.csv
+experimental_abilities.csv
+complex_abilities_root.csv
+complex_abilities_modifiers.csv
+sig_classes.py
+signature_talents_ref.csv
+bot_backup.py
+abilities.csv
+ranks.csv

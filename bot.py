@@ -773,7 +773,7 @@ async def pc(ctx):
             await ctx.send(f'{name} has {ranks} {plur} in {tal}.')
         else:
             df = pd.read_csv('unranked_talents.csv',encoding='utf-8',index_col=['Talent'])
-            if df.loc[tal][name]=='True':
+            if df.loc[tal][name]:
                 await ctx.send(f'{name} has {tal}.')
             else:
                 await ctx.send(f'{name} does not have {tal}.')

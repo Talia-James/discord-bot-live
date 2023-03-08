@@ -14,7 +14,7 @@ Improved Animal Bond,False,False,False,False,False,False,False
 Animal Empathy,False,False,False,False,False,False,False
 Another's Treasure,False,False,False,False,False,False,False
 Armor Master,False,True,False,False,True,False,False
-Improved Armor Master,False,False,False,False,False,False,False
+Improved Armor Master,False,True,False,False,False,False,False
 Supreme Armor Master,False,False,False,False,False,False,False
 As The Force Wills It,False,False,False,False,False,False,False
 Assault Drop,False,False,False,False,False,False,False
@@ -207,7 +207,7 @@ Invigorate,False,False,False,False,False,False,False
 Iron Soul,False,False,False,False,False,False,False
 It's Not That Bad,False,False,True,False,False,False,False
 Jetpack Expertise,False,False,False,False,False,False,False
-Jump Up,False,False,True,True,True,False,False
+Jump Up,False,True,True,True,True,False,False
 Just Kidding!,False,False,False,False,False,False,False
 Juyo Savagery,False,False,False,False,False,False,False
 Knockdown,False,True,False,False,True,False,False

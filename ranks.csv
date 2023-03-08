@@ -4,7 +4,7 @@ Armor Master,Defense,0,1,0,0,1,0,0
 Bad Motivator,Ground Mechanics,0,0,0,0,0,0,0
 Balance,Force,0,0,1,0,0,0,0
 Barrage,Offense,0,2,0,0,0,0,0
-Basic Combat Training,Situational,0,0,1,0,1,0,0
+Basic Combat Training,Situational,0,0,1,1,1,0,0
 Brace,Situational,1,2,0,1,0,0,0
 Brachiation,Situational,0,0,0,0,1,0,0
 Burly,Situational,0,3,0,0,0,0,0
@@ -48,7 +48,7 @@ Move,Force,0,1,0,0,0,0,0
 Natural Brawler,Offense,0,0,0,0,1,0,0
 Natural Hunter,Situational,0,0,0,0,1,0,0
 Natural Programmer,Computers,0,0,0,0,0,0,0
-Outdoorsman,Situational,1,0,1,2,0,0,0
+Outdoorsman,Situational,1,0,1,3,0,0,0
 Parry,Defense,0,1,0,0,0,0,0
 Physical Training,Situational,2,2,0,0,1,0,0
 Point Blank,Offense,1,0,0,0,1,0,0
@@ -59,7 +59,7 @@ Rain Of Death,Offense,0,1,0,0,0,0,0
 Rapid Recovery,Situational,0,0,0,0,2,0,0
 Ravage,Force,0,1,0,0,0,0,0
 Redundant Systems,Ground Mechanics,1,0,0,0,0,0,0
-Second Wind,Defense,1,1,3,0,2,0,0
+Second Wind,Defense,2,1,3,1,2,0,0
 Secrets Of The Force,Force,0,1,0,0,0,0,0
 Sense,Force,0,1,1,0,0,0,0
 Sense Danger,Force,0,0,1,1,0,0,0
@@ -109,6 +109,6 @@ Disruptive Strike,Offense,0,0,0,0,0,0,0
 Counterstrike,Defense,0,0,0,0,0,0,0
 Supreme Reflect,Defense,0,0,0,0,0,0,0
 Improved Reflect,Defense,0,0,0,1,0,0,0
-Feral Strength,Offense,0,1,0,0,0,0,0
+Feral Strength,Offense,0,2,0,0,0,0,0
 Natural Rogue,Situational,0,0,0,0,1,0,0
 Intense Focus,Situational,1,0,0,0,0,0,0

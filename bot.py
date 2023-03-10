@@ -1,13 +1,11 @@
-import discord, random, re, time, csv, threading, asyncio
+import discord, random, re, asyncio, shelve,collections,math#,time, csv, threading
 from datetime import datetime as dt
 from datetime import timedelta as td
 from discord.ext import commands
-import collections
 import pandas as pd
-import math
-import os
 from dice import *
 from difflib import SequenceMatcher
+#Bot token saved in a .txt flie in the containing directory, which is not in the repository. This is a security feature--if you publish your bot token on Github, Discord will revoke it immediately
 with open('../tok.txt') as f:
     token = f.readlines()[0]
 def similar(a, b):
@@ -54,12 +52,12 @@ def mid_noon(hour,ampm):
             return hour
 
 def get_times():
-    with open('sw.txt','r') as f:
+    with shelve.open('vars') as f:
         global sw_time
-        sw_time = int(f.readlines()[0])
-    with open('coc.txt','r') as f:
+        sw_time = f['sw']
         global coc_time
-        coc_time = int(f.readlines()[0])
+        coc_time = f['coc']
+
 
 #Pre-defined intervals for utility
 debug = 5
@@ -70,63 +68,55 @@ quarter_hours = [0,15,30,45]
 
 @bot.event
 async def on_ready():
-    try:
-        print('Awaiting orders, Captain.')
-        server = bot.get_guild(399052850488934401)
-        sw_channel = server.get_channel(801970982663225414)
-        coc_channel = server.get_channel(794640287741902903)
-        global coc_alert
-        coc_alert = False
-        global sw_alert
-        sw_alert = False
-        while True: 
-            get_times()
-            sw_alert_1 = sw_time-one_hour
-            coc_alert_1 = coc_time-one_hour
-            sw_alert_prev_day = (dt.fromtimestamp(sw_time)-td(1)).strftime('%d')
-            coc_alert_prev_day = (dt.fromtimestamp(coc_time)-td(1)).strftime('%d')
-            now = dt.now().timestamp()
-            today = dt.now().strftime('%d')
-            if (now > sw_alert_1) and (now < sw_time):
-                await sw_channel.send(f'Star Wars <t:{sw_time}:R>!')
-                await asyncio.sleep(one_hour)
-            elif (int(dt.now().strftime('%H'))>=12) and (today==sw_alert_prev_day) and (sw_alert==False):
-                sw_alert=True
-                await sw_channel.send(f'Star Wars tomorrow, <t:{sw_time}:R>!')
-            elif (now > coc_alert_1) and (now < coc_time):
-                await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
-                await asyncio.sleep(one_hour)
-            elif (int(dt.now().strftime('%H'))>=12) and (today==coc_alert_prev_day) and (coc_alert==False):
-                coc_alert=True
-                await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
-            if dt.now().minute not in quarter_hours:
-                for i in range(len(quarter_hours)-1):
-                    curr_minutes = dt.now().minute
-                    if (quarter_hours[i]<curr_minutes) and (curr_minutes<quarter_hours[i+1]):
-                        date_holder = dt.now()
-                        year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
-                        sleep_time = (dt(year,month,day,hour,quarter_hours[i+1])-dt.now()).seconds
-                        if sleep_time > 0:
-                            await asyncio.sleep(sleep_time)
-                        else:                    
-                            await asyncio.sleep(60)
-                    elif curr_minutes>quarter_hours[-1]:
-                        date_holder = dt.now()
-                        year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
-                        sleep_time = (dt(year,month,day,hour+1,quarter_hours[0])-dt.now()).seconds
-                        if sleep_time > 0:
-                            await asyncio.sleep(sleep_time)
-                        else:
-                            await asyncio.sleep(60)
-            else:
-                await asyncio.sleep(minutes_15)
-    except TypeError:
-        print(type(sw_time))
-        print(type(coc_time))
-        print(type(sw_alert_1))
-        print(type(coc_alert_1))
-        print(type(now))
-
+    print('Awaiting orders, Captain.')
+    server = bot.get_guild(399052850488934401)
+    sw_channel = server.get_channel(801970982663225414)
+    coc_channel = server.get_channel(794640287741902903)
+    global coc_alert
+    coc_alert = False
+    global sw_alert
+    sw_alert = False
+    while True: 
+        get_times()
+        sw_alert_1 = sw_time-one_hour
+        coc_alert_1 = coc_time-one_hour
+        sw_alert_prev_day = (dt.fromtimestamp(sw_time)-td(1)).strftime('%d')
+        coc_alert_prev_day = (dt.fromtimestamp(coc_time)-td(1)).strftime('%d')
+        now = dt.now().timestamp()
+        today = dt.now().strftime('%d')
+        if (now > sw_alert_1) and (now < sw_time):
+            await sw_channel.send(f'Star Wars <t:{sw_time}:R>!')
+            await asyncio.sleep(one_hour)
+        elif (int(dt.now().strftime('%H'))>=12) and (today==sw_alert_prev_day) and (sw_alert==False):
+            sw_alert=True
+            await sw_channel.send(f'Star Wars tomorrow, <t:{sw_time}:R>!')
+        elif (now > coc_alert_1) and (now < coc_time):
+            await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
+            await asyncio.sleep(one_hour)
+        elif (int(dt.now().strftime('%H'))>=12) and (today==coc_alert_prev_day) and (coc_alert==False):
+            coc_alert=True
+            await coc_channel.send(f'Call of Cthulhu <t:{coc_time}:R>!')
+        if dt.now().minute not in quarter_hours:
+            for i in range(len(quarter_hours)-1):
+                curr_minutes = dt.now().minute
+                if (quarter_hours[i]<curr_minutes) and (curr_minutes<quarter_hours[i+1]):
+                    date_holder = dt.now()
+                    year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
+                    sleep_time = (dt(year,month,day,hour,quarter_hours[i+1])-dt.now()).seconds
+                    if sleep_time > 0:
+                        await asyncio.sleep(sleep_time)
+                    else:                    
+                        await asyncio.sleep(60)
+                elif curr_minutes>quarter_hours[-1]:
+                    date_holder = dt.now()
+                    year,month,day,hour = date_holder.year,date_holder.month,date_holder.day,date_holder.hour
+                    sleep_time = (dt(year,month,day,hour+1,quarter_hours[0])-dt.now()).seconds
+                    if sleep_time > 0:
+                        await asyncio.sleep(sleep_time)
+                    else:
+                        await asyncio.sleep(60)
+        else:
+            await asyncio.sleep(minutes_15)
 
 #Checks to see if the user has a nickname or not
 def name_check(ctx):
@@ -139,18 +129,16 @@ def name_check(ctx):
         sender = ctx.message.author.name
     return sender
 
-#Loads titles from .csv file in case of bot interruption
+#Loads titles from shelf file in case of bot interruption
 def load_titles():
-    with open('titles.csv',newline='') as f:
-        reader = csv.reader(f,delimiter=',')
-        i=0
-        for row in reader:
-            if i==0:
-                titles_ = row
-                i+=1
-            else:
-                pass
+    with shelve.open('vars') as f:
+        titles_ = f['titles']
     return titles_
+
+def load_pcs():
+    with shelve.open('vars') as f:
+        pcs = f['pcs']
+    return pcs
 
 def sim_search(synt,df,search=False):
     similarities = {}
@@ -167,10 +155,11 @@ def sim_search(synt,df,search=False):
         found_tal = sdf.iloc[0].name
         return found_tal
     
-def name_sim(player,players):
+def name_sim(player):
     if player.lower()=='bd':
         return 'BD'
     else:
+        players = load_pcs()
         similarities = []
         for i in range(len(players)):
             word = players[i]
@@ -178,10 +167,7 @@ def name_sim(player,players):
             similarities.append((similarity,word))
         similarities.sort(reverse=True)
         name = similarities[0][1]
-        if name == 'bd':
-            return 'BD'
-        else:
-            return name.title()
+        return name.title()
 
 #Easter egg from Rocky Horror Picture Show
 @bot.command()
@@ -203,13 +189,13 @@ async def set_gametime(ctx):
         hour = mid_noon(hour,ampm)
         epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
         new_time = int(epoch)
-        with open(f'{game}.txt','w') as f:
-            f.write(str(new_time))
+        with shelve.open('vars') as f:
+            f[game]=new_time
         global sw_time
         sw_time = new_time
         global sw_alert
         sw_alert = False
-        await ctx.send(f'Next Star Wars game at <t:{str(new_time)}>')
+        await ctx.send(f'Next Star Wars game on <t:{str(new_time)}>')
     elif game_and_time[0].lower()=='c':
         game='coc'
         time = game_and_time[3:]
@@ -219,14 +205,13 @@ async def set_gametime(ctx):
         hour = mid_noon(hour,ampm)
         epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
         new_time = int(epoch)
-        with open(f'{game}.txt','w') as f:
-            f.write(str(new_time))
+        with shelve.open('vars') as f:
+            f[game]=new_time
         global coc_time
         coc_time = new_time
         global coc_alert
         coc_alert = False
-        await ctx.send(f'Next Call of Cthulhu game at <t:{str(new_time)}>')
-
+        await ctx.send(f'Next Call of Cthulhu game on <t:{str(new_time)}>')
 
 @bot.command()
 async def stamp(ctx):
@@ -257,12 +242,11 @@ async def day_convert(ctx):
     new_time = int(dt(now.year,now.month,now.day,int(hour),int(minute)).timestamp())
     await ctx.send(f'<t:{new_time}:t>, <t:{new_time}:R>')
 
-
 @bot.command()
 async def gametime(ctx):
     game = (ctx.message.content)[10:]
-    with open(f'{game}.txt','r') as f:
-        time = f.readlines()[0]
+    with shelve.open('vars') as f:
+        time = f[game]
     await ctx.send(f'Next {game} session is at <t:{time}>, <t:{time}:R>')
 
 #Needed dictionary to store variables
@@ -294,54 +278,6 @@ async def roll(ctx):
     result_ = roll_sw_dice(number,die_)
     await ctx.send(f'{sender} rolled {result_}')
 
-#Kept in for legacy, but changing to work for Star Wars TTRPG
-# @bot.command()
-# async def roll(ctx):
-#     #This check will assign a name for the bot to respond to. It can be removed so long as the 'sender' variable is removed from the return.
-#     if ctx.message.author.nick == None:
-#         sender = ctx.message.author.name
-#     else:
-#         sender = ctx.message.author.nick
-#     diesearch = re.compile(r'(\d+)(d)*(\d*)([+/-]\d*)?', re.I)
-#     userinput = ctx.message.content
-#     diceformat = diesearch.search(userinput)
-#     try:
-#         diceformat[4] == None
-#         modifier = int(diceformat[4][1:])
-#         sign = diceformat[4][0]
-#     except TypeError:
-#         modifier = 0
-#         sign = ''
-#     if diceformat.group(2) is None:
-#         dN = int(diceformat.group(1))
-#         print(type(diceformat.group(0)))
-#         dice = random.randint(1, dN)
-#         print('-' in diceformat.group(0))
-#         if '-' in diceformat.group(0):
-#             await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
-#         elif '+' in diceformat.group(0):
-#             await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')
-#         else:
-#             await ctx.send(sender + ' rolled ' + str(dice) + ' from a d' + str(dN) + '!')
-#     elif diceformat.group(3) == '':
-#         sign = diceformat[4][0]
-#         dN = int(diceformat.group(1))
-#         dice = random.randint(1, dN)
-#         if sign == '-':
-#             await ctx.send(sender + ' rolled ' + str(dice - modifier) + ' from a d' + str(dN - modifier) + '!')
-#         else:
-#             await ctx.send(sender + ' rolled ' + str(dice + modifier) + ' from a d' + str(dN + modifier) + '!')        
-#     else:
-#         dN = int(diceformat.group(3))
-#         multiplier = int(diceformat.group(1))
-#         amt = 0
-#         for _ in range(multiplier):
-#             amt += random.randint(1, dN)
-#         if sign == '-':
-#             await ctx.send(sender + ' rolled ' + str(amt - modifier) + ' out of a possible ' + str((dN * multiplier)-modifier) + '!')
-#         else:
-#             await ctx.send(sender + ' rolled ' + str(amt + modifier) + ' out of a possible ' + str((dN * multiplier)+modifier) + '!')
-
 @bot.command()
 async def pick(ctx):
     listmake = (re.compile(r'[^,]*'))
@@ -361,28 +297,21 @@ async def pick(ctx):
             picker = ctx.message.author.nick
         await ctx.send(picker + ' has randomly chosen ' + random.choice(cleanedchoices) + '!')
 
-entrants = []
-showtitles = {}
-votes = []
-index = 1
-
 @bot.command()
 async def refresh(ctx):
-    global votes
-    votes = []
-    with open('titles.csv','w') as f:
-        writer = csv.writer(f)
-        writer.writerow('')
-    with open('vote_hist.csv','w') as f:
-        writer = csv.writer(f)
-        writer.writerow('')
-    with open('votes.csv','w') as f:
-        writer = csv.writer(f)
-        writer.writerow('')
     sender = name_check(ctx)
-    global vote_hist
-    vote_hist = []
+    with shelve.open('vars') as f:
+        f['votes']=[]
+        f['vote_hist']=[]
+        f['titles']=[]
     await ctx.send(f'List purged, Captain {sender}.')
+
+@bot.command()
+async def runoff(ctx):
+    sender = name_check(ctx)
+    with shelve.open('vars') as f:
+        f['vote_hist']=[]
+    await ctx.send(f'Vote history purged, Captain {sender}.')
 
 @bot.command()
 async def s(ctx):
@@ -390,10 +319,9 @@ async def s(ctx):
     title = (ctx.message.content)[3:]
     titles = load_titles()
     titles.append(title)
-    with open('titles.csv','w') as f:
-        writer = csv.writer(f)
-        writer.writerow(titles)
-    await ctx.send('Title added, Captain ' + sender)
+    with shelve.open('vars') as f:
+        f['titles']=titles
+    await ctx.send(f'Title added, Captain {sender}')
 
 @bot.command()
 async def titles(ctx):
@@ -402,28 +330,6 @@ async def titles(ctx):
     for i in range(len(titles_)):
         title_list.append(str(i+1)+': '+str(titles_[i]))
     await ctx.send('\n'.join(title_list))
-
-
-@bot.command()
-async def tirer(ctx):
-    if entrants != []:
-        if str(ctx.message.author) == 'TaliZorEl#0331':
-            winner = random.choice(entrants)
-            await ctx.send('%s a gagné. Félicitations!!!' % winner.mention)
-        else:
-            await ctx.send(file=discord.File('D:\Python\\jpno.gif'))
-    else:
-        await ctx.send('La liste est vide.')
-
-@bot.command()
-async def clearlist(ctx):
-    if str(ctx.message.author) == 'TaliZorEl#0331':
-        global entrants
-        entrants = []
-        await ctx.send('Liste supprimée.')       
-    else:
-        await ctx.send(file=discord.File('D:\Python\\visageno.gif'))
-
 
 @bot.command(pass_context=True)
 async def coc(ctx):
@@ -481,46 +387,35 @@ async def dnd2(ctx):
 
 @bot.command(pass_context=True)
 async def vote(ctx):
-    sender = name_check(ctx)
-    vote = ctx.message.content[6:]
-    vote_entry = f'{sender}-{vote}'
-    with open("vote_hist.csv",'r') as f:
-        reader = csv.reader(f,delimiter=',')
-        i=0
-        for row in reader:
-            if i==0:
-                vote_hist = row
-                i+=1
-            else:
-                pass
     try:
-        if vote_entry in vote_hist:
-            await ctx.send(f'You have already voted for that title, Captain {sender}.')
+        sender = name_check(ctx)
+        voter = ctx.message.author.name
+        vote = ctx.message.content[6:]
+        entry = f'{voter}-{vote}'
+        with shelve.open('vars') as f:
+            vote_hist = f['vote_hist']
+            votes = f['votes']
+            titlecount = len(f['titles'])
+        numvote = int(vote)
+        if numvote>titlecount:
+            await ctx.send(f'That number does not correspond to the amount of submitted votes.')
         else:
-            numvote = int(vote)
-            votes.append(numvote)
-            with open('votes.csv','w') as f:
-                writer = csv.writer(f)
-                writer.writerow(votes)
-            vote_hist.append(vote_entry)
-            with open('vote_hist.csv','w') as f:
-                writer = csv.writer(f)
-                writer.writerow(vote_hist)
-            await ctx.send(f'Vote recorded, Captain {sender}.')
+            if entry in vote_hist:
+                await ctx.send(f'You have already voted for that title, Captain {sender}.')
+            else:
+                votes.append(numvote)
+                vote_hist.append(entry)
+                with shelve.open('vars') as f:
+                    f['votes']=votes
+                    f['vote_hist']=vote_hist
+                await ctx.send(f'Vote recorded, Captain {sender}.')
     except ValueError:
         await ctx.send(f'That is not a number, Captain {sender}.')
 
 @bot.command(pass_context=True)
 async def votecount(ctx):
-    with open("votes.csv",'r') as f:
-        reader = csv.reader(f,delimiter=',')
-        j=0
-        for row in reader:
-            if j==0:
-                votes_ = row
-                j+=1
-            else:
-                pass
+    with shelve.open('vars') as f:
+        votes_ = f['votes']
     votecount = collections.Counter(votes_)
     showtitles = load_titles()
     df = pd.Series(votecount).sort_values(ascending=False)
@@ -529,52 +424,50 @@ async def votecount(ctx):
 
 @bot.command(pass_context=True)
 async def stim(ctx):
-    df = pd.read_csv('stims.csv',encoding='utf-8',index_col=['Name'])
     synt = (ctx.message.content[6:]).lower()
-    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
-    pcs = [name.lower() for name in pc_list]
-    name = name_sim(synt,pcs)
-    old = df.loc[name].Status
-    new = old+1
-    df.loc[name].Status=new
-    df.to_csv('stims.csv',encoding='utf-8')
+    name = name_sim(synt)
+    with shelve.open('vars') as f:
+        stims=f['stims']
+        old=stims[name]
+        new=old+1
+        stims[name]=new
+        f['stims']=stims
     await ctx.send(f'{name} stimmed, {5-new} left.')
 
 @bot.command(pass_context=True)
 async def undo(ctx):
-    df = pd.read_csv('stims.csv',encoding='utf-8',index_col=['Name'])
     synt = (ctx.message.content[6:]).lower()
-    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
-    pcs = [name.lower() for name in pc_list]
-    name = name_sim(synt,pcs)
-    old = df.loc[name].Status
-    new = old-1
-    df.loc[name].Status=new
-    df.to_csv('stims.csv',encoding='utf-8')
+    name = name_sim(synt)
+    with shelve.open('vars') as f:
+        stims=f['stims']
+        old=stims[name]
+        new=old-1
+        stims[name]=new
+        f['stims']=stims
     await ctx.send(f'Stim removed from {name}, {5-new} left.')
  
 @bot.command(pass_context=True)
 async def heal(ctx):
-    df = pd.read_csv('stims.csv',index_col=['Name'])
-    for ele in list(df.index):
-        df.loc[ele]=0
-    df.to_csv('stims.csv')
+    with shelve.open('vars') as f:
+        stims = f['stims']
+        for pc in list(stims.keys()):
+            stims[pc]=0
+        f['stims']=stims
     await ctx.send('Party refreshed.')    
 
 @bot.command(pass_context=True)
 async def status(ctx):
     synt = ctx.message.content[8:]
-    df = pd.read_csv('stims.csv',index_col=['Name'])
-    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
+    with shelve.open('vars') as f:
+        stims=f['stims']
     if synt == '':
         mess = []
-        for pc in pc_list:
-            mess.append(f'{pc} has been stimmed {df.loc[pc].Status} time(s), {5-df.loc[pc].Status} jab(s) remaining.')
+        for pc in list(stims.keys()):
+            mess.append(f'{pc} has been stimmed {stims[pc]} time(s), {5-stims[pc]} jab(s) remaining.')
         await ctx.send('\n'.join(mess))
     else:
-        pcs = [ele.lower() for ele in pc_list]
-        name = name_sim(synt.lower(),pcs)
-        await ctx.send(f'{name} has been stimmed {df.loc[name].Status} time(s), {5-df.loc[name].Status} jab(s) remaining.')
+        name = name_sim(synt)
+        await ctx.send(f'{name} has been stimmed {stims[name]} time(s), {5-stims[name]} jab(s) remaining.')
 
 @bot.command(pass_context=True)
 async def crit(ctx):
@@ -710,8 +603,7 @@ async def pc(ctx):
     if len(synt) ==1:
         pc = synt[0]
         rank = pd.read_csv('ranked_talents.csv',encoding='utf-8')
-        pcs = [name.lower() for name in list(rank.columns)]
-        name = name_sim(pc,pcs)
+        name = name_sim(pc)
         unrank = pd.read_csv('unranked_talents.csv',encoding='utf-8')
         ranktals = list(rank[rank[name]!=0].Talent.values)
         unranktals = list(unrank[unrank[name]=='True'].Talent.values)
@@ -727,9 +619,7 @@ async def pc(ctx):
         pc,raw_tal = synt[0],' '.join(synt[1:])
         tal = sim_search(raw_tal,master)
         ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp
-        pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc'] ##TODO: write this and timestamps to shelf
-        pcs = [name.lower() for name in pc_list]
-        name = name_sim(pc,pcs)
+        name = name_sim(pc)
         if force and comp:
             df = pd.read_csv('force_ranks.csv',encoding='utf-8',index_col=['Talent','grid'])
             view = df.loc[tal][name]
@@ -781,8 +671,6 @@ async def pc(ctx):
 @bot.command(pass_context=True)
 async def upgrade(ctx):
     synt = ctx.message.content[9:].split()
-    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
-    pcs = [name.lower() for name in pc_list]
     for ele in synt[1:]:
         if ele[0].isnumeric():
             loc = ele
@@ -790,7 +678,7 @@ async def upgrade(ctx):
             break
         else:
             loc = None
-    name = name_sim(synt[0],pcs)
+    name = name_sim(synt[0])
     master = pd.read_csv('master_talents.csv',index_col=['Talent'])
     tal = sim_search(' '.join(synt[1:]),master)
     ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp
@@ -867,8 +755,6 @@ async def upgrade(ctx):
 @bot.command(pass_context=True)
 async def downgrade(ctx):
     synt = ctx.message.content[11:].split()
-    pc_list = ['Kavin', 'Virai', 'Khaylia', 'Culkoo', 'Okchota', 'Doc']
-    pcs = [name.lower() for name in pc_list]
     for ele in synt[1:]:
         if ele[0].isnumeric():
             loc = ele
@@ -876,7 +762,7 @@ async def downgrade(ctx):
             break
         else:
             loc = None
-    name = name_sim(synt[0],pcs)
+    name = name_sim(synt[0])
     master = pd.read_csv('master_talents.csv',index_col=['Talent'])
     tal = sim_search(' '.join(synt[1:]),master)
     ranked,force,comp = master.loc[tal].rankbool,master.loc[tal].Force,master.loc[tal].comp

@@ -377,13 +377,13 @@ async def dnd2(ctx):
     raj = await ctx.guild.fetch_member(204817747983466497)
     peregryn = await ctx.guild.fetch_member(204816776326807553)
     beans = await ctx.guild.fetch_member(204076896059785225)
-    mike = await ctx.guild.fetch_member(147036443120762880)
+    # mike = await ctx.guild.fetch_member(147036443120762880)
     await estrolof.edit(nick='DM - Estrolof')
     await heather.edit(nick="Roan'Myra Torian")
     await raj.edit(nick='Larkin Blacksilver')
     await peregryn.edit(nick='Syndra Greybane')
     await beans.edit(nick='Gronn Madmun')
-    await mike.edit(nick='Kira Longbrooke')
+    # await mike.edit(nick='Kira Longbrooke')
 
 @bot.command(pass_context=True)
 async def vote(ctx):
@@ -471,43 +471,32 @@ async def status(ctx):
 
 @bot.command(pass_context=True)
 async def crit(ctx):
-    rating = int((ctx.message.content)[6:])
-    df = pd.read_csv('crits.csv')
-    divided = rating/5
-    if divided <= 26 and rating%5!=0:
-        await ctx.send('Range: '+df.iloc[math.floor(divided)]['Rating']+'\nSeverity: '+str(df.iloc[math.floor(divided)]['Severity'])+'\nResult: '+df.iloc[math.floor(divided)]['Result']+'\nDetails: '+df.iloc[math.floor(divided)]['Details'])
-    elif divided <= 26 and rating%5==0:
-        await ctx.send('Range: '+df.iloc[math.floor(divided-1)]['Rating']+'\nSeverity: '+str(df.iloc[math.floor(divided-1)]['Severity'])+'\nResult: '+df.iloc[math.floor(divided-1)]['Result']+'\nDetails: '+df.iloc[math.floor(divided-1)]['Details'])
-    elif divided > 26 and divided <= 28 and rating%5!=0:
-        await ctx.send('Range: '+df.iloc[26]['Rating']+'\nSeverity: '+str(df.iloc[26]['Severity'])+'\nResult: '+df.iloc[26]['Result']+'\nDetails: '+df.iloc[26]['Details'])
-    elif divided > 26 and divided <= 28 and rating%5==0:
-        await ctx.send('Range: '+df.iloc[26]['Rating']+'\nSeverity: '+str(df.iloc[26]['Severity'])+'\nResult: '+df.iloc[26]['Result']+'\nDetails: '+df.iloc[26]['Details'])
-    elif divided >28 and divided <= 30 and rating%5!=0:
-        await ctx.send('Range: '+df.iloc[27]['Rating']+'\nSeverity: '+str(df.iloc[27]['Severity'])+'\nResult: '+df.iloc[27]['Result']+'\nDetails: '+df.iloc[27]['Details'])
-    elif divided >28 and divided <= 30 and rating%5==0:
-        await ctx.send('Range: '+df.iloc[27]['Rating']+'\nSeverity: '+str(df.iloc[27]['Severity'])+'\nResult: '+df.iloc[27]['Result']+'\nDetails: '+df.iloc[27]['Details'])
-    elif divided > 30:
-        await ctx.send('Range: '+df.iloc[28]['Rating']+'+\nSeverity: '+str(df.iloc[28]['Severity'])+'\nResult: '+df.iloc[28]['Result']+'\nDetails: '+df.iloc[28]['Details'])
-    else:
-        await ctx.send("Somethin' ain't right.")
+    try:
+        value = int((ctx.message.content)[6:])
+        with shelve.open('vars') as f:
+            crits=f['crits']
+        ratings = list(crits.keys())
+        for rating in ratings:
+            if value > 150:
+                entry = '151'
+            else:
+                if value in range(int(rating.split('-')[0]),1+int(rating.split('-')[1])):
+                    entry = rating
+                    break                                
+                else:
+                    continue
+        result = crits[entry]
+        await ctx.send(f'Result: {result[0]}\nRange: {entry}\nSeverity: {result[1]}\nDescription: {result[2]}')
+    except ValueError:
+        await ctx.send(f'That is not a number.')
 
 @bot.command(pass_context=True)
 async def critchara(ctx):
-    critrate = random.randint(0,101)
-    if critrate < 31:
-        await ctx.send(str(critrate) + ', Brawn')
-    elif critrate < 61 and critrate > 30:
-        await ctx.send(str(critrate) + ', Agility')
-    elif critrate < 71 and critrate > 60:
-        await ctx.send(str(critrate) + ', Intellect')
-    elif critrate < 81 and critrate > 70:
-        await ctx.send(str(critrate) + ', Cunning')
-    elif critrate < 91 and critrate > 80:
-        await ctx.send(str(critrate) + ', Presence')
-    elif critrate < 101 and critrate > 90:
-        await ctx.send(str(critrate) + ', Willpower')
-    else:
-        await ctx.send('What the fuck is happening?')
+    critrate = random.randint(1,10)
+    with shelve.open('vars') as f:
+        charas = f['critchara']
+    attr = charas[critrate]
+    await ctx.send(f'Rolled {critrate}, which is {attr}.')
 
 @bot.command(pass_context=True)
 async def quality(ctx):

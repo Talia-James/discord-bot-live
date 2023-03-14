@@ -1,4 +1,4 @@
-import discord, random, re, asyncio, shelve,collections,math#,time, csv, threading
+import discord, random, re, asyncio, shelve,collections,math,sys#,time, csv, threading
 from datetime import datetime as dt
 from datetime import timedelta as td
 from discord.ext import commands
@@ -58,6 +58,14 @@ def get_times():
         global coc_time
         coc_time = f['coc']
 
+def get_channel(game):
+    with shelve.open('vars') as f:
+        game_dic = f['game_dic']
+    channel_id = game_dic[game][0]
+    guild_id = game_dic[game][1]
+    guild = bot.get_guild(guild_id)
+    channel = guild.get_channel(channel_id)
+    return channel
 
 #Pre-defined intervals for utility
 debug = 5
@@ -69,14 +77,28 @@ quarter_hours = [0,15,30,45]
 @bot.event
 async def on_ready():
     print('Awaiting orders, Captain.')
-    server = bot.get_guild(399052850488934401)
-    sw_channel = server.get_channel(801970982663225414)
-    coc_channel = server.get_channel(794640287741902903)
-    global coc_alert
-    coc_alert = False
-    global sw_alert
-    sw_alert = False
+    # server = bot.get_guild(399052850488934401)
+    # sw_channel = server.get_channel(801970982663225414)
+    # coc_channel = server.get_channel(794640287741902903)
+    sw_channel = get_channel('sw')
+    coc_channel = get_channel('coc')
+    # global coc_alert
+    # global sw_alert
+    if len(sys.argv)>1:
+        if sys.argv[1]=='quiet':
+            coc_alert = True
+            sw_alert = True
+        elif sys.argv[1]=='sw':
+            coc_alert = False
+            sw_alert = True
+        elif sys.argv[1]=='coc':
+            coc_alert = True
+            sw_alert = False
+    else:
+        coc_alert = False
+        sw_alert = False
     while True: 
+        print(f'Coc: {coc_alert}, SW {sw_alert}')
         get_times()
         sw_alert_1 = sw_time-one_hour
         coc_alert_1 = coc_time-one_hour
@@ -247,7 +269,7 @@ async def gametime(ctx):
     game = (ctx.message.content)[10:]
     with shelve.open('vars') as f:
         time = f[game]
-    await ctx.send(f'Next {game} session is at <t:{time}>, <t:{time}:R>')
+    await ctx.send(f'Next {game} session is on <t:{time}>, <t:{time}:R>')
 
 #Needed dictionary to store variables
 dice_types = {
@@ -330,60 +352,6 @@ async def titles(ctx):
     for i in range(len(titles_)):
         title_list.append(str(i+1)+': '+str(titles_[i]))
     await ctx.send('\n'.join(title_list))
-
-@bot.command(pass_context=True)
-async def coc(ctx):
-    talia = await ctx.guild.fetch_member(183026490890256384)
-    heather = await ctx.guild.fetch_member(213737842625609730)
-    angela = await ctx.guild.fetch_member(220377751906025472)
-    james = await ctx.guild.fetch_member(286536094990729216)
-    jason = await ctx.guild.fetch_member(171473872078635015)
-    await jason.edit(nick='Alan')
-    await talia.edit(nick='Anii')
-    await heather.edit(nick='Siobhan')
-    await angela.edit(nick='Kenzo')
-    await james.edit(nick='Tom')
-
-@bot.command(pass_context=True)
-async def dnd(ctx):
-    talia = await ctx.guild.fetch_member(183026490890256384)
-    heather = await ctx.guild.fetch_member(213737842625609730)
-    jeannie = await ctx.guild.fetch_member(213789322309009418)
-    angela = await ctx.guild.fetch_member(220377751906025472)
-    james = await ctx.guild.fetch_member(286536094990729216)
-    await talia.edit(nick='Eth')
-    await jeannie.edit(nick='Lu')
-    await heather.edit(nick='Ori')
-    await angela.edit(nick='Wil')
-    await james.edit(nick='Adisi')
-
-@bot.command(pass_context=True)
-async def sw(ctx):
-    talia = await ctx.guild.fetch_member(183026490890256384)
-    heather = await ctx.guild.fetch_member(213737842625609730)
-    jeannie = await ctx.guild.fetch_member(213789322309009418)
-    angela = await ctx.guild.fetch_member(220377751906025472)
-    james = await ctx.guild.fetch_member(286536094990729216)
-    await talia.edit(nick='Virai')
-    await heather.edit(nick='Khaylia')
-    await angela.edit(nick='Kavin')
-    await james.edit(nick='Cho')
-    await jeannie.edit(nick='Culkoo')
-
-@bot.command(pass_context=True)
-async def dnd2(ctx):
-    estrolof = await ctx.guild.fetch_member(465335472995041291)
-    heather = await ctx.guild.fetch_member(213737842625609730)
-    raj = await ctx.guild.fetch_member(204817747983466497)
-    peregryn = await ctx.guild.fetch_member(204816776326807553)
-    beans = await ctx.guild.fetch_member(204076896059785225)
-    # mike = await ctx.guild.fetch_member(147036443120762880)
-    await estrolof.edit(nick='DM - Estrolof')
-    await heather.edit(nick="Roan'Myra Torian")
-    await raj.edit(nick='Larkin Blacksilver')
-    await peregryn.edit(nick='Syndra Greybane')
-    await beans.edit(nick='Gronn Madmun')
-    # await mike.edit(nick='Kira Longbrooke')
 
 @bot.command(pass_context=True)
 async def vote(ctx):
@@ -909,14 +877,120 @@ async def userinfo(ctx):
     guild_id = ctx.message.guild.id
     channel = ctx.message.channel.id
     guild = bot.get_guild(guild_id)
-    print(guild)
-    print(channel)
+    print(guild.channels)
+    names,ids = [],[]
     async for member in guild.fetch_members(limit=150):
-        print(member.name)
-        print(member.id)
-        print(ctx.message.channel)
-        print(ctx.message.guild)
-        channel = ctx.message.channel
-        channel
+        names.append(member.name)
+        ids.append(member.id)
+    df = pd.DataFrame()
+    df['name'],df['id'],df['guild_id'],df['guild_name']=names,ids,guild_id,guild
+    df.to_csv('name_guild.csv',encoding='utf-8',index=False)
+
+@bot.command(pass_context=True)
+async def set_channel(ctx):
+    synt = ctx.message.content[13:]
+    game_name = synt 
+    if game_name == '':
+        await ctx.send('Please provide a game name with which this channel is to be associated.')
+    else:
+        server = ctx.message.guild.id
+        channel = ctx.message.channel.id
+        with shelve.open('vars') as f:
+            game_dic = f['game_dic']
+            game_dic[game_name]=[channel,server]
+            f['game_dic']=game_dic
+        await ctx.send(f'{game_name} set as game name for this channel.')
+
+@bot.command(pass_context=True)
+async def addme(ctx):
+    try:
+        synt = ctx.message.content[7:].split(',')
+        with shelve.open('vars') as f:
+            game_dic = f['game_dic']
+        game_list = list(game_dic.keys())
+        game_switch=False
+        for ele in synt:
+            if ele.strip() in game_list:
+                game=ele
+                game_switch=True
+                synt.remove(ele)
+        if game_switch==False:
+            val_search = list(game_dic.items())
+            channel,guild = ctx.message.channel.id,ctx.message.guild.id
+            for ele in val_search:
+                if ele[1][0]==channel and ele[1][1]==guild:
+                    game=ele[0]
+        game_info = game_dic[game]
+        user = ctx.message.author.id
+        if len(game_info)==2:
+            game_info.append([user])
+        else:
+            player_list = game_info[2]
+            if user in player_list:
+                await ctx.send(f'{ctx.message.author} is already in the player list for {game}.')
+            else:
+                player_list.append(user)
+                game_info[2] = player_list
+                with shelve.open('vars')as f:
+                    f['game_dic']=game_dic
+                await ctx.send(f'{ctx.message.author} added to {game} player list.')
+    except UnboundLocalError:
+        await ctx.send('Unable to determine associated game player list to which to add you. Please provide a game name, make this request in the dedicated channel, or set this channel with an associated game.')
+    
+@bot.command(pass_context=True)
+async def register(ctx):
+    try:
+        synt = ctx.message.content[10:].split(',')
+        with shelve.open('vars') as f:
+            game_dic = f['game_dic']
+        game_list = list(game_dic.keys())
+        game_switch=False
+        for ele in synt:
+            if ele.strip() in game_list:
+                game=ele
+                game_switch=True
+                channel,guild = game_dic[game][0],game_dic[game][1]
+                synt.remove(ele)
+        if game_switch==False:
+            val_search = list(game_dic.items())
+            channel,guild = ctx.message.channel.id,ctx.message.guild.id
+            for ele in val_search:
+                if ele[1][0]==channel and ele[1][1]==guild:
+                    game=ele[0]
+        name=''.join(synt).strip()
+        with shelve.open('vars') as f:
+            name_dic = f['name_dic']
+            user = ctx.message.author.id
+            ent_tup = (game,user)
+            name_dic[ent_tup]=(name,channel,guild)
+            print(name_dic)
+            f['name_dic']=name_dic
+        await ctx.send(f'{ctx.message.author} added to {game} under the name {name}.')
+    except UnboundLocalError:
+        await ctx.send('Unable to determine associated game with which to register you. Please provide a game name, make this request in the dedicated channel, or set this channel with an associated game.')
+
+@bot.command(pass_context=True)
+async def nameswitch(ctx):
+    synt = ctx.message.content[12:]
+    with shelve.open('vars') as f:
+        game_dic = f['game_dic']
+    if synt=='':
+        channel,guild = ctx.message.channel.id,ctx.message.guild.id
+        val_search = list(game_dic.items())
+        for ele in val_search:
+            if ele[1][0]==channel and ele[1][1]==guild:
+                game=ele[0]
+    elif synt.strip() in list(game_dic.keys()):
+        game = synt.strip()
+    else:
+        await ctx.send(f'{synt.strip()} is not in the list of known games.')
+    user_list = game_dic[game][2]
+    with shelve.open('vars')as f:
+        name_dic = f['name_dic']
+    for user in user_list:
+        ent_tup = (game,user)
+        name = name_dic[ent_tup][0]
+        user_obj = await ctx.guild.fetch_member(user)
+        await user_obj.edit(nick=name)
 
 bot.run(f'{token}')

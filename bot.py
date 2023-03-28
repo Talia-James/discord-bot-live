@@ -1,7 +1,7 @@
 import discord, random, re, asyncio, shelve,collections,math,sys#,time, csv, threading
 from datetime import datetime as dt
 from datetime import timedelta as td
-from discord.ext import commands
+from discord.ext import commands#, utils
 import pandas as pd
 from dice import *
 from difflib import SequenceMatcher
@@ -77,13 +77,8 @@ quarter_hours = [0,15,30,45]
 @bot.event
 async def on_ready():
     print('Awaiting orders, Captain.')
-    # server = bot.get_guild(399052850488934401)
-    # sw_channel = server.get_channel(801970982663225414)
-    # coc_channel = server.get_channel(794640287741902903)
     sw_channel = get_channel('sw')
     coc_channel = get_channel('coc')
-    # global coc_alert
-    # global sw_alert
     if len(sys.argv)>1:
         if sys.argv[1]=='quiet':
             coc_alert = True
@@ -139,6 +134,21 @@ async def on_ready():
                         await asyncio.sleep(60)
         else:
             await asyncio.sleep(minutes_15)
+##TODO Look into cachine the dictionary
+@bot.event
+async def on_voice_state_update(member,before,after):
+    try:
+        channel = after.channel
+        if channel != None:
+            user = str(member.id)
+            with shelve.open('vars') as f:
+                voice_map = f['voice_map']
+            name = voice_map[channel.name][user]
+            await member.edit(nick=name)
+    except KeyError:
+        print(f'{channel} not registered or {user} not registered there.')
+
+
 
 #Checks to see if the user has a nickname or not
 def name_check(ctx):

@@ -10,3 +10,5 @@
 'game_dic', (8192, 486)
 'name_dic', (8704, 1052)
 'voice_map', (10752, 732)
+'prev_names', (11776, 88)
+'active_games', (12288, 116)

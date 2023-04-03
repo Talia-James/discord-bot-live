@@ -92,8 +92,8 @@ async def on_ready():
     else:
         coc_alert = False
         sw_alert = False
+    print(f'Coc: {coc_alert}, SW {sw_alert}')
     while True: 
-        print(f'Coc: {coc_alert}, SW {sw_alert}')
         get_times()
         sw_alert_1 = sw_time-one_hour
         coc_alert_1 = coc_time-one_hour
@@ -139,27 +139,42 @@ async def on_ready():
 async def on_voice_state_update(member,before,after):
     try:
         channel = after.channel
-        if channel != None:
-            user = str(member.id)
+        user = str(member.id)
+        if channel != None and before.channel == None:
+            with shelve.open('vars') as f:
+                voice_map = f['voice_map']
+                prev_names = f['prev_names']
+                prev_names[user]=member.display_name
+                f['prev_names']=prev_names
+            name = voice_map[channel.name][user]
+            await member.edit(nick=name)
+        elif channel != None and before.channel != None:
             with shelve.open('vars') as f:
                 voice_map = f['voice_map']
             name = voice_map[channel.name][user]
             await member.edit(nick=name)
+        elif channel == None:
+            with shelve.open('vars') as f:
+                name = f['prev_names'][user]
+            await member.edit(nick=name)
+
+            
     except KeyError:
         print(f'{channel} not registered or {user} not registered there.')
 
 
 
-#Checks to see if the user has a nickname or not
-def name_check(ctx):
-    try:
-        if ctx.message.author.nick == None:
-            sender = ctx.message.author.name
-        else:
-            sender = ctx.message.author.nick
-    except AttributeError:
-        sender = ctx.message.author.name
-    return sender
+# #Checks to see if the user has a nickname or not
+##DEPRECATED##
+# def name_check(ctx):
+#     try:
+#         if ctx.message.author.nick == None:
+#             sender = ctx.message.author.name
+#         else:
+#             sender = ctx.message.author.nick
+#     except AttributeError:
+#         sender = ctx.message.author.name
+#     return sender
 
 #Loads titles from shelf file in case of bot interruption
 def load_titles():
@@ -331,7 +346,8 @@ async def pick(ctx):
 
 @bot.command()
 async def refresh(ctx):
-    sender = name_check(ctx)
+    sender = ctx.message.author.display_name
+    # sender = name_check(ctx)
     with shelve.open('vars') as f:
         f['votes']=[]
         f['vote_hist']=[]
@@ -340,14 +356,16 @@ async def refresh(ctx):
 
 @bot.command()
 async def runoff(ctx):
-    sender = name_check(ctx)
+    sender = ctx.message.author.display_name
+    # sender = name_check(ctx)
     with shelve.open('vars') as f:
         f['vote_hist']=[]
     await ctx.send(f'Vote history purged, Captain {sender}.')
 
 @bot.command()
 async def s(ctx):
-    sender = name_check(ctx)
+    sender = ctx.message.author.display_name
+    # sender = name_check(ctx)
     title = (ctx.message.content)[3:]
     titles = load_titles()
     titles.append(title)
@@ -366,7 +384,8 @@ async def titles(ctx):
 @bot.command(pass_context=True)
 async def vote(ctx):
     try:
-        sender = name_check(ctx)
+        sender = ctx.message.author.display_name
+        # sender = name_check(ctx)
         voter = ctx.message.author.name
         vote = ctx.message.content[6:]
         entry = f'{voter}-{vote}'

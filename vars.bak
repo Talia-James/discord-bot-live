@@ -11,4 +11,6 @@
 'name_dic', (8704, 1052)
 'voice_map', (10752, 732)
 'prev_names', (11776, 88)
-'active_games', (12288, 116)
+'active_games', (12288, 148)
+'star wars', (12800, 17)
+'call of cthulhu', (13312, 17)

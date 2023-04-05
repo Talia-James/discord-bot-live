@@ -1,4 +1,4 @@
-import discord, random, re, asyncio, shelve,collections,math,sys#,time, csv, threading
+import discord, random, re, asyncio, shelve,collections,sys
 from datetime import datetime as dt
 from datetime import timedelta as td
 from discord.ext import commands#, utils
@@ -54,9 +54,9 @@ def mid_noon(hour,ampm):
 def get_times():
     with shelve.open('vars') as f:
         global sw_time
-        sw_time = f['sw']
+        sw_time = f['star wars']
         global coc_time
-        coc_time = f['coc']
+        coc_time = f['call of cthulhu']
 
 def get_channel(game):
     with shelve.open('vars') as f:
@@ -92,7 +92,7 @@ async def on_ready():
     else:
         coc_alert = False
         sw_alert = False
-    print(f'Coc: {coc_alert}, SW {sw_alert}')
+    print(f'Coc: {coc_alert}, SW: {sw_alert}')
     while True: 
         get_times()
         sw_alert_1 = sw_time-one_hour
@@ -156,13 +156,93 @@ async def on_voice_state_update(member,before,after):
         elif channel == None:
             with shelve.open('vars') as f:
                 name = f['prev_names'][user]
-            await member.edit(nick=name)
-
-            
+            await member.edit(nick=name)            
     except KeyError:
         print(f'{channel} not registered or {user} not registered there.')
 
+@bot.command()
+async def set_gametime(ctx, *args):
+    args = [arg.lower() for arg in args]
+    ampm = None
+    with shelve.open('vars') as f:
+        alias_dict = f['active_games']
+    gamescan = [name for seq in list(alias_dict.values()) for name in seq] 
+    for arg in args.copy():
+        if arg in gamescan:
+            with shelve.open('vars') as f:
+                alias_dict = f['active_games']
+            for key in alias_dict.keys():
+                if arg in alias_dict[key]:
+                    game,_ = key,args.pop(args.index(arg))
+    for arg in args.copy():
+        if arg in ['pm','am','a.m.','p.m.','p.m','a.m','pm.','am.']:
+            if 'p' in arg:
+                ampm = 'pm'
+                args.remove(arg)
+            elif 'a' in arg:
+                ampm = 'am'
+                args.remove(arg)
+    for arg in args.copy():
+        if ':' in arg:
+            hour,minute = arg.split(':')
+            if ampm == 'am' and hour=='12':
+                hour = 0
+                minute = int(minute)
+            elif ampm == 'pm' and hour!='12':
+                hour= int(hour)+12
+                minute = int(minute)
+            else:
+                hour,minute=int(hour),int(minute)
+            args.remove(arg)
+        elif '-' not in arg and '/' not in arg:
+            hour = arg
+            minute = 0
+    if len(args)==1:
+        new_date = args[0]
+        for sep in ['-','/']:
+            if sep in new_date:
+                new_date = new_date.split(sep)
+        year,month,day = [int(ele) for ele in new_date] 
+        new_time = int(dt(year,month,day,hour,minute).timestamp())
+    else:
+        for arg in args:
+            if '-' in arg or '/' in arg:
+                for sep in ['-','/']:
+                    if sep in arg:
+                        new_date = arg.split(sep)
+                year,month,day = [int(ele) for ele in new_date] 
+            else:
+                minute = 0
+                if ampm == 'pm':
+                    hour = int(arg)+12
+                else:
+                    hour = int(arg)
+        new_time = int(dt(year,month,day,hour,minute).timestamp())
+    with shelve.open('vars') as f:
+        f[game]=new_time
+    await ctx.send(f'Next {game} game on <t:{new_time}>')
 
+@bot.command()
+async def gametime(ctx,*args):
+    game = ' '.join(args)
+    if game == '':
+        await ctx.send(f'Please provide the name of the game session. Available sessions: ')
+    else:
+        try:
+            with shelve.open('vars') as f:
+                alias_dict = f['active_games']
+                if game in alias_dict.keys():
+                    time=f[game]
+                else:
+                    for session in alias_dict.keys():
+                        if game in alias_dict[session]:
+                            time=f[session]
+                            game=session
+                        else:
+                            continue
+            await ctx.send(f'Next {game.title()} session is on <t:{int(time)}>, <t:{int(time)}:R>')
+        except KeyError:
+            await ctx.send(f'Unable to find {game} in session list.')
 
 # #Checks to see if the user has a nickname or not
 ##DEPRECATED##
@@ -222,44 +302,7 @@ async def transvestite(ctx):
     await ctx.send('I see you shiver with antici...')
     await asyncio.sleep(5)
     await ctx.send('...pation!')
-
-@bot.command()
-async def set_gametime(ctx):
-    game_and_time = (ctx.message.content)[14:]
-    game_and_time, ampm = time_check(game_and_time)
-    if game_and_time[0].lower()=='s':
-        game = 'sw'
-        time = game_and_time[2:]
-        year,month,day_hour = time.split(sep='-')
-        day, hour = day_hour.split(sep=' ')
-        hour,minute = hour.split(sep=':')
-        hour = mid_noon(hour,ampm)
-        epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
-        new_time = int(epoch)
-        with shelve.open('vars') as f:
-            f[game]=new_time
-        global sw_time
-        sw_time = new_time
-        global sw_alert
-        sw_alert = False
-        await ctx.send(f'Next Star Wars game on <t:{str(new_time)}>')
-    elif game_and_time[0].lower()=='c':
-        game='coc'
-        time = game_and_time[3:]
-        year,month,day_hour = time.split(sep='-')
-        day, hour = day_hour.split(sep=' ')
-        hour,minute = hour.split(sep=':')
-        hour = mid_noon(hour,ampm)
-        epoch = dt(int(year),int(month),int(day),int(hour),int(minute)).timestamp()
-        new_time = int(epoch)
-        with shelve.open('vars') as f:
-            f[game]=new_time
-        global coc_time
-        coc_time = new_time
-        global coc_alert
-        coc_alert = False
-        await ctx.send(f'Next Call of Cthulhu game on <t:{str(new_time)}>')
-
+    
 @bot.command()
 async def stamp(ctx):
     time = ctx.message.content[7:]
@@ -288,13 +331,6 @@ async def day_convert(ctx):
     now = dt.now()
     new_time = int(dt(now.year,now.month,now.day,int(hour),int(minute)).timestamp())
     await ctx.send(f'<t:{new_time}:t>, <t:{new_time}:R>')
-
-@bot.command()
-async def gametime(ctx):
-    game = (ctx.message.content)[10:]
-    with shelve.open('vars') as f:
-        time = f[game]
-    await ctx.send(f'Next {game} session is on <t:{time}>, <t:{time}:R>')
 
 #Needed dictionary to store variables
 dice_types = {
@@ -555,7 +591,7 @@ async def sig(ctx):
         await ctx.send(f'{tal} is not yet implemented, it has been appended to the list for Talia to add. Here is the link: {link}')
 
 @bot.command(pass_context=True)
-async def force(ctx):
+async def forceability(ctx):
     df = pd.read_csv('force_abilities_expanded.csv',encoding='utf-8',index_col='Talent')
     synt = ctx.message.content[7:]
     tal = sim_search(synt,df)
@@ -839,15 +875,17 @@ command_descriptions = {
     'upgrade':'Rank up or add a talent. !upgrade [name] [talent] [coordinates-if needed for signature or force ability]',
     'downgrade':'Rank down or remove a talent. !downgrade [name] [talent] [coordinates-if needed for signature or force ability]',
     'weapon':'Look up stats for a weapon !weapon [weapon] or search for similar names with !weapon search [search term]',
-    'armor':'Look up stats for armor !armor [armor] or search for similar name with !armor search [search term]'
+    'armor':'Look up stats for armor !armor [armor] or search for similar name with !armor search [search term]',
+    'forceability':'Look up details for a Force-specific ability that is not in the ranked or unranked list.',
+    'sig':'Look up details for a signature ability.'
 }
 
 @bot.command(pass_context=True)
 async def bothelp(ctx):
     synt = ctx.message.content[9:].lower()
-    botcommands = ['vote','stim','undo','status','heal','crit','critchara','quality','talent','pc','upgrade','downgrade']
+    botcommands = ['vote','stim','undo','status','heal','crit','critchara','quality','talent','pc','upgrade','downgrade','forceability','sig']
     if synt=='':
-        await ctx.send('Here is a list of the commands you can use:\nvote\nstim\nundo\nheal\ncrit\ncritchara\nquality\ntalent\npc\nupgrade\ndowngrade\n\nIf a command asks for your name, you only need to provide enough spelling to differentiate yourself, it will search for the closest match.\nFor more information on a command, type !bothelp then the command.')
+        await ctx.send('Here is a list of the commands you can use:\nvote\nstim\nundo\nheal\ncrit\ncritchara\nquality\ntalent\npc\nupgrade\ndowngrade\nforceability\nsig\n\nIf a command asks for your name, you only need to provide enough spelling to differentiate yourself, it will search for the closest match.\nFor more information on a command, type !bothelp then the command.')
     elif synt in botcommands:
         await ctx.send(command_descriptions[synt])
     else:

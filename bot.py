@@ -16,6 +16,8 @@ bot = commands.Bot(command_prefix='!',intents=intents)
 client = discord.Client(intents=intents)
 intents.members = True
 
+wiki_df = pd.read_csv('wiki.csv',encoding='utf-8',index_col='Entry')
+
 #Checks message input to parse out AM or PM and adjust timestamping accordingly
 def time_check(str):
     str = str.lower()
@@ -1059,5 +1061,39 @@ async def nameswitch(ctx):
         name = name_dic[ent_tup][0]
         user_obj = await ctx.guild.fetch_member(user)
         await user_obj.edit(nick=name)
+
+@bot.command()
+async def wiki(ctx,*args):
+    # args = [arg.lower() for arg in args]
+    search = ' '.join(args)
+    if '?' in search:
+        entry = sim_search(search,wiki_df)
+        body = wiki_df.loc[entry]['body']
+        await ctx.send(f'{entry}: {body}')
+    else:
+        try:
+            entry = search
+            body = wiki_df.loc[search.title()]['body']
+            await ctx.send(f'{entry.title()}: {body}')
+        except KeyError:
+            scan = iter(wiki_df.index.tolist())
+            test = next(scan)
+            searching=True
+            while searching==True:
+                try:
+                    if (search in test) or (search.title() in test):
+                        entry = test
+                        body = wiki_df.loc[entry]['body']
+                        found = True
+                        break
+                    else:
+                        test = next(scan)
+                except StopIteration:
+                        found = False
+                        searching=False
+            if found:
+                await ctx.send(f'{entry.title()}: {body}')
+            else:
+                await ctx.send(f'I am sorry, but I cannot find {search} in my database.')
 
 bot.run(f'{token}')

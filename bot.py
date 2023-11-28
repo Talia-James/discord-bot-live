@@ -1,4 +1,4 @@
-import discord, random, re, asyncio, shelve,collections,sys
+import discord, random, re, asyncio, shelve,collections,sys, os
 from datetime import datetime as dt
 from datetime import timedelta as td
 from discord.ext import commands#, utils
@@ -17,6 +17,12 @@ client = discord.Client(intents=intents)
 intents.members = True
 
 wiki_df = pd.read_csv('wiki.csv',encoding='utf-8',index_col='Entry')
+wiki_df = wiki_df[['body','status']]
+wiki_topics = wiki_df.index.tolist()
+done_df,prog_df = wiki_df[wiki_df['status']=='Complete'],wiki_df[wiki_df['status']=='In Progress']
+done_entries,prog_entries = [t.lower().strip() for t in done_df.index.tolist()],[t.lower().strip() for t in prog_df.index.tolist()]
+global wiki_log
+wiki_log = []
 
 #Checks message input to parse out AM or PM and adjust timestamping accordingly
 def time_check(str):
@@ -136,7 +142,8 @@ async def on_ready():
                         await asyncio.sleep(60)
         else:
             await asyncio.sleep(minutes_15)
-##TODO Look into cachine the dictionary
+
+
 @bot.event
 async def on_voice_state_update(member,before,after):
     try:
@@ -1068,32 +1075,44 @@ async def wiki(ctx,*args):
     search = ' '.join(args)
     if '?' in search:
         entry = sim_search(search,wiki_df)
+        results = sim_search(search,wiki_df,search=True)
         body = wiki_df.loc[entry]['body']
-        await ctx.send(f'{entry}: {body}')
+        await ctx.send(f'Showing results for closest match {entry}: {body}')
+        await ctx.send(f"Not what you're looking for? Here are the 5 closest entry matches: {results}")
+    elif search.lower() in done_entries:
+        entry = search
+        body = wiki_df.loc[search.title()]['body']
+        await ctx.send(f'{entry.title()}: {body}')
+    elif search.lower() in prog_entries:
+        global wiki_log
+        wiki_log.append(f'Search for incomplete entry: {search}')
+        await ctx.send(f'{search} is in the wiki but does not currently have an article. This topic has been submitted for higher priority.')
     else:
-        try:
-            entry = search
-            body = wiki_df.loc[search.title()]['body']
-            await ctx.send(f'{entry.title()}: {body}')
-        except KeyError:
-            scan = iter(wiki_df.index.tolist())
-            test = next(scan)
-            searching=True
-            while searching==True:
-                try:
-                    if (search in test) or (search.title() in test):
-                        entry = test
-                        body = wiki_df.loc[entry]['body']
-                        found = True
-                        break
-                    else:
-                        test = next(scan)
-                except StopIteration:
-                        found = False
-                        searching=False
-            if found:
-                await ctx.send(f'{entry.title()}: {body}')
-            else:
-                await ctx.send(f'I am sorry, but I cannot find {search} in my database.')
+        await ctx.send(f'I am sorry, but I cannot find {search} in my database. React to this message if you would like to add it to the list of topics to be added.')
+
+@bot.event
+async def on_reaction_add(reaction, user):
+    content = reaction.message.content
+    if content.startswith('I am sorry, but I cannot find'):
+        parser = 'I am sorry, but I cannot find in my database. React to this message if you would like to add it to the list of topics to be added.'.split(' ')
+        term = ' '.join([t for t in content.split(' ') if t not in parser])
+        chan = reaction.message.channel
+        global wiki_log
+        wiki_log.append(f'Search for nonexistent entry: {term}')
+        name = user.display_name
+        await chan.send(f'{term} added to topic log by {name}.')
+
+@bot.command()
+async def log_dump(ctx):
+    log_df = pd.DataFrame()
+    global wiki_log
+    log_df['term']=wiki_log
+    path = os.getcwd()
+    time_ = int(dt.now().timestamp())   
+    log_df.to_csv(f'wiki_log_{time_}.csv',encoding='utf-8',index=False)
+    await ctx.send(f'wiki_log_{time_}.csv dumped to {path}')
+    wiki_log = []
+
+
 
 bot.run(f'{token}')

@@ -1,48 +1,569 @@
-Entry,body
-Kiara,Human commander who really doesn't like us.
-Armando Quanti,"Weequay information broker who helped us on the start of our journeys. Working for the Republic, he has since been reassigned."
-The Fuckit-Bucket,"Our YT-2000 freighter that's seen its share of pain. Kavin keeps her together, with spit and wishes sometimes, but somehow she's always pulled through. To Vi's great annoyance, the protocol droid who registered their name in the database as the Duckit-Bucket due to autocorrect, so their designation is DB-1. Though sometimes, since falling in with some rough crowds and needing to hide their past bounties or affiliations, they use a second transponder under the name ""The Spicy Rancor."""
-Lambda,"Former ISB agent, but still very young. She defected with Artie, trying to sell her information to the highest bidder--maybe the Black Sun?"
-Voss Prime,"Outer Rim planet known for blush manufacturing. Mostly a volcanic moon orbiting a gas giant, Voss Prime still has rich plant life in a tropical climate--with the occasional earthquakes."
-Karris Collective,Cartel running Voss Prime
-R3 (Artie),Black astromech droid originally belonging to former ISB agent codenamed Lambda.
-Morven Rask,"Force master of the Ashani tradition. Tried to claim the Eon Codex for himself to fight the Krynn, but instead offered to train Khay and her crew in his ways with the hope they would join his cause. "
-Cerberus,"Name of the Imperial project Dr. Starblade worked on, with the goal to clone the Emperor. The result of this project was encountered on Bestu when Khay confronted the source of at least some of her Force connection, yes in the form of a cybernetic Emperor (somehow). While Khay, Vi, and Kavin escaped this monster, they never quite saw a body..."
-Dr. Nariyah Reyan,Genetic engineer who worked on Cerberus.
-Dr. Voss Henson,Neurologist who worked on Cerberus.
-Dr. Jaxon Kline,Clone tech expert who worked on Cerberus.
-General Kaelen Renfro,Soldier involved in overseeing Cerberus.
-Admiral Garret Thorne,Soldier involved in overseeing Cerberus.
-Colonel Lyra Zarek,Soldier involved in overseeing Cerberus.
-Nihlus Veil,Extremely difficult patch of space with little life--but still with some planets lost to time.
-Grand Admiral Thrawn (Mitth'raw'nuruodo),"Chiss Grand Admiral of the Empire, in direct command of his flagship--the ISD Chimaera, and the 7th Imperial Fleet."
-Grand Admiral Rae Sloane,Human woman in command of the ISD Leviathan and the 3rd Imperial Fleet. Her legion wears a shark logo with the number 3 on their armor with a dark grey and crimson trim palette.
-ISD Chimaera,Apparently new or experimental Imperial Star Destroyer under the command of Grand Admiral Thrawn. Troopers and officers from this feared vessel typically display dark grey colors with blue trimming. The Chimaera is currently in the Outer Rim.
-ISD Leviathan,Star Destroyer under the command of Grand Admiral Sloane. Troopers and officers from this feared vessel typically display dark grey colors with blue trim.
-ISD Vengeance,"Flagship of Admiral Valeria Drayk and the former 12th Fleet, now the Shadow's Hand."
-Shadow's Hand,"Group of Imperials working under Admiral Valeria Drayk. Their actual status in the Empire is dubious at best to our knowledge, as they do not operate in traditionally Imperial ways."
-Admiral Valeria Drayk,"Human female leading the Shadow's Hand fleet--formerly the 12th Imperial Fleet. Her flagship, the ISD Vengeance, is the one that pursued us to Votaris seeking the Eon Codex."
-Eon Codex,
-Eilin Keldan,Daughter of a galaxy-reknowned scholar of ancient Sith civilization. She has a protector droid named Zeke
-Zeke,Eilin's protector droid.
-Tholothian Crest,Rask's training facility.
-Ashani Way,Force tradition emphasizing the continuous nature of the Force. They view the light and dark as the same concept with different aspects and seek to pursue balance and understanding of the entire concept.
-The Flow of Balance,"Ashani meditation practice, emphasizing the balance between light and dark (resembling IRL Tai Chi)."
-Krynn,"Ancient insectoid race, strong in the Dark side of the Force. Worshippers of the ""Dark Star"", they believe all who use the Force are stealing from their god. They are a mostly unknown threat to the galaxy at large,hailing literally from the Unknown Regions, but may prove its undoing if left unchecked regardless of their obscurity. "
-Order of the Darkstar,"Secret cabal of Force sensitives, powerful in the Dark Side and opposed to the Krynn, who use their own lightsabers crafted from the Darkstar itself--but is it corrupting them to work for the Krynn unwittingly? The Order is lead by Varkas Koss (Var)--Vi's twin brother long thought to be dead."
-Varkas Koss (Var),"Vi's younger twin brother (by four minutes!). During the rebellion, after the loss of the rebel base on Hoth, Var volunteered for what was known even then as a near-certain suicide mission. Overconfident in his abilities as a fighter and combat engineer, Var eagerly went on the mission to bring recognition to his family (or to himself from his family?). Unfortunately, the mission was the predicted disaster, and Var was long thought to be dead as the rebellion refocused their efforts on the emerging threat of the second Death Star."
-Project Khaybear,"Secret project lead by Dr. Starblade to clone the daughter she lost, Khaylia. Using resources from Cerberus, she worked to clone Khay perfectly, down to her memories. While successful, she had to recruit the help Nala Se, a Kaminoan. Nala Se ultimately betrayed Dr. Starblade's trust and made modifications to Khaylia's genome allowing her to break free of the Imperial conditioning Dr. Starblade was implanting."
-Nala Se,Kaminoan cloning expert recruited by Dr. Starblade to help in Project Khaybear. She may be the only one responsible for Khay's breaking free of Dr. Starblade's attempt to implant Imperial conditioning into Khay's genome.
-Heirloom Tea Set,An heirloom to Khay from her mother--originally a gift from Grand Admiral Thrawn himself. She often drank with this set during her short breaks trying to 'resurrect' her daughter.
-Ven,"Middle-aged male Chiss who teaches Foresee and Farsight at the Ashani training academy. He was formerly a member of an important family in the Chiss Ascendancy, but he was driven out by something and won't discuss it further."
-Ezor Desh,"Former Sith, they abandoned the Dark Path and teaches combat at the Ashani training academy. Currently in a relationship with Thelania Voss"
-Thelania Voss,"Former Jedi who left the Order around the same time as Rask. She teaches meditation, Soresu, and Ataru techniques. Currently in a relationship with Ezor Desh"
-Ranara,"Young, dark-haired human who is a visionary at the Ashani training facility."
-Rhyssa,Togruda student at the Ashani training facility.
-Ilsan,Zabrak student at the Ashani training facility.
-Jenna,"Human female acolyte in the Order of the Dark Star. She was killed by Vi in the failed assassination of a Senator on Coruscant, with her Zabrak master only getting away with one of her lightsabers. Using psychometry on the other one, Khay discovered Var was the leader of the Order of the Dark Star and had her first visions of the Krynn before even knowing what they were."
-Trynn Starblade,"The ultimate conclusion to Project Khaybear. After Khay's perceived betrayal of the Empire during the Battle of Endor, Dr. Starblade succeeded in undoing the alterations to Khay's genome made by the Kaminoan Nala Se. This new clone was named Trynn, after another name Dr. Starblade had considered for Khaylia. Finally loyal to the Empire, Dr. Starblade eventually confessed the truth to Trynn, the results of which we still don't know. Trynn went on to lead Crimson Ghost Squad, which was the group that worked with the Pykes during the assault on the Olympia that nearly killed countless people on Coruscant. She wasn't completely different from Khay though--she still did have an 'alien' girlfriend."
-Xeran Varros,"Imperial Force sensitive, possibly an Inquisitor, working for the Shadow's Hand and Admiral Drayk. "
-Shadow Disciples,"Followers of Xeran Varros, our primary attackers during the frantic escape from the moon-bit-shower that rained down on the Eon Codex's location on Votaris."
-Nali Darkstar,"TIE pilot whose helmet stayed on Endor's moon long after the battle where Vi and Khay met. Years later during a romantic getaway, they found the helmet while wandering through the forest for a picnic."
-General Barris,"Current commanding officer, though he's mostly cut us loose for now--we work better without rules. We were originally suspicious of him, and Doc was able to let us know he commanded a squad known as the Reapers during the rebellion. However, since our first meeting we've mostly come to trust him--especially since he helps shield us from Kiara."
+﻿Entry,body,expanded_info,img_path,caption
+"""Sergeant"" Finn Coran",Bounty hunter masquerading as a Republic soldier. Had Shana Vax in his captivity while we were rescruing Keela on board the Crimson Princess.,,,
+Abrinov,"Recently discovered planet, New Republic settlement, with Khoren Refugees making a homestead, also the site of an old Sith temple",,,
+Admiral Garret Thorne,Soldier involved in overseeing Cerberus.,,,
+Admiral Valeria Drayk,"Human female leading the Shadow's Hand fleet--formerly the 12th Imperial Fleet. Her flagship, the ISD Vengeance, is the one that pursued us to Votaris seeking the Eon Codex.",,,
+Aeon Codex,Incredibly powerful device used by ancient Sith to channel the Dark side of the Force. It grants the bound user immense power at the cost of eventually consuming them. Currently bound to Khay and housed in an extremely secure vault on the Tholothian Crest--the training grounds for the Echani Order. The party originally found it on Votaris. Heavily sought by the Order of the Darkstar,,,
+Ageem,Culkoo's family name and line.,,,
+Agora,Odd hybrid creatures that were results of experimentations done on the Eclipse. Known to cause problems with perception and induce nausea.,,,
+Agore,See Agora,,,
+Aika,Young Wellik translator who helped us with Sayto and Mother Ukada,,,
+Ajax,Rodian techy encountered on New Orvos during the party's initial recruitment.,,,
+Akuna Corporation,Shell corporation on Coruscant. Masked their true activity of manufacturing chemical weapons for the Imperial Remnant.,,,
+Alastea,See Alestea,,,
+Alastea,See Alestea,,,
+Alderaan Fragment,Crystalline fragment of Alderaan in possession of Varokis Koss.,,,
+Alek,Jess's cousin on Haccara--in the farming sector.,,,
+Alestea,Ice moon with a former mining operation. Where we found our original korthium kyber crystals.,,,
+Alia,Leader of the Falling Star Mercenary Company.,,,
+Alira,Name given to us on Haccara after we tested positive for something (it was the Force but they didn't really understand it).,,,
+Almira,Goddess of the light worshipped on Ulara.,,,
+Alran,"Pilot of the Crimson Princess, the slaver ship we commandeered to get to Kessel to rescue Keela.",,,
+Amata,"Apprentice involved in the false flag operation on Ulara. She had protruding veins and an addiction to some inhaler--characteristics of those who made it out of Dr. Starblade's experiments alive. Vi took her red, double-bladed lightsaber after killing her--Vi's first actual lightsaber.",,,
+Amaya Barris,"Former ISB agent, but still very young. She defected with Artie, trying to sell her information to the highest bidder--maybe the Black Sun?",,,
+Anian,"Young, female pilot working for the New Republic. Also good with computers.",,,
+Anosh System,Highly radioactive zone in Uknown Space. Last known location of the Eclipse and Dr. Starblade (as far as the New Republic is concerned).,,,
+April,"Navigator of the Crimson Princess, the slaver ship we commandeered to get to Kessel to rescue Keela.",,,
+Ara Kriss,"Zeltron encountered on Haccara. She was on board a shuttle located in the Imperial compound that we…forcefully…opened with an AT-ST cannon shot. She survived the shot, but not us.",,,
+Arami System,System near Hutt space where Lumina Station--an old Argent Circle base--is located.,,,
+Argent Circle,"Mercenary salvage group, they have been known to kill crews and take parts.",,,
+Armando Quanti,"Weequay information broker who helped us on the start of our journeys. Working for the Republic, he has since been reassigned.",,,
+Arra Tos,Falleen shipyard owner on New Endor. She sold us out to the Pykes and is directly responsible for Keela and Rook being enslaved.,,,
+Artie,See R3,,,
+Arty,See R3,,,
+Asha,"Commander of Jaeger Squadron, hotshot pilot, and Khay's ex. She flew with Talon squadron, based on the ISD Justicar, before herself defecting to the Rebellion/Republic.",,,
+Ashani,See Echani,,,
+Ataru,"Form IV, also known as Ataru, the Way of the Hawk-Bat, or The Aggression Form, was the fourth of the seven forms of lightsaber combat. An aggressive style, Form IV was fast-paced and effective against single opponents, though weaker in prolonged combat and confined spaces. Also, it was not recommended for use against opponents wielding blasters. Ataru was characterized by Force-assisted acrobatics, such as somersaults and leaping strikes, both for attack and defense. Another characteristic of the form was its fast strikes from multiple directions.",,,
+Aurach’s Nest,Bar in Wolak City on the moon Wolak. Where we met Mira Kast.,,,
+Aurorans,"Natives of the planet Ylara, supported by the New Republic.",,,
+Balu,Rando Bothan we encountered on Waylosh,,,
+Barazal,Force Aspect of Balance we encountered in the cave on the Tholothian Crest.,,,
+Bastion Colonial Corporation,Organization on Farpoint Station on Pranrock III that obtained navigation data for the Anosh region that the Republic wanted. We needed it to find the Eclipse.,,,
+Baush,"Young, short wookie encountered on New Orvos during our initial enlistment into the Republic military.",,,
+Baxta,Culkoo’s mother’s informant on Ryloth with information about Nax'ari Syndicate,,,
+BD,Kavin's explorer droid. Very useful. Affectionately called 'Wong.',,,
+Beakiya Mota,Former Imperial scientist now working for the Republic. Around 52 years old. Last known location working at the Devion facility.,,,
+Bel Starblade,"Oldest child of Jarl and Shamish Starblade, attended the Royal Imperial Academy and transferred to ISB Academy and Office in his last year, eventually serving as an ISB Loyalty Officer on the ISD Firestorm. Was more of the serious one growing up--often tattling to their nanny on his younger siblings. DOB: 25 BBY",,bel_starblade.png,Palpatine Youth
+Betsu,"Planet with purple skies originally seen in one of Khay's visions. Was the site of top secret Imperial research headed by Dr. Starblade. Was the site of Project Cerberus and KB, the former of which still yielded a grotesque clone of Emperor Palpatine that was allegedly defeated when the site was destroyed.",,,
+Bhalorran Bristlecat,Cat-like creature with chameleon-like abilities to change its color. We encountered one during our trials on the Tholothian Crest and ultimately convinced it to aid us rather than oppose us.,,,
+Bitronia,"Planet that is part of the Sevix Confederation. Worked with the Republic in ship production, but that status is tenuous. Remnant forces are also vying for control and influence.",,,
+Black Nebula Squadron,"Imperial Remnant squadron under the command of Commander Terrus Starblade--Khay's brother. When serving, Khay's call sign was BN3.",,,
+Bluewater,Local bar on Haccara.,,,
+Bondar City,"City on Bitronia, location of the main political conflicts.",,,
+Brandis,"Twi'lek tech who tipped Doc off about the plan to assassinate a senator, which was ultimately revealed to be an Order of the Darkstar plot.",,,
+Breos,"Moon of the planet Treduru, a safe haven for the pirate group known as the Wraiths.",,,
+Britisa,Republic intelligence operative who received our samples of the imperial viral weapon on New Orvos.,,,
+Bruk,Trandosian bartender of the Rusty Blaster.,,,
+Cadera,"Ruined city on Jedha, where we found the Tomb of Vexa Chur.",,,
+Caeli Tarn,"Human tomb raider, encountered on Savara Cross on Zyrakar. We liberated her ship, The Drift, in return for more information on the Order of the Darkstar.",,,
+Caelum Rexis,"Dark side master in the Order of the Darkstar, subservient to Lord Var. Attempted and failed to retrieve the star map of Force vergances when we took posession of it. Forced us to accidentally destroy the place. Bastard.",,,
+Caldara Station,Odd settlement of three asteroids cobbled together into stations. Found near Haccara.,,,
+Cali,"Fallen Mirialan Jedi who worked for Freya on Kella. It took a huge effort for us to resist her power, with Vi taking the brunt of it while the rest focused on her forces. Her fate is uknown, as during the fight she and Zatt had their fated duel but were separated at some point. She was in love with Petro at one point.",,,
+Captain Ella,"A captain Kavin asked another Chiss about once. (Episode 23, From the Ashes)",,,
+Captain Jarl Starblade,"Originally from the Arkanis sector, Captain Starblade served as a member of the Coruscant Security Force before serving in the Clone Wars and Galactical Civil War. He captained the Imperial I Class Star Destroyer, the Predator, during the Galactical Civil War. Also Khay's dad--at least in some way.",,khay_dad.png,High ranking fascist.
+Captain Jorel Has,"Captain of a ship that Cho once stowed away on. Instead of ejecting him, the captain let Cho stay on as a crewman. He gave us the information that Freya Sett was located on Kella doing the same thing to the native Welliks that she did to Cho's people.",,,
+Captain Reece,"Captain of the slaver ship the Crimson Princess. He at least agreed to help us infiltrate Kessel and liberate Keela. Does that make him better, if he's not technically the one slaving?",,,
+Captain Toren,Commanding officer of the ISD Vengeance who ordered the evacuation of all Imperial forces around Votaris and the Nihlus Veil.,,,
+Captain Vandar,Republic soldier who helped us guard the statue of Mon Motha during our first encounter with the Order of the Darkstar.,,,
+Cathar (faction),"Faction, presumably non-native, opposing the Aurorans in the civil war on Ylara. Supported by the Imperial Remnant.",,,
+Cathar (species),"Species of feline, bipedal humanoids native to Cathar, a planet of savannas and rough uplands.",,,
+Cato,Agricultural moon (or planet?) which was the site of a Remnant viral attack,,,
+Cerberus,"Name of the Imperial project Dr. Starblade worked on, with the goal to clone the Emperor. The result of this project was encountered on Bestu when Khay confronted the source of at least some of her Force connection, yes in the form of a cybernetic Emperor (somehow). While Khay, Vi, and Kavin escaped this monster, they never quite saw a body...",,,
+Cheunh,Ancient language spoken by Kandala,,,
+Chief Petty Officer Marlo Vin,Officer who supplied us at Echo Base Sigma.,,,
+Chorus Cantata,Carved bone instrument from the Chorus Cantina on Coruscant before the rise of the Empire--a bag-pipe like instrument. In possession of Varokis Koss.,,,
+Chryso (Kris),"Zeltron with blue hair, pink skin, and a bubbly personality. Very outgoing and intuitive, accompanied us on our training journey for the Echani. Her smell aroused us.",,,
+Cinta,Location of the Stormpike before we 'reallocated' it for the Pykes in order to get Keela back.,,,
+Colonel Lyra Zarek,Soldier involved in overseeing Cerberus.,,,
+Commander Cormin,"Republic soldier who got our accomodations in Endor City, New Endor.",,,
+Commander Gann,Republic commander of the Kestrel.,,,
+Commander Karis,Commanding officer who has the power to send in Jaeger Squadron. Cho implored with her to finish the job on Wylosh when we were reassigned before securing the planet for the Republic.,,,
+Commander Terrus Starblade,"Middle son of Jarl and Shamish Starblade, attended the Royal Imperial Academy and was stationed in Lothal after graduation. Leader of the Black Nebula Squardron--call sign BN1. He was very close with Khay and somewhat of a ""man of the people""--as much as one could be while also being an Imperial. He was responsible for letting Khay fly some of her first spacecraft, likely a bit too young to be allowed to do so without serious connections. DOB: 23 BBY",,terrus_starblade.png,Clearly Team Edward
+Crimson Princess,The slaver ship we commandeered to get to Kessel to rescue Keela. Originally found on Tattooine.,,,
+Crixa Adeem,"Culkoo's mother. Former Rodian Law Enforcement Division member, killed by the syndicate as leverage/collateral damage over Torka Vossk's ties with them.",,,
+Dakao,See Dakoa,,,
+Dakoa,Bith vendor who sold us our secondary transponder.,,,
+Darkstalker,"Horrible, dark-side-touched creature we fought on Votaris on the way to claiming the Aeon Codex.",,,
+Darkstar Tree,"A species of tree found on the forest planet Kella and worshipped by the Wellik. The tree has natural connections to the Force of the planet and is consequently highly prized as material for a manner of things, from furniture to lightsaber hilts. The Black Sun group had interests in harvesting these trees via mechanized and slave labor until we (at the behest of Cho) put a stop to it all.","Overview:
+
+The Darkstar Tree, exclusive to Kella, a moon shrouded in dense forests, is a botanical marvel. Known for its imposing stature, striking dark black wood, and reddish-gold leaves that shimmer under Kella's moons, these trees are akin to the mythical titans of folklore, towering over the landscape like ancient guardians.
+
+Sacred Connection:
+
+To the native Wellick, a sentient humanoid deer-like species, the Darkstar Tree holds profound spiritual significance. Interwoven with the Force, these trees are revered as living symbols of Kella's spirit. They form the heart of Wellick culture, serving as sacred sites for communal rituals and tranquil spaces for meditation.
+
+Ecological Role:
+
+The Darkstar Tree plays a pivotal role in maintaining Kella's ecological equilibrium. Its extensive root systems prevent soil erosion and sustain a unique ecosystem, home to several species found nowhere else in the galaxy.
+
+Illegal Exploitation:
+
+Under the oppressive control of the Black Suns Cartel, the Darkstar Tree faces severe threat due to rampant, unregulated exploitation. The Black Suns, driven by greed, have turned Kella into a hub for illegal logging, harvesting the rare Darkstar Wood for the black market. This lucrative trade is a direct violation of New Republic laws, but enforcement is virtually non-existent on Kella, leaving the moon's fate hanging in a precarious balance.
+
+Devastating Impact:
+
+The unchecked harvesting of Darkstar Wood has led to widespread deforestation, disrupting the ecological harmony and endangering the future of both the Darkstar Tree and the native Wellick. As the Cartel continues to strip Kella of its natural resources, the survival of this once-thriving moon hangs in uncertainty.
+
+Cultural Tragedy:
+
+For the Wellick, the destruction of the Darkstar Trees is not just an ecological disaster but a devastating blow to their cultural identity and spiritual beliefs. The desecration of these sacred groves symbolizes the loss of their heritage and a direct attack on their way of life.
+
+Conclusion:
+
+The plight of the Darkstar Tree and Kella serves as a stark reminder of the consequences of unchecked exploitation and the need for galactic awareness and intervention. As the moon's natural beauty and cultural heritage teeter on the brink of extinction, the Darkstar Tree remains a poignant emblem of what is at stake – the preservation of a unique ecosystem and the survival of an ancient culture intimately connected to it.",darkstar_tree.png,Valuable redwoods.
+Darro,Navigator's Guild operative who tried to stop Vriska from helping us. His disruptor pistol made a nice present for Culkoo.,,,
+Dathomirian Phalanx,"Republic research ship where Vic Ren (Jira) formerly served. The last known commander was Vex Antiz, a dathomirian, and was last known to be in the Uknown Regions, in Wild Space.",,,
+Dax,Contact given to Culkoo with more information on the Argent Circle scrapper group.,,,
+Deigo Floto,Jedi guardian of the Tomb of Vexa Chur--whose own tomb was encountered on our way to Vexa Chur's 900 years later.,,,
+Dennan,Capitol city of Haccara,,,
+Devinos 4,Small Imperial ISB listening station one system over from New Orvos,,,
+Devion,Top secret research facility and last known location of Beakiya Mota. All we know is that it's similar to Quantham.,,,
+Devric,Deveronian who spoke with Khay at some point?,,,
+Dolla,Female twi'lek who was one of the guardians of the Tomb of Vexa Chur.,,,
+Dr. Anders,Head botanist of the base where we woke Kandala. Investigated the samples we brought back from Abrinov.,,,
+Dr. Armatage,See Dr. Armatige,,,
+Dr. Armatige,One of the two remaining researchers found in the wreckage of the Eclipse in the Anosh system. Was allegedly trying to find a cure for Rakghouls.,,,
+Dr. Armitage,See Dr. Armatige,,,
+Dr. Avis Kraan,Deceased doctor who was working on the Eclipse when it crashed. She met her grisly fate by being drained by a Ssi-Ruu.,,,
+Dr. Edal,Herglic doctor associated with the Eclipse. Found his locker in the crash site.,,,
+Dr. Elon Revas,"50-ish year old Mirialan scholar, employed by the Koss family. Gave us information on the Order of the Darkstar and the golden holocron in Varokis' possession.",,,
+Dr. Grimfollows (Grim),Ithorian doctor who helped replace Vi's arm.,,,
+Dr. Jaxon Kline,Clone tech expert who worked on Cerberus.,,,
+Dr. Keldan,"Eilin's father and premier expert on ancient Sith lore, language, and history. Unfortunately, he was killed by lightsaber wielders after getting too close to the Aeon Codex--presumably making him an enemy of the Order of the Darkstar.",,,
+Dr. Nariyah Reyan,Genetic engineer who worked on Cerberus.,,,
+Dr. Ora,Younger human doctor who replaced Vi's arm after losing it on Haccara. She also gave us information about Rase and a Zeltron working for Endara.,,,
+Dr. Ota,"One of the living researchers encountered in the wreckage of the Eclipse. She was heavily involved in Rakghoul research and disturbingly protective of them. Coincidentally, she was also a top student of Dr. Starblade's.",,,
+Dr. Shamish Starblade,"Born on Coruscant, the brilliant geneticist and clone expert began her career by interning at the Grand Republic Medical Facility, which gave her the connections to join a number of projects reporting directly to Emperor Palpatine. Project Cerberus was her venture that attempted to clone the Emperor, Force powers and all, but she secretly diverted at least some resources to clone Khaylia. She successfully achieved this--twice actually!--but was not thrilled with her first success's defection from the Empire.",,khay_mom.png,"Mad scientist, but she did give us our Khay."
+Dr. Voss Henson,Neurologist who worked on Cerberus.,,,
+Draken Vossel,"Local weequay warlord on Savara Cross on Zyrakar. Impounded Caeli Tarn's ship The Drift, causing us to liberate it from him in order to get closer to the Order of the Darkstar. Secretly bugged our ship before escaping to Votaris.",,,
+Drayk,See Admiral Valeria Drayk,,,
+Dulna the Hutt,Bacta supplier for the New Republic,,,
+Echani,See Echani Way,,,
+Echani Way,Force tradition emphasizing the continuous nature of the Force. They view the light and dark as the same concept with different aspects and seek to pursue balance and understanding of the entire concept.,,echani_logo.png,Logo of the Echani Order
+Echo Base Sigma,Small Republic base on the moon of Paraga IV. We had a quick stopover here to refuel and resupply after Mirial and before going to Valsura.,,,
+Eclipse,"New Republic medical research ship, lost on the edge of Uknown Space near the Anosh system. Notably had Dr. Starblade on board before she was 'lost'.",,,
+Eera,See Ira,,,
+Eha'io,"Presumed guardian or otherwise protector of Leoonia. The girl kept asking for this person, not realizing they were bitten by an insect and were likely killed by a viral bioweapon or some other chemical agent.",,,
+Eilin Keldan,Daughter of a galaxy-reknowned scholar of ancient Sith civilization. She has a protector droid named Zeke,,eilin.png,Daughter of a Sithin' Man
+Elara Tarn,"Apprentice to Caelum Rexis, both of whom serve Lord Var in the Order of the Darkstar. She attempted to stop us from acquiring the star map of Force vergeances.",,,
+Elinara Zhen,"Member of the Jedi Order who wrote a note to Vilira Koss asking to take in her twin children Vi and Var. The note was preserved, unopened, in a book in Vilira's study--implying Vi and Var's future was much discussed among adults during their childhood.",,,
+Embara Tree,"Ancient Sith tree that produces crystals instead of leaves or fruit. Revered by Kandala, other ancient Sith, and other 'sorcerors', it was known to be capable of at least growing on Dathomir in the known systems. Their seeds were believed to be able to house the spirits of the fallen and provide for their resurrection.",,,
+Endara,"Harch, former ISB agent. Lead the operations on Caldara Station in service of the 'Triumvirate'--allegedly 3 Moffs leading the rebirth of the Empire. We captured her using a Harch-specific sedative, but her parting words about Dr. Starblade wanting to see her daughter still gave her the last laugh.",,,
+Epsilon,"Clandestine Republic intelligence group that originally kept medical records of our former imperials--Khay and Kavin--but grew to expand its interest in all of us even when we were working for them. Originally under Gold Team with Major Kal Juros, we were reassigned to General Barris later.",,,
+Eshani,See Echani Way,,,
+ESO-1,Serum with some sort of mind-altering properties. This particular formulation was used on Trynn for her memory implantations.,,,
+Ezor Desh,"Former Sith, they abandoned the Dark Path and teaches combat at the Echani training academy. Currently in a relationship with Thelania Voss.",,,
+Faldonna,Trandosian woman on Tatooine who dug up information on Crimson Ghost Squadron for us (for 500 credits).,,,
+Falling Star Mercenary Company,"Mercenary group encountered on Wolak. Mostly comprised of former imperials, they were interested in the Collective during our time on Wolak.",,,
+Farpoint Station,Located on Pranrock III. Was the location of navigation data we needed to ultimately find where the Eclipse crashed--the planet RY-467.,,,
+Fish Market,Valsura market where exotic goods can be acquired. Location where Vi bought her Spectra-Fiber Combat Armor.,,valsura_fish_market.png,"The ""Fish Market' on Valsura"
+Free Navy Zelleck,"Group that stole bacta from Dulna the Hutt, allegedly for Kalgus the Hutt.",,,
+Frenzy,"Freighter operated by the Falling Star Mercenary Company. Captained by Rom. Very likely transported spice, at least according to Kavin's nose.",,,
+Freya Sett,Former Imperial commander that controlled the operation that destroyed Cho's home and people. She was killed by Cho while leading the Black Sun operation on Kella.,,,
+Fuzzmaw,"Cute, cuddly animals found on Bet'su and adopted by Keela. They breed like Kavin does spice.",,fuzzmaw.png,Stop. Fucking.
+G2P0,"Colorful custodian droid with a boom box in his chassis. Found on Bet'su, he was the facility gardener and grew several varieties of plants. After our escape, he came with us and became the ship's gardener, taking over Doc and Culkoo's old spaces to grow a bunch of different plants for us, including some plants from Ryloth for Keela and psychedelics for Kavin.",,,
+Garris,Chadrafan thief who was the leader of the group who actually stole the bacta from Dulna the Hutt.,,,
+General Brix,Republic general encountered during the spice heist on Cinta.,,,
+General Fache,"Officer who met us on Endor City, member of Epsilon.",,,
+General Kaelen Renfro,Officer in charge of oversight of Project Cerberus.,,,
+General Krix Barriss,"Current commanding officer, though he's mostly cut us loose for now--we work better without rules. We were originally suspicious of him, and Doc was able to let us know he commanded a squad known as the Reapers during the rebellion. However, since our first meeting we've mostly come to trust him--especially since he helps shield us from Kiara.",,general_barriss.png,Not to be confused with Barriss Offee
+General Seretti,Republic officer around Endor.,,,
+Gern,Name asked for by a gangster on the other end of a comm acquired from a defeated gangster on Jira's farm on Haccara.,,,
+Glizzo the Hutt,"Hutt crimelord on Nar Shadda who received our 'reallocated' shipment of bacta on the Stormpike. Afterward, the video of the meeting was either stolen, given, or hacked and ended up in the hands of the Republic--which didn't make us look good.",,,
+Gorg,"Herglic runner of the Halcyon club, where we were suggested to find a navigator to help us locate the Eclipse.",,,
+Grand Admiral Rae Sloane,Human woman in command of the ISD Leviathan and the 3rd Imperial Fleet. Her legion wears a shark logo with the number 3 on their armor with a dark grey and crimson trim palette.,,,
+Grand Admiral Thrawn (Mitth'raw'nuruodo),"Chiss Grand Admiral of the Empire, in direct command of his flagship--the ISD Chimaera, and the 7th Imperial Fleet.",,,
+Grick,Trandoshian mechanic who got into a pissing contest with Kavin over the Bucket after the fallout of Ylara.,,,
+Hacarra,See Haccara,,,
+Haccara,"Agricultural planet that imports a lot of heavy machinery. Far off any space lanes, the Remnant still found a foothold on it and began a proxy struggle. Operated under the UPA. Last known location with neutral Pykes before Kavin made us big time enemies of them.",,,
+Haleoda,Former imperial resort planet with one large city on a beautiful ocean. Was the site of the launch of the Olympus and where we boarded it.,,,
+Haralla,Tropical planet allegedly housing kyber crystals. The planet also may be heavily connected to the Dark Side and had lots of hostile creatures. We opted for the colder and likely less evil Alastea.,,,
+Haro,Humanoid and trusted advisor to Endara. Dressed in red armor.,,,
+Heccara,See Haccara,,,
+Heirloom Tea Set,An heirloom to Khay from her mother--originally a gift from Grand Admiral Thrawn himself. She often drank with this set during her short breaks trying to 'resurrect' her daughter.,,,
+Heline,"Bartender of the Sarlacc Pit (the bar, not the actual pit) on Tatooine, employed by Lord Renlu.",,,
+High Priest Buk Koru,"Former experiment of Dr. Starblade, encountered on Quantham. Also infiltrated the church in Ulara City. Was also an advisor to King Haldor's daughter Kreda.",,,
+High Priestess Dola Dollos,"Priest of Almira, the goddess of light, on Ulara.",,,
+House Dasklo,House whose crest was originally on Culkoo and Kavin's repurposed Chiss armor. Operatives wearing this armor were involved in the failed kidnapping of Leoonia.,,,
+Ilsan,Zabrak student at the Echani training facility.,,,
+Inspector Atrus,Security investigator sent to New Orvos to evaluate the breach caused by Kavin when looking for information on Project Hydra.,,,
+Ira,Fallen jedi who was the former padawan of Master Aldin and secretly his daughter as well. She ultimately killed him during her betrayal and slaughter of those inhabiting the Tomb of Vexa Chur.,,,
+Irisi,See Irizi,,,
+Irizi,"One of the Nine--major Chiss families that command immense power. House Irizi is currently maintaining a massive enclave on Mirial where they manufacture ships and armor for the highest bidder--which is currently the New Order of imperial remnants under Thrawn. However, not all members of the family are thrilled with this alliance--Kavin's sister included. We managed to sneak a tracking beacon onto one of their ships that successfully located its destination for General Barris and the Republic.",,,
+ISD Chimaera,Apparently new or experimental Imperial Star Destroyer under the command of Grand Admiral Thrawn. Troopers and officers from this feared vessel typically display dark grey colors with blue trimming. The Chimaera is currently in the Outer Rim.,,,
+ISD Fury,Imperial corvette flying with the ISD Stormbringer that pursued us to Votaris but had to pull back due to damage from the chaotic region.,,,
+ISD Invictus,Imperial patrol frigate that pursued us on our first mission as a team.,,,
+ISD Leviathan,Star Destroyer under the command of Grand Admiral Sloane. Troopers and officers from this feared vessel typically display dark grey colors with blue trim.,,,
+ISD Predator,Ship under the command of Captain Jarl Starblade during the Galactic Civil War.,,,
+ISD Stormbringer,Imperial frigate that pursued us to Votaris but had to pull back due to damage from the chaotic region.,,,
+ISD Tarkin,"Imperial Frigate that received the new, powerful ships created by House Irizi on Mirial. It received the one fighter that we bugged before it jumped to hyperspace.",,,
+ISD Vengeance,"Flagship of Admiral Valeria Drayk and the former 12th Fleet, now the Shadow's Hand.",,,
+Isiele Braden,Zeltron singer/diva that was the talk of the voyage for the Olympus.,,,
+Iskaayuma,"City on Rodia, akin to real life Chicago.",,,
+Jaeger Squadron,"Elite squadron of Republic fighters, commanded by Khay's ex Asha. (Jaeger means hunter in German)",,,
+Jagar Squadron,See Jaeger Squadron,,,
+Jäger Squadron,See Jaeger Squadron,,,
+Jakra,Khoren scout on Abrinov.,,,
+Jaxima,Crixa Ageem's former superior in Rodian law enforcement. She died in a speeder 'accident' three days after the Siren's Call went missing.,,,
+Jedha,"Jedha, also known as the Pilgrim Moon, or as the Cold Moon, or the Kyber Heart, and formerly known as NiJedha, was a small desert moon which orbited the planet NaJedha. Located in the Jedha system of the galaxy's Mid Rim, the moon had a cold climate due to its lasting winter. The historical and spiritual significance of Jedha led the moon to become a world of worship for those who believed in the Force, and a holy site for pilgrims who sought spiritual guidance. Was the location of the Tomb of Vexa Chur, where we discovered a holocron that aided us in our missions and understanding of the Force. The trials of which still haunt us to this day--including the revelation of a Koss family lightsaber.",,,
+Jedi,"Order of stuffy, nerdy, and hypocritical Force users who were upended by their own arrogance. A group of which we are decidedly not a part.",,,
+Jek,Tech at a workshop that we traded with for the reinforced shield generator on the bucket.,,,
+Jenna Terrantea,"Human female acolyte in the Order of the Dark Star. She was killed by Vi in the failed assassination of a Senator on Coruscant, with her Zabrak master only getting away with one of her lightsabers. Using psychometry on the other one, Khay discovered Var was the leader of the Order of the Dark Star and had her first visions of the Krynn before even knowing what they were.",,,
+Jess,"Human Republic tech originally stationed on New Orvos. She had a short, dating relationship with Kavin that ended amgiguously (a chance?). Kavin used her credential to access the New Orvos secure servers to get us more information on Project Hydra. He got what he wanted, but the breach was easily discoverable. In order to cover his tracks, he later went back and sabotaged the servers too well--the chaos that resulted from this act eventually led to the downscaling of operations on New Orvos and led to Jess being restationed. 
+
+She later contacted us after our time with the Echani to give us a new lead on the Order of the Darkstar--the planet Zyrakar.",,,
+Jofa,Quarren on Caldara Station who was a contact for Culkoo.,,,
+Jorin,"Dark-haired human male on Valsura who offered to be our guide for 50 credits (underestimated our funds based on his assessment of the Bucket). He happily guided us to the Fish Market for Vi's armor, but more and more reluctantly he guided us to the shady and seedy parts of town while we looked for trouble aka Var.",,jorin.png,"A handsome younger man with a quick, easy smile."
+Joris,"Local mechanic outside the Sarlacc Pit bar on Tatooine, chatted with Culkoo.",,,
+Jorus,See Major Kal Juros,,,
+Jrick,"""The Rodian,"" an extremely talented and ruthless bounty hunter known to Culkoo. He joined the Twin Suns splinter group.",,,
+Jurus,See Major Kal Juros,,,
+Juyo,"Form VII, also known as Juyo in High Galactic, the Way of the Vornskr, or the Ferocity Form, was the seventh of seven forms recognized as canon for lightsaber combat by the last Jedi Council of the Old Jedi Order. In use, millennia before the Battle of Yavin, the Juyo incarnation of Form VII was described as the most vicious form of lightsaber combat and was said to involve a significant internal focus on the part of the user.",,,
+Jyn,Female scavenger encountered at Quantham.,,,
+Jyrost,"Remote, cold planet and last known location of Dr. Keldan before his assassination. Where we found Eilin.",,,
+Kaderyn River,"Large river on the Tholothian Crest. Approximately 20-30 meters wide at the narrowest point, we had to cross it during our quest for new crystals and enlightenment.",,,
+Kalgus the Hutt,Hutt who runs a shipyard on Kiru who also stole some bacta from the Republic. We got it back with weird challenges and being awesome.,,,
+Kandala,"One of the last Sith purebloods still around. She began teaching others after we 'revived' her from a crystal seed of, coincidentally, one of the last Embara trees. Her existence is a heavily guarded Republic secret as of now, but her influence is far--as she 'upgrades' she gave us after discovering her and an associated holocron were the sparks for our initial Force journey.",,,
+Kandella,See Kandala,,,
+Kara Adun,See Kara Adune,,,
+Kara Adune,"Presumably a powerful Force user, with certainly mysterious history. The tomb of which was a primary attraction on the Olympus. May have been released or somehow tampered with during the disaster aboard the luxury liner. Originally found on Dathomir, it was protected by ghosts of Dathomiri Force users--probably Nightsisters.",,,
+Karrik,Republic Twi'lek ambassador to Farpoint Station on Pranrock III. He gave us information about the area and advised us to find a Navigator at the Halcyon Club. Also he hugged us?,,,
+Karris Collective,Cartel running Voss Prime,,,
+Karthi (KG438),"Planet in the Unknown Regions where a new threat from beyond our galaxy is alleged to be emerging. Likely in the Anosh system, powers in the surrounding sectors were very concerned about this new faction.",,,
+Kattada,Planet near the remains of Alderaan. The former Imperial resort city Haleoda is the site of the Olympus' fateful voyage.,,,
+Kavin (Thrak'avi'naktomi),"Technician, mechanic, outlaw, nipple boy--he goes by many names.",,kavin.png,Himbo Chissins
+Kazzan,Proprietor of the Blue Water on Haccara. Gave us a guy a who would know where to find a shard rifle and vaporators.,,,
+Keela,"Nine year old, spunky, mouthy Twi'lek girl originally met on Bitronia. Since rescuing her and Rook, they wormed their way into our hearts, and Khay and Vi eventually adopted them. Keela was a technical prodigy--repairing almost all on her own the ship we used to escape Bitronia. She was originally from Ryloth, but her family's farm was forcefully taken over by local bully Thrax over a water rights dispute. She left her brother Torin in Thrax's care out of fear the separation would traumatize him--even though Thrax is the one responsible for her family's pain. She and Rook also were lured to a shipyard on New Endor where they were captured by the Pykes and used as leverage against us. While we got Rook back with a simple heist on Cinta, Keela was sold into slavery on Kessel after our 'failure' to die during the mission on the Olympus. As a member of our family, we moved the fucking galaxy to rescue her from Kessel, though we weren't able to get there before she lost her arm in the chaos, which is one of Vi's greatest regrets. Currently, she and Rook are with the Echani Order on the Tholothian Crest--left there to hopefully keep them safe while we pursue the Order of the Darkstar.",,,
+Keela To,"Extremely talkative yet talented Twi'lek medic, who served in the rebellion with Vi and dated her for a while. She was the last serious girlfriend Vi had before meeting Khay. Her fate after the rebellion is uknown, but she was discreetly Force sensitive.",,,
+Kel,Orm's second in command. Encountered on Ulara.,,,
+Kelden,See Dr. Keldan or Eilin Keldan,,,
+Kella,"Beautiful but obscure forest world. While it used to be home to lush forests filled with Darkstar trees, recent logging operations led by Freya Sett of Black Suns mercenary group have been using the local Welliks as a slave labor force to harvest and destroy their beautiful yet lucrative home. Having a personal vendetta against Freya, Cho led us to liberate the slaves and personally killed Freya, but the cost of such a crusade took the largest toll on Khay, who shot down a luxury liner hoping to aid the effort. Even accordin gto Mother Ukada it was the right thing to do, but Khay will always have her conflicted doubts about the matter.","Overview:
+
+Kella, a lush and vibrant moon, is home to the Wellick, a sentient species of deer-like humanoids. This serene moon is renowned for its dense, mystical forests, teeming with diverse flora and fauna. The most notable are the Darkstar Trees, known for their spiritual significance and connection to the Force, as well as their valuable dark hardwood.
+
+Current Crisis:
+
+The Black Sun Cartel, exploiting Kella's resources, has initiated large-scale harvesting operations, primarily targeting the Darkstar Trees. This rampant deforestation is not just a commercial venture; it's a systematic destruction of the moon's ecosystem. The environmental impact is catastrophic, with widespread devastation affecting not only the forests but also the native wildlife and the Wellick communities.
+
+Impact on the Environment and Inhabitants:
+
+The relentless harvesting has led to a drastic change in the landscape, with once-thriving forests turning into barren wastelands. The destruction of the Darkstar Trees disrupts the natural balance, endangering numerous species and destabilizing the ecosystem. The Wellick, whose culture and way of life are intricately tied to the forests, face an existential crisis. Their sacred connection to the Darkstar Trees and the land is being severed, leading to cultural erosion and a loss of identity.
+
+Key Figures in the Operation:
+
+- Cell Leader Freya Sett: A former Imperial officer, now a high-ranking member of the Black Sun Cartel. Known for her ruthless approach, Freya Sett oversees the exploitation of Darkstar Wood, showing little regard for the indigenous population or the environmental impact. Her harsh methods and disregard for the Wellick's cultural values have intensified the conflict on Kella.
+
+- Jerex Croft: The head of operations on Kella Station, Jerex Croft is responsible for the day-to-day management of the harvesting. He resents Freya Sett's oversight, viewing her as an outsider who complicates his operations. His contempt for her methods and her background as a former Imperial adds tension within the ranks of the operation.
+
+Resistance and Hope:
+
+In the face of this overwhelming adversity, the Wellick, along with sympathetic factions, have started to organize resistance efforts. Covert operations to sabotage the harvesting machinery and rescue enslaved Wellick are becoming more frequent. The situation on Kella is dire, but the resolve of its inhabitants to protect their home offers a glimmer of hope in these dark times.
+
+Conclusion:
+
+The struggle for Kella is not just a local issue but a poignant example of the larger conflicts that plague the galaxy. It's a battle between exploitation and preservation, between the greed of powerful factions and the resilience of native populations. The fate of Kella and its inhabitants hangs in the balance, a testament to the enduring struggle for freedom and dignity in the face of oppression.",kella.png,The beautiful forests of Kella.
+Kellis,Information broker encountered by Culkoo during her vision in the Deception trial on Votaris.,,,
+Keltar,Planet in the Unknown Regions which was the last posting of Shauna Vex before she was betrayed and sold into slavery by her former crew.,,,
+Kestrel,Republic medical frigate. During recovery on this vessel is when we received our orders to capture or kill Senator Brin Aldir.,,,
+Keyla,See Keela,,,
+Khay,See Khaylia Koss-Starblade,,,
+Khaybear,Treasured stuffed animal of Khaylia Starblade during her childhood.,,,
+Khaylia Koss-Starblade,"[Placeholder] Hottest pilot, wife, human, etc in the 'verse. During her time in Black Nebula Squadron, her call sign was BN3, while she switched to Echo 7 when she joined the Rebellion.",,khay.png,Swoon
+Khoren,"Grey skinned humanoid with dark hair and red eyes- they look like Chiss but they are grey instead of blue. ""Ideal slave race"" according to the Imperials.",,,
+Khrax,Bounty hunter who attacked Jira at his farmstead--recognized by Culkoo.,,,
+Kiara,Human commander who really doesn't like us.,,,
+King Haldor,"Former King of the planet Ulara. His son, Orm, and daughter, Krenda, were opposed with each other and supported the Republic and Imperial Remnant, respectively. He was assassinated along with Orm in a pro-Imperial plot to blame the Republic and increase Imperial influence on the heavily important strategic resources the planet had to offer.",,,
+Kiru,Planet where Kalgus the Hutt operated and where the gangster kept a large amount of bacta stolen from the Republic. We repossessed it.,,,
+Korath,"Powerful entity, believed to be a deity, worshipped by the Krynn. They believe the Darkstar is a fragment of this being. They wish to reshape the galaxy in its image.",,,
+Korrath,See Korath,,,
+Korthium Crystal,"Unique kyber crystals from Alastea, found among the less-valuable korohite crystals that were the subject of the original mining operation in the region. These crystals were the first ones we ever obatined for ourselves--with Vi even putting one in the double-bladed saber she took from Amata. Obtaining them was not easy, as the abandoned mine was still infested by vicious spiders known as Krykna.
+
+These crystals were uniquely connected to the life force of living beings--allowing us to better and more naturally perceive nearby lifeforms.",,krykna.png,Infant form of the species infesting the mines.
+Koss,"Vi's family line on her father's side. Over 9,000 years BBY, the Koss family was part of a major gold rush to ancient, alien artifacts that were unearthed on Mirial. Finding, collecting, studying, and selling these objects is how the Koss famiy originally rose to power, amassing a great fortune with which to acquire yet more artifacts and other business interests.",,,
+Kotala,Female Zygerian slaver who liked to beat slaves with her energy whip. She was easily dispatched by Culkoo and her garrotte. ,,,
+Kouhuns,"Insectoid species that was contents of two tubes that Culkoo and Cho delivered. They are often used by bounty hunters to kill from a distance, and these were no different as they very likely were the weapon used in an assassination of a Chiss delegate on Coruscant.",,,
+Kraymire,Settlement on Waylosh that was attacked by the Black Suns splinter group the Twin Suns. Locals were forced to work in the mines while they brought in a mobile ore processor.,,,
+Kreda,"Pro-Imperial daughter of King Haldor on Ulara. Advised by Koru, who we know was bad news.",,,
+Kree,Jawa on Wolak who directed Culkoo to a job while we investigated the Shadow Collective.,,,
+Krel,"Zabrak member of the Order of the Darkstar who, along with Jenna Terrantea, attempted to stop us from foiling the terrorist plot involving the statue of Mon Mothma. While Vi killed Jenna, Krel escaped, angry and defeated.",,,
+Krispin,Security officer on the Eclipse.,,,
+Krykna,Origin species of the offshoot spider species we encountered in the mines of Alastea.,"Krykna were predatory, non-sentient, spider-like creatures native to Atollon. They were resistant to blaster bolts and highly sensitive to negative emotions, making them extremely difficult to tame with the Force. They were repelled by the signal emitted by sensor beacons.",,
+Krynn,"Ancient insectoid race, strong in the Dark side of the Force. Worshippers of the ""Dark Star"", they believe all who use the Force are stealing from their god. They are a mostly unknown threat to the galaxy at large,hailing literally from the Unknown Regions, but may prove its undoing if left unchecked regardless of their obscurity.",,krynn_logo_full.png,Krynn symbol
+Krythara,Beautiful but enigmatic planet with bioluminous life and scenery. Location of the temple where we found the Force vergeance star map.,,,
+Kulgus,See Kalgus the Hutt,,,
+Kyela,See Keela,,,
+Kyros 2,Planet that was the target of an Imperial Remnant assault around the same time we were sent to Quatham Station.,,,
+Lady Ravana,Figure who had hidden motivations that Culkoo needed to uncover during her vision in the Deception trial on Votaris.,,,
+Lambda,Codename for Amaya Barris,,,
+Lamda,See Lambda,,,
+Lanah Grottil,Deceased Jedi whose tomb we encountered in the Tomb of Vexa Chur.,,,
+Leeonia,Leoonia (Boehle’oon),,,
+Leoonia (Boehle’oon),8 year old Chiss navigator girl who was kidnapped on Coruscant. Ultimately rescued by us during a train job.,,,
+Leora Tarri,See Liora Tarri,,,
+Lessu,"Town on Ryloth built into a canyon system, where Keela was originally born and Rook was taken in by her family. A local fruit produced what Keela called ""Blue Fruit"" juice, and we asked G2P0 to take some samples to try growing it on the Bucket.",,,
+Lieutenant Commander Aeron Starblade,"Youngest son of Jarl and Shamish Starblade, attended the Royal Imperial Academy and joined the Imperial Army and was stationed in Scarif as artillery. Growing up, he was very close with Khay and had a rough and tumble personality--almost reminiscent of her future wife. Of all the Starblade children, he stood out the most, as he was the only one to actually struggle in the Academy. He and Khay fought a lot as kids, which was worsened by the fact the older brothers were at school while the parents were at work. At one point he even walked in on Khay having 'relations' with Treeya, the sister of one of her eldest brother's best friends. DOB: 21 BBY",,aeron_starblade.png,Like Fabio and Anakin had a baby
+Lieutenant Commander Diallo,One of Kavin's former instructors in the Empire. Was involved in a Remnant plot to disperse a viral bioweapon on Coruscant using weather droids. Ultimately foiled by Kavin's Kavining.,,,
+Lieutenant Griff Arten,Former Rebellion soldier who served under the same commander as Vi. She knew him as Crazy Arty. Encountered on Bitronia while rescuing a squad of New Republic soldiers.,,,
+Lieutenant Odona,New recruit in the Republic whose family was formerly Imperial--a fact she hid by slicing into Republic computers and erasing. Kavin tracked this down and used it to blackmail her into helping him sabotage the computer systems on New Orvos to hide his own screw up from before with Jess.,,,
+Lieutenant Travins,"Scruffy, dark haired, green eyed Republic officer in Abrinov system. Received our report after rescruing Kandala and Khay's receiving 'upgrades'.",,,
+Liora Tarri,"One of Vi's cousins, very flirtatious with fucking Kavin. She's a bit shadier than your average Tarri/Koss, and helped hook Kavin up with a bit of spice. She met Thrawn once and is attracted to rare and beautiful things, which apparently she thinks Kavin is one?",,,
+Lira Wessex,Former republic pilot promoted to base commander at Echo Base Sigma. Stressed over protecting the region with such limited resources.,,,
+Lirrokwa,Wookie friend of Terrick Tan,,,
+Lisandra,Deligate of House Irizi who met with us before allowing Kavin to meet with his sister.,,,
+Loram,See Lorem,,,
+Lord Renlu,Ithorian owner of the Sarlacc Pit Bar and also slaver. Has a close working relationship with the Pykes. We did once say we'd come back and free them…,,,
+Lorem,"Chauffeur for the Koss family, slightly older than Vi. Was ""one of the good ones"" according to Vi, who had genuine affection for him.",,,
+Lorna,Information broker operating out (and maybe owner?) of the Scarlet Shadow. She gave us the lead on Nebula's last location at the cannery--for 500 credits. Told us too many people were asking about the Order of the Darkstar. Maybe we should keep an eye on her.,,lorna.png,She's seen some shit.
+Lumina Station,Former base of the Argent Circle on the Arami System near Hutt space. ,,,
+Luminastag,Deer-like bioluminscent creatures that were Force sensitive. Encountered on Krythara.,,,
+Luminoustag,See Luminastag,,,
+Lurraven,"Strange avians encountered on Valsura. While most were wild, some were tamed or somehow otherwise under the control of the Order of the Darkstar and were used to spy on us.",,lurraven.png,Quote the Lurraven: Surprise Motherfucker!
+Madilon,"Mineral mined on Waylosh. It is very elastic while having a high tensile strength--both good properties for hyperdrives. However, the mining was quite toxic. Other properties caused it to often interfere with communications--at least according to Cho.",,,
+Major Kaelan Terrik,"High ranking officer serving under Admiral Drayk. They were involved in the faction's operations in the Nihlus Veil and on Votaris, attempting to retrieve the Aeon Codex for themselves.",,,
+Major Kal Juros,Our former commanding officer during our time with Epsilon proper before we were transferred to General Barris. Associated with Gold Team.,,,
+Major Quintura,"Leader of Task Force 151, responsible for capturing fugitives from the Republic--which at the time we were because of the Pykes enslaving our child. Was also Doc's commanding officer for the time.",,,
+Makashi,"Form II, also known as Makashi, The Way of the Ysalamiri, or The Contention Form, was the second of the seven classic forms of lightsaber combat. Makashi was the most dueling-centric of the seven classical forms. Form II allowed an initiate to defend themselves against an opponent with minimal effort, while placing a heavy focus on avoiding disarmament.",,,
+Makken (Mac),"Older, strong Klatoonian who accompanied us on our training journey for the Echani. Could not hear the crystals on his first attempt, this was his second.",,,
+Marsar,Mineral used for droids. Mined on Cinta.,,,
+Master Aldin,Jedi who was the leader in the Tomb of Vexa Chur. He was killed by his padawan and daughter Ira when she betrayed him and his followers. His presence lived on in a golem that protected the Tomb from further interlopers--until we destroyed it and freed him in the process. He helped us to craft our lightsabers and allowed us to use the remaining supplies in the Tomb before asking us to bury it and never let anyone discover it again.,,,
+Master Ferren,"Jedi master in the Tomb of Vexa Chur, was the owner of K-7.",,,
+Master Liora Vayal,"Force ghost in the sacred grove on the Tholothian Crest. A former guardian of the Jedi Order, she eventually became the guardian of the grove and guided us in creation of (some of our second) our lightsabers.",,,
+Master Tarik,Custodian of the Jedi Temple who escaped Order 66. He was sought out by many as a sage and by at least one person as a blood donor--Dr. Starblade. His blood was used to make clones with a strong connection to the Force--one of which includes Khay (against her will!) and likely the clone of Palpatine we fought on Bet'su.,,,
+Mekren,Culkoo's human partner during her pit fight on Haccara in front of Endara.,,,
+Merken,See Mekren,,,
+Merrick Tosch,"Charismatic political candidate representing Imperial interests on Haccara. His talking points included working with the UPA and rebuilding a better Haccara. He disagreed with Endara about the use of power, though, so maybe he wasn't all bad? Furthermore, his ideas were oddly inclusive for an imperial and drew crowds of non-human supporters. Instigators tried and failed to assassinate him, including one using a Huttese shard rifle.",,,
+Mira Kast,Mandalorian granddaughter of Rook Kast. She sports purple hair and wears her mother's armor--nor was she intimidated by Vi's saber. Possible leader or high ranking member of the Shadow Collective.,,,
+Mistress Aria,Contact in the Nax'ari Syndicate. Used Culkoo's niece Talia as a bargaining chip.,,,
+Moloco,Shady arms and drug dealer on Tatooine.,,,
+Morga,Sith Inquisitor who was a companion to Endara.,,,
+Morven Rask,"Force master of the Echani tradition. Tried to claim the Aeon Codex for himself to fight the Krynn, but instead offered to train Khay and her crew in his ways with the hope they would join his cause.",,morven_rask.png,"Initially sus, he's cool now."
+N.R.S. Phoenix,New Republic ship we were brought to by Doc after our transgressions against the Republic while trying to get the kids back.,,,
+Nala Se,Kaminoan cloning expert recruited by Dr. Starblade to help in Project Khaybear. She may be the only one responsible for Khay's breaking free of Dr. Starblade's attempt to implant Imperial conditioning into Khay's genome.,,,
+Nali Darkstar,"TIE pilot whose helmet stayed on Endor's moon long after the battle where Vi and Khay met. Years later during a romantic getaway, they found the helmet while wandering through the forest for a picnic.",,,
+Nax'ari Syndicate,"Shady syndicate that controlled aspects of Rodian politics. Crixa Ageem was investigating them while her brother, Torka Vosk, worked with them--a connection that ultimately got Crixa killed. Not wanting or being able to completely rock the boat on her homeworld, Culkoo left the syndicate at status quo.",,,
+Nebula,"Tall, Deveronian male who was an operative/informant for the Echani Order. Disappeared during his inquiry. Last known location was at a cannery that secretly had a dock used to access the Order of the Darkstar's base.",,,
+New Orvos,"Outer Rim planet that served as an early hub of operations as we were starting out in our campaign. Some unfortunate misunderstandings on the nature of Project Hydra, Jess's security access, and Kavin's (allegedly) expert slicing caused a major security breach that ultimately lead to the downscaling of operations on the planet. It was a major blow to the Republic in the sector, but we got the info we needed, right?","Sector: Outer Rim Territories
+
+Region: Just outside Hutt Space
+
+Planet Type: Terrestrial
+
+Climate: Temperate
+
+Terrain: Diverse; primarily agricultural with mountain ranges, valleys, and forested hills
+Key Cities: Orvos Prime (Capital and Main Metropolitan Center), Tarrin (Secondary City and Black Market Hub)
+
+Government: New Republic Governance with Local Elected Officials
+
+Population: Mixed; predominantly Human with a significant representation of Twi'leks, Rodians, and other Outer Rim species
+
+Economy: Agriculture-driven with contributions from trade, technology, and black market dealings
+
+Exports: Agricultural produce, textiles, technology parts
+
+Imports: Machinery, luxury goods, spices
+
+Allegiance: New Republic
+
+New Republic Base: Fortitude Outpost (Strategically located within proximity to Orvos Prime for logistic support and rapid deployment)
+
+Black Market Influence: While the New Republic maintains official governance, the proximity to Hutt space has allowed for a thriving black market, primarily run through Tarrin. Smugglers, bounty hunters, and traders frequent the city, dealing in everything from rare artifacts to embargoed goods.
+
+Description: 
+
+New Orvos is a beacon of New Republic ideals in the Outer Rim. It's lush and fertile lands are dotted with vast stretches of farmland that feed not only its population but also contribute to the food supply in the region. However, the planet's serene exterior belies the bustling activity of its metropolitan centers.
+
+Orvos Prime, the capital city, is a hub of political activity and houses the main base of New Republic operations on the planet. It is characterized by its orderly city planning, well-maintained public facilities, and the presence of New Republic troops that ensure the safety and upholding of the law.
+
+Tarrin, on the other hand, is the polar opposite. Nestled among the mountain ranges, it is the unofficial capital of the planet's black market. It’s a city where credits speak louder than allegiances, and where the New Republic's influence is challenged by the shadowy underworld powers that profit from the proximity to Hutt-controlled territories.
+
+New Orvos's location makes it a strategic asset to the New Republic, providing a foothold near Hutt space from which to extend their influence into the Outer Rim. The presence of the New Republic military base, Fortitude Outpost, underscores the planet's importance. The base is a center for reconnaissance missions, a deterrent against Hutt incursions, and a refuge for those fleeing the lawlessness of the Outer Rim.
+
+Despite the undercurrents of illicit dealings, New Orvos is a planet of opportunity. It's a place where one can witness the juxtaposition of the New Republic's ideals against the practical realities of Outer Rim living, where the untamed spirit of the frontier meets the order and organization of the New Republic's vision for the future.",new_orvos.png,New Orvos from orbit.
+Nightshade Marauder,"Large, repurposed Imperial Frigate under the control of the Dusk Haven Militia. Its large gravity well generators blocked us from immediately jumping to hyperspace after recapturing The Drift. With a coordinated assault between The Drift and the Bucket, both ships were able to successfully evade the larger foe--but the Bucket may have brought an unexpected tracker beacon friend with them after escaping.",,,
+Nihlus Veil,Extremely difficult patch of space with little life--but still with some planets lost to time.,,,
+Okchota (Cho),"Iakaru spy, scout, operative, whatever else you really need--Cho can probably do it. After having his people slaughtered and enslaved by the Empire, he dedicated his life to fighting against them and freeing those who were oppressed--wanting to make sure he can spare as many others as possible the fate he and his people were subjected to. After taking personal revenge against Freya, the one who originally led the attack on his home, he found the Force later in life and became an Ataru Striker to capitalize on his extreme agility. He now seeks to protect the galaxy from threats within and without.",,,
+Okkipo Gran,"Deveronian melee fighter involved with the Twin Suns on Waylosh. He was happy to fight Vi, but circumstances and other bullshit made him kinda win, which is bullshit. He wanted a rematch, and so does Vi--we'll see.",,,
+Omega Nine,Rich area of the space port on Mirial in Vi's home city.,,,
+On The Ropes,Fake Iakaru holiday that Cho made up to troll Varokis.,,,
+Onda Por,Our Republic contact on Bitronia.,,,
+Ooma,"Victim of Imperial experiments encountered on Treduru. She wore intricate tattoos to cover the scars she accrued while being tortured and experimented on. She gave us the lead to Quatham, and was the only one to escape that place alive. She offered to help Khay--the implication of which we did not grasp at the time.",,,
+Operation Phoenix,"Project headed by Dr. Starblade during her brief stint with the New Republic. It sought to find a way to extend the life of clone troopers from the Clone Wars, but ultimately was deemed not worth pursuing. Doc was one of the few ""successful"" subjects.",,,
+Operation Waking Shadow,"Plot to assassinate Senator Wren Mikkel which involved Crimson Ghost squad. Vereck Kren, a local gang member, attempted to use a bomb to kill the Senator but was foiled by someone. We investigated the aftermath.",,,
+Order of the Darkstar,"Secret cabal of Force sensitives, powerful in the Dark Side and opposed to the Krynn, who use their own lightsabers crafted from the Darkstar itself--but is it corrupting them to work for the Krynn unwittingly? The Order is lead by Varkas Koss (Var)--Vi's twin brother long thought to be dead.",,darkstar_logo.png,Logo of the Order of the Darkstar
+Orin Zhar,Political opponent to Torka Vosk who died mysteriously--to Vosk's advantage--during a campaign for mayor of the Rodian city of Iskaayuma.,,,
+Orm,"Son of King Haldor of Ulara and pro-Republic. When shit hit the fan on Ulara with his sister Kreda's coup, we extracted him with great effort safely to the Republic.",,,
+Outbound Flight Project,"Outbound Flight was an expeditionary project, led mainly by Jedi Master Jorus C'baoth, that sent a mission of six Jedi Masters, twelve Jedi Knights, and 50,000 men, women, and children beyond the borders of the Galactic Republic into the Unknown Regions where they hoped to pierce the edge of the galaxy and seek out extragalactic life.",,,
+Outbound Reclamation Initiative (ORI),"Desperate attempt by the Rebellion, after the massive defeat at Hoth, to find the site of the Outbount Flight Project disaster and reclaim assets, information, or anything deemed useful. Was silently also an attempt to find Force artifacts and/or users that could help the rebels in the fight against the Empire. Its top secret nature was its ultimate demise, as the leaders of the project were forced to abandon it after results were not as quick as needed and newer intelligence implicated the second Death Star project as the immediate target for all rebel resources. Varkas Koss was one of the members of ORI believed to have been dead after it was abandoned with no clear survivors.",,,
+Ozy,"Twi'lek woman who helped us gain an audient with Kalgus the Hutt, which we wanted to use as cover to recover the stolen bacta for the Republic.",,,
+Paraga IV,Moon where Echo Base Sigma is located.,,,
+Pesha,Goddess of the dark worshipped on Ulara.,,,
+Petro,Friend of Cali and Zatt who was killed by the former. Zatt has his name tattooed on him.,,,
+Phinarii,"Aquatic natives of Valsura. Their bioluminescent colors on their heads are the subject of much speculation by other races--either beautiful or used for hypnosis. Oddly, they read as voids in the Force--which is extremely unsettling to us.",,phinarii.png,Typical Phinarii
+Phrikrite,Material with properties similar to beskar. Primary component of Vi's Spectre-fiber Combat Armor.,,,
+PIMC Station 3 ECHO,Mining platform we used to access the caves with the korthium kyber crystals on Alastea.,,,
+Pranrock III,Remote planet near an unkown and chaotic region of space. A small Republic embassy was maintined there.,,,
+Progressive Coalition,Political faction in the Republic Senate that generally worked toward more independence and a weakening of the Republic. Often had clandestine support from Imperial Remnant factions and was supported by Senator Kall.,,,
+Project Khaybear,"Secret project lead by Dr. Starblade to clone the daughter she lost, Khaylia. Using resources from Cerberus, she worked to clone Khay perfectly, down to her memories. While successful, she had to recruit the help Nala Se, a Kaminoan. Nala Se ultimately betrayed Dr. Starblade's trust and made modifications to Khaylia's genome allowing her to break free of the Imperial conditioning Dr. Starblade was implanting.",,,
+Pytock Industrial Mining Corporation (PIMC),Company mining korothite crystals on Alastea.,,,
+Qirg Yinton,Faction unaffiliated Quarren political candidate on Haccara. Wanted to build a space port to boost the economy.,,,
+Q'ren,"Echani member who taught Foresee and Farsight. As a Chiss, he was a member of the Ascendency until a not-to-be-discussed event forced him out.",,,
+Quantham,"Abandoned Imperial research station. This aquatic station had a surface and subaquatic levels that required different gear to access. Ooma was tortured here, among a host of other Force sensitives, as part of some twisted research. In the sector, there was also a bounty out for Dr. Starblade. Once upon a time, little Khay spent time there during her childhood.",,,
+R3 (Artie),Black astromech droid originally belonging to former ISB agent codenamed Lambda.,,,
+Rak Chask,Former Alliance deveronian captain who is now running the Wraiths. Chask is very charismatic and loved by his people.,,,
+Rakka,Female Zygerian slaver who liked to beat slaves with her energy whip. Effortlessly bisected by Vi.,,,
+Ranara,"Young, dark-haired human who is a visionary at the Echani training facility.",,,
+Rase Iren,Former ISB agent and Endara's second-in-command on Haccara.,,,
+Raven Tak,Male Rodian who gave us information to take aboard the Olympus.,,,
+Raxul,Large aquatic monsters we fought with in the waters of Quantham. They did not like light--ergo our flares.,,,
+Red Hand,Street gang on Coruscant with Imperial loyalist leanings. The Starfall Cantina was one of their main hangout spots.,,,
+Rhodium,Exotic material from the Unknown Regions that became reactive when put under pressure. Verreck Kren used this material in his bomb that he tried to use to assassinate Senator Mikkel.,,,
+Rhyssa,Togruda student at the Echani training facility.,,,
+Rockhopper,"Species of adorable, rodent-like animals encountered around the time we went to Kiru looking for stolen bacta. Resembling kangaroo rats, they bred like rabbits though--infesting the Bucket until they were likely ousted by better infestors called the Fuzzmaws. At least they tasted good to Cho.",,rockhopper.png,Try it with peanut oil!
+Rom,Duros captain of the Frenzy,,,
+Rook,"Wookie companion and adopted sibling of Keela's. Somehow finding his way to Ryloth, he was raised with Keela as a member of her family until the fateful attack by Thrax that caused both of them to flee. He was believed dead after the event, but somehow found his and Keela's way to Bitronia, where they met the crew, who quickly fell in love with them. Khay and Vi consider him their son and will vehemetly fight to defend them from any harm that they can. He and Keela were both captured on New Endor while looking for their own ship, which turned out to be the start of a trap the Pykes were setting for his adopted parents. Also prodigiously curated a fine collection of wookie pornography. ",,,
+Rusty Blaster,Bar on Tatooine.,,,
+RY-467,Planet in the Anosh system where the Eclipse was known to have crashed.,,,
+Saren Tarri,Older sister (mid 20s) to Liora and cousin to Vi.,,,
+Savara Cross,"City on Zyrakar. Under control of the Dusk Haven Militia, it was a hotspot for those wanting to lay low from the Republic. It is the heart of the planet, which is itself large crossroads for galactic trade.",,,
+Savek,Name found on the ID of a dead Chiss whose armor was taken by Culkoo and Kavin. Not likely this was the actual name of the person.,,,
+Sayto,Wellik leader who initially distrusted us but relented when Mother Ukada vouched for us based on our connection to the Force.,,,
+Scarlet Shadow,"Seedy and scary bar known to not only be a hideout for local bad guys, but also a known hub for Order of the Darkstar activity. Jorin was not pleased about going here.",,,
+Scavenger's Den,"A mix of ramshackle buildings, discarded machinery, and tons of drugs. Was the location of Nebula's tracking beacon, which we found in his jacket after sneaking it away from some lower-ranking Void Claws. Jorin stayed at the Fish Market for this excursion.",,,
+Selorin,"Muun contact of Caeli's. He was a finder for the Order of the Darkstar, which is why Caeli sold her Forcey things to him.",,,
+Senator Brin Aldir,Renegade senator who stole a holocron from an archive on Correllia--turns out his family was being threatened. We saved him from Amata when she was threatening him.,,,
+Senator Kall,Corellian senator who was pretty racist. Stood to benefit from the assassination of Senator Wren Mikkel had the attempt been successful. Leader of the opposition party.,,,
+Senator Khalifa,"Senator who opposed Senator Leia, advocating that the Remnant was just rumors and there was no need to increase military spending and power.",,,
+Senator Malos Adresh,"Senator involved in the government of Bitronia. Was our primary target to ""rescue"" for the New Republic--his fate is unkown, but we did not feel good about leaving him to the Republic's mercy.",,,
+Senator Telran Adresh,"Brother of Malos Adresh and Senator to the Republic for his planet. He was far more pro-Republic than the demographics of his planet would imply, but maybe he was a little distant from them all the way on Coruscant? We contacted him out of concern for his brother, but he did not seem too worried. We did everything we could?",,,
+Senator Wren Mikkel,"Victim of a, fortunately, unsuccessful assassination plot involving Crimson Ghost Squad and Verreck Kren. Represented Tarus 4 and was a member of the Unity Party, which favored strong relationships between citizens and governments and was in favor of staying with the New Republic.",,,
+Senior Technician Orto,Kavin's fake name when he was infiltrating the main computer systems on New Orvos.,,,
+Seraphara,Force Aspect of Light we encountered in the cave on the Tholothian Crest.,,,
+Sergeant Farrik,Officer in charge of engineering on the Eclipse.,,,
+Sevick,See Sevix Confederation,,,
+Sevix Confederation,"Organization of planets for mutual interests, including defense, in response to the Republic's weakening power in the local regions. Bitronia was a member planet.",,,
+Sha Gera,Rodian contact on Bespin who gave Culkoo information on her parents.,,,
+Shadow Collective,"A group of pirates, Imperial remnants, and former rebels that are working together that have been taking prisoners and stealing medical supplies. They had operations on Wolak.",,,
+Shadow Disciples,"Followers of Xeran Varros, our primary attackers during the frantic escape from the moon-bit-shower that rained down on the Eon Codex's location on Votaris.",,,
+Shadow Wolves,Feline creatures that were rumored to hunt Jedi and to have been once active on Wolak.,,,
+Shadow's Hand,"Group of Imperials working under Admiral Valeria Drayk. Their actual status in the Empire is dubious at best to our knowledge, as they do not operate in traditionally Imperial ways, often aligning with criminal elements like syndicates, cartels, and spice runners.",,,
+Shahdara,Force Aspect of Dark we encountered in the cave on the Tholothian Crest.,,,
+Shaltaan Day,See Shal'taan Day,,,
+Shal'taan Day,Rodian holiday coinciding with elections.,,,
+Shana Vex,"Former ISB agent who was captured by Finn Coran before they were both captured by Pykes to be shipped to Kessel as slaves. For rescuing her first from the Pykes and later from Finn, she rewarded us with information she was carrying that tipped us off to a plot to kill a Republic Senator--which ended up being our first encounter with the Order of the Darkstar.",,,
+Shauna Vex,See Shana Vex,,,
+Shien,"Form V, also known by its two primary disciplines of Shien and Djem So, was the fifth form of lightsaber combat used by members of the Jedi Order. Although it was a form geared toward and created for lightsaber-to-lightsaber combat, it was nonetheless reasonably useful for blaster deflection. The Shien variant of Form V allowed the utilization of an unconventional reverse grip.",,,
+Shii-Cho,"Form I, also known as Shii-Cho, The Way of the Sarlacc, or The Determination Form, was the first of the seven forms of lightsaber combat. This combat form was developed during the transitional period within the Jedi Order from ancient metal swords to more contemporary lightsabers. As Shii-Cho was effectively an experimental combat form, and was created prior to the emergence of Dark Jedi and Sith Lords, it did not address the issue of lightsaber-to-lightsaber combat, and was quickly replaced by Form II. Despite this, Shii-Cho continued to find a niche as a training form, with almost every Jedi duelist receiving some instruction in it, and including elements in their own combat styles. Shii-Cho was considered an effective fall-back option when no other form or combat style would do.",,,
+Shitani Fen,Leader of the pro-Imperial rebels in Bondar City. Our goal was to kill or capture this former Rebel.,,,
+Shon,Secretary on Haccara who gave us information on the different factions.,,,
+Silver Team,Doc's former unit who was made to go into a mission blind because of lost intelligence that was on New Orvos--totally not Kavin's fault.,,,
+Sinta,See Cinta,,,
+Siren's Call,Ship that was destroyed by the Nax'ari Syndicate with Culkoo's parents on board.,,,
+Soresu,"Form III, also known as Soresu, the Way of the Mynock, or The Resilience Form was the third form of lightsaber combat created by the Jedi Order. It focused more on defense than attack and was developed in response to the growing prevalence of blasters throughout the galaxy.",,,
+Spectre-fiber Combat Armor,"Armor of a former bounty hunter made of phrikrite, now in Vi's possession at the cost of her and Khay's first lightsabers. While it doesn't have all the perks of beskar or cortosis, it has lots of room for activities.",,,
+Stormpike,Freighter docked on Cinta that contained a huge shipment of bacta that we 'reallocated' in the name of Keela.,,,
+Stormpyke,See Stormpike,,,
+Sulux,Doctor from a Mercer Medical ship who attempted to get some information to Leia Organa.,,,
+Systemic Artificial Being with Rational and Intelligent Networked Architecture (SABRINA),"Artificial intelligence controlling the research station on Bet'su where Khay and Trynn were originally cloned. Corrupted by an unknown event, Kavin was able to reboot and restore it to help us further venture into the facility.",,,
+Taj Alvar,Entity or recording found in the holocron stolen by Senator Aldir. Gave us the location of the temple of Jedha and also access to the Sense ability.,,,
+Talia Vosk,"Torka Vosk's daughter and Culkoo's cousin. She was in custody of the Nax'ari Syndicate, but Culkoo brought everything to an uneasy calm to allow her safe retrieval. Culkoo eventually left the crew of the Bucket to take care of her.",,,
+Tanik Ageem,"Culkoo's father, killed in fallout from Torka Vosk's interactions with the Nax'ari Syndicate when his ship, The Siren's Call, was blown up.",,,
+Tarri,"Family line of Vi's mother Vilira. A millennias-old family line of technicians, armorers, and most importantly--weapons dealers and manufacturers.",,,
+Tarus 4,Planet represented in the Republic by Senator Wren Mikkel.,,,
+Task Force 151,"Republic squad responsible for apprehending fugitives. Lead by Doc, they brought us in after bringing us into custody on Tatooine.",,,
+Temple of Starlight,"Ancient temple housing the star map of Force vergeances pursued by us and the Order of the Darkstar. Originally protected by forcey, flesh gollem things, the temple was unfortunately destroyed either by our removal or the star map, our clash with the Order of the Darkstar, or likely both.",,,
+Terentatek,Ancient Sith-bred creature that was Force sensitive and used to hunt them. It was used to punish the Pykes' enemies in their pit fights.,"Terentateks were a species of hulking bipeds found on the arboreal planet of Kashyyyk that craved the blood of Force-sensitives. Terentatek were large, brutish creatures covered in spines. Although similar to rancors, they were typically smaller than them. Their heads, crowned by a number of long spikes, featured two small eyes, a large mouth filled with sharp fangs flanked by two tusks, and a downward pointed chin. Their upper limbs ended in three clawed digits. The color of their rough-looking skin ranged from mottled-brown to blue with yellow patches.",terentatek.png,#NotARancor
+Terrick,Imperial that khay went to school with who got us the job on Wolok.,,,
+Terrin,Cloaked man who approached Caeli Tarn who told her she never should have sold a crystalline obelisk that she found.,,,
+Tessa,"Twi'lek woman in Lessu who knew Keela before we adopted her. She got along with Kavin very well, as she was a fellow gearhead.",,,
+The Flow of Balance,"Echani meditation practice, emphasizing the balance between light and dark (resembling IRL Tai Chi).",,,
+The Fuckit-Bucket,"Our YT-2000 freighter that's seen its share of pain. Kavin keeps her together, with spit and wishes sometimes, but somehow she's always pulled through. To Vi's great annoyance, the protocol droid who registered their name in the database as the Duckit-Bucket due to autocorrect, so their designation is DB-1. Though sometimes, since falling in with some rough crowds and needing to hide their past bounties or affiliations, they use a second transponder under the name ""The Spicy Rancor.""",,,
+The Hand,"Enigmatic and terrifying member of the Order of the Darkstar. All we can really tell about him is that he's around 6'3"" and wears armor and coverings over his entire body. He was present in Khay's vision of Nebula she received from using psychometry on his jacket and also present in the cannery during our infiltration.",,the_hand.png,"Seriously creepy vibes, man."
+Thelania Voss,"Former Jedi who left the Order around the same time as Rask. She teaches meditation, Soresu, and Ataru techniques. Currently in a relationship with Ezor Desh",,,
+Tholothian Crest,Rask's training facility.,,,
+Thrax,"Local bully around Lessu who believed the water--that he was unaware of--on land he sold to Keela's family was rightfully his. He initiatied a hostile takeover--literally--and forced out/ended Keela's parents and caused Keela and Rook to flee. He adopted Torin as his own, who knows nothing of the heinous things his adoptive father has done, and he also wanted to adopt Keela when he found out she was alive too. We politely declined.",,,
+Tidehaven,City on Valsura where we landed to pursue Var.,,valsura_fish_market.png,"The ""Fish Market' on Valsura"
+Tilari Tarri,Vi's aunt.,,,
+Toarak Brothers,Mechanics on Coruscant that Kavin knew who also provided a contact for Keela's needs.,,,
+Tomb of Kara Adune,Found on Dathomir. Was a major attraction aboard the luxury liner Olympus and was likely opened during the disaster during its fateful final voyage. Current status unknown.,,,
+Torin,Keela's brother who stayed behind on Ryloth after Thrax's hostile takeover of the family farm.,,,
+Torka Vosk,"Culkoo's political uncle who amassed quite a bit of power in Rodian politics and eventually the Republic, but his ties with shadier elements always haunted him personally, if not professionally. His dealings with the Nax'ari Syndicate are the reason his sister and brother-in-law were killed.",,,
+Treduru,Moon with a breathable atmosphere that hosted the Starlight casino and also where we met Ooma.,,,
+Trev,Young Pandoran who was enslaved by the Pykes on Kessel with Keela. He was very protective of her and helped us get her to safety during the rescue.,,,
+Trusca Sector,Region of space where Bitronia was located. The whole region voted or was trying to vote to secede from the Republic.,,,
+Trynn Starblade,"The ultimate conclusion to Project Khaybear. After Khay's perceived betrayal of the Empire during the Battle of Endor, Dr. Starblade succeeded in undoing the alterations to Khay's genome made by the Kaminoan Nala Se. This new clone was named Trynn, after another name Dr. Starblade had considered for Khaylia. Finally loyal to the Empire, Dr. Starblade eventually confessed the truth to Trynn, the results of which we still don't know. Trynn went on to lead Crimson Ghost Squad, which was the group that worked with the Pykes during the assault on the Olympia that nearly killed countless people on Coruscant. She wasn't completely different from Khay though--she still did have an 'alien' girlfriend.",,trynn.png,"It's like a work of art, but evil."
+Twin Suns,Splinter faction of the Black Suns group. Likely even more brutal and cruel.,,,
+Twyla,Human pilot who flew a repainted TIE Interceptor called The Blood Raven. Was very into Kavin.,,,
+Ufu,Ugnaught who sold Kavin BD.,,,
+Ulara,See Ylara,,,
+Umbara Tree,See Embara Tree,,,
+United Planetary Alliance (UPA),Alliance of 12 outer rim planets formed out of necessity since the thin-stretched Republic could not adequately protect them.,,,
+UPA,See United Planetary Alliance (UPA),,,
+Vaapad,"A new variation of Form VII, dubbed Vaapad after a creature native to the planet Sarapin, was created by Jedi Masters Mace Windu and Sora Bulq. Vaapad was explained as being a state of mind rather than just a fighting style, allowing the wielder to channel their inner darkness into the duel and accept the opponent's fury.",,,
+Valsura,"Rural, aquatic world in a corner of the Outer Rim. An Echani operative, Nebula, was last seen tracking the Order of the Darkstar in this location and was believed to have found one of their major hubs. The locals are not very welcoming. Vi knows Var is here by using the Force (Ebb/Flow).",,valsura_coast.png,The bioluminescent coast of Valsura.
+Varex II,Moon in the Rodia system where The Siren's Call crashed landed after being sabotaged by the Nax'ari Syndicate. Conveniently also a base for the Argent Circle.,,,
+Varkas Koss (Var),"Vi's younger twin brother (by four minutes!). During the rebellion, after the loss of the rebel base on Hoth, Var volunteered for what was known even then as a near-certain suicide mission--the Outbount Reclamation Initiative (ORI). Overconfident in his abilities as a fighter and combat engineer, Var eagerly went on the mission to bring recognition to his family (or to himself from his family?). Unfortunately, the mission was the predicted disaster, and Var was long thought to be dead as the rebellion refocused their efforts on the emerging threat of the second Death Star.",,,
+Varloth,"Chiss canines that are bred for loyalty and ferocity, seen as the Irizi compound on Mirial.",,,
+Varokis Koss,"Vi's father. A prominent businessman and artifact dealer on Mirial, he makes extensive use of ysalamiri to ensure no one has an edge over the other in his business dealings. While his trade and primary income are banking, his passion and prestige is mostly garnered from his carefully curated collection of ancient, historical artifacts acquired using his vast wealth. Because of his focus on history, he and his wife, Vilira, are very entrenched in the ideas of tradition--which initially drove a large wedge between him and his daughter Vi after the apparent death of their son Var during the disasterous ORI debacle.",,,
+Vass,"Well-dressed deveronian who supplied Cho and Culkoo with the 2 tubes loaded with a 'weapon' that was ultimately used to assassinate a Chiss delegate to Coruscant, hurting relations between the Republic and Chiss Ascendency.",,,
+Vaxen Enterprises,Shady company on Rodia that 'donated' 10 million credits to Torka Vosk's political campaign.,,,
+Vaxx,Bad guy we fought on Rodia who had a bounty on Baxta.,,,
+Vay,Young woman on Bitronia who told us those with purple armbands were the 'good people.' She blamed the government for a lot of problems.,,,
+Ven,"Middle-aged male Chiss who teaches Foresee and Farsight at the Echani training academy. He was formerly a member of an important family in the Chiss Ascendancy, but he was driven out by something and won't discuss it further.",,,
+Vereck Kren,"Petty criminal with a history working for the Red Hand street gang. He worked with Trynn at some point, as he was an Imperial loyalist in secret. He attempted to assassinate Senator Mikkel with a bomb, but when this failed Trynn shot him with a disruptor pistol, disintegrating him.",,,
+Veridium,Imperial chemical weapon that dissolved flesh in gas form at room temperature.,,,
+Vesper,Fast-acting viral weapon that spreads with all bodily fluids and causes extreme illness and exhaustion within minutes of infection. Eventually leads to hallucinations and death within an hour and targets all living beings. Used by the Imperial Remnant.,,,
+Vex Antiz,Dathomiran commander of the Republic research ship Dathomirian Phalanx serving on a mission we don't know about. Name was given to us by Jira.,,,
+Vexis,Gang leader involved in Culkoo's Deception vision on Votaris.,,,
+Vic Ren (Jira),"Former ISB agent on Haccara. Defending his farmstead from bounty hunters is what cost Vi her arm. He was a navigator on the Dathomirian Phalanx, which is why he was wanted by so many factions who did not want that information getting out.",,,
+Vilira Koss (née Tarri),"Vi's mother. She married Varokis Koss for love (and favorable business mergers) at the cost of her future with the Jedi Order. She even went so far as to suppress her connection to the Force and shield her twin children from the interest of the Jedi Order in order to protect them from a horrible fate shown to her in a vision. The validity and source of this vision is unknown. Her relationship with her (apparent) only surviving child was strained but brought to reconciliation--with Vi showing maturity and perspective she didn't have in the past and Vilira showing humility over her past decisions. While they still have a long way to go, Vi is thankful for her mother's decision to keep them out of the Jedi order and said she would have made the same decision in her place. She loaned her powerful lightsaber with a stun setting to Vi in order to help her bring back her son.",,,
+Virai Koss-Starblade,"Force-sensitive Mirialan who fought in the Rebellion and later for the New Republic. Her relationship with the Force, her parents, and her brother were very touchy during her early life, but she has grown into a powerful warrior who fights for her idea of what is right, and more importantly, for her family--her wife Khay, and her kids Keela and Rook.",,vi_full_body.png,Baddest bitch in the galaxy
+Void Claws,"Valsuran street gang with loose, unofficial ties to the Order of the Darkstar. At least some of the members were known to wield lightsabers and also be members of the Order, including the leader at the cannery we infiltrated to reach the main Order of the Darkstar base.",,,
+Voidclaws,See Void Claws,,,
+Voss Prime,"Outer Rim planet known for blush manufacturing. Mostly a volcanic moon orbiting a gas giant, Voss Prime still has rich plant life in a tropical climate--with the occasional earthquakes.",,,
+Votaris,"Planet located in the Nihlus Veil. It was the host of an ancient Sith civilization that once used the Aeon Codex to power their civilization with the Dark side of the Force. Long gone, the civilization's legacy was a painful one of darkness that left the Aeon Codex behind a temple housing trials. We overcame those trials, and Khay was chosen as the next 'host' for the Codex. Admiral Drayk's forces pursued us to this planet, but we escaped with the help of a newfound ally in the Echani Order and one of its masters--Morven Rask.",,,
+Vriska (Sev’risk’aklaio),Chiss navigator who helped us locate RY-467 in the Anosh system. She used extremely ancient technology to navigate the chaotic region--possibly Rakattan.,,,
+Waylosh,"Tropical mining colony in the Outer Rim, mosty comprised of humans and Bothans. Vi was still hearing whispers here, the same ones she heard on Caldara Station. We tried to liberate a settlement there that was being controlled by a Droid controller ship, but our mission was interrupted when we were diverted to Ulara.",,,
+Welik,See Wellick,,,
+Wellek,See Wellick,,,
+Wellick,"A sentient, mostly tribal society of humanoid deer-like folk. They value their horns as a sign of status. Unfortunately, the Black Suns forced these horns to be blunted during their forced slavery. Under the direction of Cho, we eventually liberated them from their oppressors. They had their own esoteric Force traditions, as they were naturally connected with the planet which, having such a Darkstar tree presence, was naturally connected to the Force in its own unique way.","Appearance and Physical Attributes:
+
+The Wellick are a unique species of humanoid deer-like creatures, standing shorter than the average human. Their most striking feature is a set of prominent horns, a symbol of pride and status in their culture. These horns are typically long and intricately branched, resembling those of terrestrial deer. Their bodies are covered in a shaggy coat, providing camouflage and protection in their forested environment. Their faces blend human and deer characteristics, with large, expressive eyes and a gentle demeanor. Despite their sturdy build, they are agile, adapted for navigating the dense forests of their moon, Kella.
+
+Culture and Society:
+
+The Wellick are deeply spiritual and live in small tribal communities scattered throughout the remaining woods of Kella. Their society values harmony with nature, evident in their sustainable living practices and reverence for the flora and fauna of their moon. The sacred Darkstar Trees hold immense spiritual significance, believed to be connected to the Force, guiding their philosophy and rituals.
+
+Art and music are integral to Wellick culture, with traditional songs and dances performed during significant celestial events and communal gatherings. Their art often depicts the natural beauty of Kella and the mystical aspects of the Darkstar Trees.
+
+Current Situation:
+
+Kella, once a serene forested moon, is now under threat. The Black Suns cartel has enslaved many Wellick to exploit the moon's resources, particularly the Darkstar Trees, valued for their fine dark hardwood. This rampant deforestation is destroying the Wellick's habitat and disrupting their way of life.
+
+In a cruel display of dominance, the cartel has mandated the blunting of the Wellick's horns, a devastating blow to their cultural identity. This act has not only physically harmed them but also deeply wounded their spirit, as their horns are a source of individual and communal pride.
+
+Resistance and Resilience:
+
+Despite these hardships, the Wellick are not passive victims. Covert resistance movements have begun to form, aiming to sabotage the cartel's operations and protect what remains of their sacred forests. These groups often operate in secrecy, using their intimate knowledge of the terrain to their advantage.
+
+The Wellick's connection to the Force, though not as pronounced as in some species, manifests in a profound intuition and a deep understanding of their environment. This spiritual connection empowers them in their struggle, providing hope and resilience in these dark times.
+
+Outlook:
+
+The future of the Wellick is uncertain. With their moon being slowly ravaged, they face the potential loss of their home and culture. Yet, their enduring spirit and deep connection to Kella and the Force offer a glimmer of hope. This critical period in their history is not just a fight for survival, but a battle for the soul of their civilization.","wellick.png,wellick2.png","A typical Wellick before the Black Suns occupation.,Haggard Wellick during the Black Suns occupation."
+Wellik,See Wellick,,,
+Willie,Ardennian mechanic on the Frenzy and member of the Falling Star Mercenary Company,,,
+Wolak,Moon in the Outer Rim that was a base for the Shadow Collective. Capitol: Wolak City.,,,
+Wraiths,"A group of former rebels, imperials, mercenaries, and anyone else. Did extensive damage to both Remnant and Republic forces, were recently raiding Republic shipments and hijacked X-Wings. Painted their ships grey.",,,
+Xeran Varros,"Imperial Force sensitive, possibly an Inquisitor, working for the Shadow's Hand and Admiral Drayk. Led the assault against us on Votaris, trying to claim the Aeon Codex for Drayk and her faction.",,,
+Yith Bahuta,"Galactically reknowned xenoarchaeologist, was the curator of the Tomb of Kara Adun exhibit during the fateful voyage of the Olympus luxury liner.",,,
+Ylara,"Independent planet with a divided populace in civil war (at least when we went there). Both the Remnant and New Republic want it for its ship production capabilities, with the Remnant supporting the Cathar faction and the New Republic the native Auroran population.",,,
+Ylara City,"Capitol of the planet Ylara. Site of a plot to slaughter a bunch of innocents using the holocron stolen by Senator Aldir. While we foiled the plot, the chaos still gave the Remnant an excuse to use an attempted assassination of the king as a false flag. Current status is unknown but presumed to be in Remnant control.",,,
+Yulara,See Ylara,,,
+Zah’tuku,Little Khaylia's twi'lek nanny. They used living servants over droids since droids were not well-trusted during and after the Clone Wars.,,,
+Zatt,"Nautolan Jedi who survived Order 66 along with Cali. After helping us in our fight with his former friend on Kella, he taught Khay Heal/Harm and used it to heal her (and somehow healed her with the Dark side even though the rules say it doesn't work like that so how do you write that off Mike? huh?).",,,
+Zeke,Eilin's protector droid.,,,
+Zex,"Droid companion of Caeli Tarn. Was taken into custody when her ship, The Drift, was also seized by Draken. He was needed to get us to Krythara, as the data was in his and the Drift's memory.",,,
+Zhan,Zabrak with a broken horn and yellow eyes. Was known as a thug for Thrax.,,,
+Ziivala (Irizi’ival’anari),"Kavin's sister, former Navigator (Skywalker), and current Ascendic--at least in some capacity. While she's currently a member of House Irizi, who is working with Thrawn and the New Order, she does not trust any Remnant or Thrawn and gave Kavin her com in case he needs her.",,,
+Zyrakar,Outer Rim planet known as a major nexus for galactic trade but also a large hive of scum and villainy. Good place to lay low from the Republic. We went there to contact Caeli Tarn for information on the Order of the Darkstar. The Dusk Haven Militia is the presiding military and governing power of the planet.,,,

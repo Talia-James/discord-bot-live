@@ -134,3 +134,8 @@ scratch2.py
 #Backups just in case
 streamlit_experimental/*
 legacy_and_backup/*
+sw-ffg-char-gen/*
+dice_sim.ipynb
+ports.bak
+ports.dat
+ports.dir

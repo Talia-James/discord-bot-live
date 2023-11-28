@@ -14,16 +14,16 @@ Improved Animal Bond,False,False,False,False,False,False,False
 Animal Empathy,False,False,False,False,False,False,False
 Another's Treasure,False,False,False,False,False,False,False
 Armor Master,False,True,False,False,True,False,False
-Improved Armor Master,False,True,False,False,False,False,False
+Improved Armor Master,True,True,False,False,False,False,False
 Supreme Armor Master,False,False,False,False,False,False,False
 As The Force Wills It,False,False,False,False,False,False,False
 Assault Drop,False,False,False,False,False,False,False
 At Any Cost,False,False,False,False,False,False,False
-Ataru Technique,False,False,False,False,False,False,False
+Ataru Technique,False,False,True,False,True,False,False
 Backroom Deal,False,False,False,False,False,False,False
 Bad Motivator,True,False,False,False,False,False,False
 Bad Press,False,False,False,False,False,False,False
-Balance,False,False,True,False,False,False,False
+Balance,False,False,True,True,False,False,False
 Baleful Gaze,False,False,False,False,False,False,False
 Barrel Roll,False,False,False,False,False,False,False
 Improved Barrel Roll,False,False,False,False,False,False,False
@@ -36,8 +36,8 @@ Blackmail,False,False,False,False,False,False,False
 Blather,False,False,False,False,False,False,False
 Blind Spot,False,False,False,False,False,False,False
 Improved Blooded,False,False,False,False,False,False,False
-Improved Body Guard,False,False,False,False,False,False,False
-Supreme Body Guard,False,False,False,False,False,False,False
+Improved Body Guard,False,True,False,False,False,False,False
+Supreme Body Guard,False,True,False,False,False,False,False
 Bought Info,False,False,False,False,False,False,False
 Bound Together,False,False,False,False,False,False,False
 Improved Brace,False,False,False,False,False,False,False
@@ -85,7 +85,7 @@ Deathblow,False,False,False,False,False,False,False
 Debilitating Shot,False,False,False,False,False,False,False
 Deceptive Taunt,False,False,False,False,False,False,False
 Defensive Circle,False,False,False,False,False,False,False
-Improved Defensive Slicing,False,False,False,False,False,False,False
+Improved Defensive Slicing,True,False,False,False,False,False,False
 Desperate Repairs,False,False,False,False,False,False,False
 Diplomatic Immunity,False,False,False,False,False,False,False
 Disciplined Soul,False,False,False,False,False,False,False
@@ -103,7 +103,7 @@ Double-Talk,False,False,False,False,False,False,False
 Draw Closer,False,False,False,False,False,False,False
 Droid Commander,False,False,False,False,False,False,False
 Duelist's Training,False,False,False,False,False,False,False
-Dynamic Fire,False,False,True,False,False,False,False
+Dynamic Fire,True,False,True,False,False,False,False
 Empty Soul,False,False,False,False,False,False,False
 Encoded Communiqué,False,False,False,False,False,False,False
 Encouraging Words,False,False,False,False,False,False,False
@@ -154,7 +154,7 @@ Guardian Of The Republic,False,False,False,False,False,False,False
 Guns Blazing,False,False,False,False,False,False,False
 Harass,False,False,False,False,False,False,False
 Improved Hard Headed,False,False,False,False,False,False,False
-Hawk Bat Swoop,False,False,False,False,False,False,False
+Hawk Bat Swoop,False,False,False,False,True,False,False
 Headbutt,False,False,False,False,False,False,False
 Improved Healing Trance,False,False,False,False,False,False,False
 Heavy Hitter,False,False,False,False,False,False,False
@@ -163,7 +163,7 @@ Heroic Resilience,False,True,False,False,False,False,False
 Improved Hidden Storage,False,False,False,False,False,False,False
 Hindering Shot,False,False,False,False,False,False,False
 Hit And Run,False,False,False,False,False,False,False
-Hold Together,False,False,False,False,False,False,False
+Hold Together,True,False,False,False,False,False,False
 Holistic Navigation,False,False,False,False,False,False,False
 Hunter's Quarry,False,False,False,False,False,False,False
 Improved Hunter's Quarry,False,False,False,False,False,False,False
@@ -244,7 +244,7 @@ Master Merchant,False,False,False,False,False,False,False
 Master Of Shadows,False,False,False,True,True,False,False
 Master Of The Order,False,False,False,False,False,False,False
 Master Pilot,False,False,True,False,False,False,False
-Master Slicer,False,False,False,False,False,False,False
+Master Slicer,True,False,False,False,False,False,False
 Master Starhopper,False,False,False,False,False,False,False
 Master Strategist,False,False,False,False,False,False,False
 Meditative Trance,False,False,False,False,False,False,False
@@ -256,10 +256,10 @@ Mind Bleed,False,False,False,False,False,False,False
 Mind Over Matter,False,False,False,False,False,False,False
 Mission Critical,False,False,False,False,False,False,False
 Most Impressive,False,False,False,False,False,False,False
-Multiple Opponents,False,False,False,False,False,False,False
+Multiple Opponents,True,True,False,False,False,False,False
 Museum Worthy,False,False,False,False,False,False,False
 Natural Athlete,False,False,False,False,False,False,False
-Natural Blademaster,False,False,False,False,False,False,False
+Natural Blademaster,True,False,False,False,False,False,False
 Natural Brawler,False,False,False,False,True,False,False
 Natural Champion,False,False,False,False,False,False,False
 Natural Charmer,False,False,False,False,False,False,False
@@ -276,7 +276,7 @@ Natural Mystic,False,False,False,False,False,False,False
 Natural Negotiator,False,False,False,False,False,False,False
 Natural Operator,False,False,False,False,False,False,False
 Natural Outdoorsman,False,False,False,True,False,False,False
-Natural Pilot,False,False,False,False,False,False,False
+Natural Pilot,False,False,True,False,False,False,False
 Natural Programmer,False,False,False,False,False,False,False
 Natural Rogue,False,False,False,False,True,False,False
 Natural Scholar,False,False,False,False,False,False,False
@@ -302,7 +302,7 @@ Improved Overcharge,False,False,False,False,False,False,False
 Supreme Overcharge,False,False,False,False,False,False,False
 Overwhelm Emotions,False,False,False,False,False,False,False
 Improved Overwhelming Aura,False,False,False,False,False,False,False
-Improved Parry,False,False,False,False,False,False,False
+Improved Parry,False,False,True,False,False,False,False
 Supreme Parry,False,False,False,False,False,False,False
 Persistent Targeting,False,False,False,False,False,False,False
 Pilot Training,False,False,False,False,False,False,False
@@ -349,8 +349,8 @@ Resist Questioning,False,False,False,False,False,False,False
 Improved Resist Questioning,False,False,False,False,False,False,False
 Resource Allocation,False,False,False,False,False,False,False
 Resourceful Refit,False,False,False,False,False,False,False
-Saber Swarm,False,False,False,False,False,False,False
-Saber Throw,False,False,False,False,False,False,False
+Saber Swarm,False,False,True,False,False,False,False
+Saber Throw,False,False,True,False,False,False,False
 Improved Saber Throw,False,False,False,False,False,False,False
 Sapith Sundering,False,False,False,False,False,False,False
 Sarlaac Sweep,False,False,False,False,False,False,False
@@ -366,7 +366,7 @@ Improved Secrets of the Jedi,False,False,False,False,False,False,False
 Seen A Lot Of Things,False,False,False,False,False,False,False
 Seize The Initiative,False,False,False,False,False,False,False
 Sense Advantage,False,False,False,False,False,False,False
-Sense Danger,False,False,True,True,False,False,False
+Sense Danger,False,False,True,True,True,False,False
 Sense Emotions,False,True,False,False,False,False,False
 Sense The Scene,False,False,False,False,False,False,False
 Share Pain,False,False,False,False,False,False,False
@@ -388,7 +388,7 @@ Something To Prove,False,False,False,False,False,False,False
 Soothing Tone,False,False,False,False,False,False,False
 Soresu Technique,False,False,False,False,False,False,False
 Sorry About The Mess,False,True,False,False,False,False,False
-Spare Clip,False,False,False,False,False,False,False
+Spare Clip,False,False,False,True,False,False,False
 Improved Speaks Binary,False,False,False,False,False,False,False
 Supreme Speaks Binary,False,False,False,False,False,False,False
 Spitfire,False,False,False,False,False,False,False
@@ -436,7 +436,7 @@ Throwing Credits,False,False,False,False,False,False,False
 Time To Go,False,False,False,False,False,False,False
 Improved Time to Go,False,False,False,False,False,False,False
 To The Death!,False,False,False,False,False,False,False
-Touch Of Fate,False,False,False,False,False,False,False
+Touch Of Fate,False,False,False,False,True,False,False
 Improved Toughened,False,False,False,False,False,False,False
 Translation Error,False,False,False,False,False,False,False
 Transmogrify,False,False,False,False,False,False,False

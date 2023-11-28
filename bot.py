@@ -17,10 +17,8 @@ client = discord.Client(intents=intents)
 intents.members = True
 
 wiki_df = pd.read_csv('wiki.csv',encoding='utf-8',index_col='Entry')
-wiki_df = wiki_df[['body','status']]
+wiki_df = wiki_df[['body']]
 wiki_topics = wiki_df.index.tolist()
-done_df,prog_df = wiki_df[wiki_df['status']=='Complete'],wiki_df[wiki_df['status']=='In Progress']
-done_entries,prog_entries = [t.lower().strip() for t in done_df.index.tolist()],[t.lower().strip() for t in prog_df.index.tolist()]
 global wiki_log
 wiki_log = []
 
@@ -1071,7 +1069,6 @@ async def nameswitch(ctx):
 
 @bot.command()
 async def wiki(ctx,*args):
-    # args = [arg.lower() for arg in args]
     search = ' '.join(args)
     if '?' in search:
         entry = sim_search(search,wiki_df)
@@ -1079,16 +1076,16 @@ async def wiki(ctx,*args):
         body = wiki_df.loc[entry]['body']
         await ctx.send(f'Showing results for closest match {entry}: {body}')
         await ctx.send(f"Not what you're looking for? Here are the 5 closest entry matches: {results}")
-    elif search.lower() in done_entries:
-        entry = search
-        body = wiki_df.loc[search.title()]['body']
-        await ctx.send(f'{entry.title()}: {body}')
-    elif search.lower() in prog_entries:
-        global wiki_log
-        wiki_log.append(f'Search for incomplete entry: {search}')
-        await ctx.send(f'{search} is in the wiki but does not currently have an article. This topic has been submitted for higher priority.')
     else:
-        await ctx.send(f'I am sorry, but I cannot find {search} in my database. React to this message if you would like to add it to the list of topics to be added.')
+        try:
+            entry = search
+            body = wiki_df.loc[search.title()]['body']
+            await ctx.send(f'{entry.title()}: {body}')
+        except KeyError:
+            await ctx.send(f'I am sorry, but I cannot find {search} in my database. React to this message if you would like to add it to the list of topics to be added.')
+        except discord.errors.HTTPException:
+            await ctx.send(f'I am sorry, but the entry for {search} is too long to send in discord.')
+
 
 @bot.event
 async def on_reaction_add(reaction, user):

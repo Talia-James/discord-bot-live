@@ -115,7 +115,7 @@ Focus/Rage,t3.3,False,False,False,False,False,False
 Focus/Rage,t4.1,False,False,False,False,False,False
 Focus/Rage,t4.2,False,False,False,False,False,False
 Focus/Rage,t4.3,False,False,False,False,False,False
-Foresee,base,False,False,True,False,False,False
+Foresee,base,True,False,True,False,False,False
 Foresee,t1.1,False,False,False,False,False,False
 Foresee,t1.2,False,False,False,False,False,False
 Foresee,t2.1,False,False,False,False,False,False
@@ -181,7 +181,7 @@ Influence,t4.1,False,False,False,False,False,False
 Influence,t4.2,False,False,False,False,False,False
 Influence,t4.3,False,False,False,False,False,False
 Influence,t4.4,False,False,False,False,False,False
-Manipulate,base,False,False,False,False,False,False
+Manipulate,base,True,False,False,False,False,False
 Manipulate,t1.1,False,False,False,False,False,False
 Manipulate,t1.2,False,False,False,False,False,False
 Manipulate,t1.3,False,False,False,False,False,False

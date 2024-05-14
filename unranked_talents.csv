@@ -23,7 +23,7 @@ Ataru Technique,False,False,True,False,True,False,False
 Backroom Deal,False,False,False,False,False,False,False
 Bad Motivator,True,False,False,False,False,False,False
 Bad Press,False,False,False,False,False,False,False
-Balance,False,False,True,True,False,False,False
+Balance,False,False,True,True,True,False,False
 Baleful Gaze,False,False,False,False,False,False,False
 Barrel Roll,False,False,False,False,False,False,False
 Improved Barrel Roll,False,False,False,False,False,False,False
@@ -135,7 +135,7 @@ For The Republic!,False,False,False,False,False,False,False
 Forager,False,False,True,True,False,False,False
 Force Assault,False,False,False,False,False,False,False
 Force Connection,False,False,False,False,False,False,False
-Force Of Will,False,False,False,False,False,False,False
+Force Of Will,False,False,True,False,False,False,False
 Forewarning,False,False,False,False,False,False,False
 Form On Me,False,False,False,False,False,False,False
 Formation Tactics,False,False,False,False,False,False,False
@@ -409,7 +409,7 @@ Strong Arm,True,True,False,False,True,False,False
 Studious Plotting,False,False,False,False,False,False,False
 Stunning Blow,False,False,False,False,True,False,False
 Improved Stunning Blow,False,False,False,False,True,False,False
-Sum Djem,False,False,False,False,False,False,False
+Sum Djem,True,False,False,False,False,False,False
 Summon Item,False,False,False,False,False,False,False
 Sunder (Improved),False,False,False,False,False,False,False
 Superhuman Reflexes,False,False,False,False,False,False,False

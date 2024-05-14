@@ -13,14 +13,14 @@ Brace,1,2,0,1,0,0,0
 Burly,0,3,0,0,0,0,0
 By The Book,0,0,0,0,0,0,0
 Bypass Security,1,0,0,0,0,0,0
-Center Of Being,0,0,0,0,0,0,0
+Center Of Being,1,0,0,0,0,0,0
 Channel Agony,0,0,0,0,0,0,0
 Clanker Killer,0,0,0,0,0,0,0
 Codebreaker,1,0,0,0,0,2,0
 Combat Veteran,0,0,0,0,0,0,0
 Command,0,0,0,0,0,0,0
 Commanding Presence,0,0,0,0,0,0,0
-Conditioned,1,2,1,0,0,0,0
+Conditioned,1,2,2,0,0,0,0
 Confidence,0,0,0,0,0,0,0
 Congenial,0,0,0,0,0,0,0
 Construction Specialist,0,0,0,0,0,0,0
@@ -35,7 +35,7 @@ Death From Above,0,0,0,0,0,0,0
 Dedication,0,1,0,4,0,0,0
 Defensive Driving,0,0,0,0,0,0,0
 Defensive Slicing,1,0,0,0,0,0,0
-Defensive Stance,1,0,0,0,1,0,0
+Defensive Stance,1,0,0,0,2,0,0
 Defensive Training,1,0,0,0,0,0,0
 Deft Maker,0,0,0,0,0,0,0
 Design Flaw,0,0,0,0,0,0,0
@@ -44,8 +44,8 @@ Disciple Of Lore,0,0,0,0,0,0,0
 Disorient,0,2,0,0,2,0,0
 Distracting Behavior,0,0,0,0,0,0,0
 Dockyard Expertise,0,0,0,0,0,0,0
-Dodge,0,0,1,2,0,0,0
-Durable,2,3,0,0,1,0,0
+Dodge,0,0,2,2,1,0,0
+Durable,3,3,0,0,1,0,0
 Embrace Your Hate,0,2,0,0,0,0,0
 Enduring,1,1,1,0,0,0,0
 Expert Handler,0,0,0,0,0,0,0
@@ -66,7 +66,7 @@ Galaxy Mapper,0,0,0,0,0,0,0
 Gearhead,1,0,0,0,0,2,0
 Good Cop,0,0,0,0,0,0,0
 Greased Palms,0,0,0,0,0,0,0
-Grit,5,6,6,7,7,0,0
+Grit,5,6,7,7,7,0,0
 Hard Headed,0,0,0,0,0,0,0
 Hard-Boiled,0,0,0,0,0,0,0
 Healing Trance,0,0,0,0,0,0,0
@@ -76,8 +76,8 @@ High-G Training,0,0,0,0,0,0,0
 Hunter,0,0,0,0,0,0,0
 In The Know,0,0,0,0,0,0,0
 Indistinguishable,0,0,0,1,0,0,0
-Inner Peace,0,0,0,0,0,0,0
-Intimidating,0,1,0,0,0,0,0
+Inner Peace,0,2,0,0,0,0,0
+Intimidating,0,2,0,0,0,0,0
 Intuitive Evasion,0,0,0,0,0,0,0
 Inventor,1,0,0,0,0,0,0
 Iron Body,0,0,0,0,0,0,0
@@ -90,7 +90,7 @@ Knowledge Specialization,0,0,0,0,0,0,0
 Larger Project,0,0,0,0,0,0,0
 Lead From The Back,0,0,0,0,0,0,0
 Lead From The Front,0,0,0,0,0,0,0
-Lethal Blows,0,1,0,3,0,0,0
+Lethal Blows,0,2,0,3,0,0,0
 Leverage,0,0,0,0,0,0,0
 Machine Mender,0,0,0,0,0,0,0
 Momentum,0,0,0,0,0,0,0
@@ -101,7 +101,7 @@ Outdoorsman,1,1,1,3,0,0,0
 Overstocked Ammo,0,0,0,0,0,0,0
 Overwhelm Defenses,0,0,0,0,0,0,0
 Overwhelming Aura,0,0,0,0,0,0,0
-Parry,3,2,3,2,2,0,0
+Parry,3,4,3,2,2,0,0
 Physical Training,2,2,0,0,1,0,0
 Physician,0,0,0,0,0,0,0
 Planet Mapper,0,0,0,0,0,0,0
@@ -112,11 +112,11 @@ Powerful Blast,0,0,0,0,0,0,0
 Precise Aim,0,0,0,2,0,0,0
 Prey On The Weak,0,1,0,0,0,0,0
 Prime Positions,0,0,0,0,0,0,0
-Quick Strike,0,2,1,1,2,0,0
+Quick Strike,0,3,2,1,2,0,0
 Rapid Reaction,0,1,0,0,0,0,0
 Rapid Recovery,0,0,0,0,2,0,0
 Ready For Anything,0,0,0,0,0,0,0
-Reflect,0,1,1,1,2,0,0
+Reflect,0,1,2,1,2,0,0
 Repair Patch Specialization,0,0,0,0,0,0,0
 Researcher,0,0,0,0,0,0,0
 Resolve,0,0,0,0,0,0,0
@@ -143,12 +143,12 @@ Steady Nerves,0,0,0,0,0,0,0
 Stimpack Specialization,0,0,2,0,0,0,0
 Street Smarts,1,0,0,1,0,0,0
 Supporting Evidence,0,0,0,0,0,0,0
-Suppressing Fire,0,1,0,0,0,0,0
+Suppressing Fire,0,1,0,0,1,0,0
 Surgeon,0,0,2,0,0,2,0
-Technical Aptitude,1,0,0,0,0,0,0
+Technical Aptitude,2,0,0,0,0,0,0
 That's How It's Done,0,0,0,0,0,0,0
 Tinkerer,2,0,0,0,0,0,0
-Toughened,10,5,4,11,5,0,0
+Toughened,10,8,7,11,5,0,0
 True Aim,0,0,0,1,0,0,0
 Trust The Captain,0,0,0,0,0,0,0
 Tuned Maneuvering Thrusters,0,0,0,0,0,0,0

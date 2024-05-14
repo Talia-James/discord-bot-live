@@ -23,7 +23,7 @@ Ataru Technique,False,False,True,False,True,False,False
 Backroom Deal,False,False,False,False,False,False,False
 Bad Motivator,True,False,False,False,False,False,False
 Bad Press,False,False,False,False,False,False,False
-Balance,False,False,True,True,True,False,False
+Balance,False,True,True,True,True,False,False
 Baleful Gaze,False,False,False,False,False,False,False
 Barrel Roll,False,False,False,False,False,False,False
 Improved Barrel Roll,False,False,False,False,False,False,False
@@ -154,7 +154,7 @@ Guardian Of The Republic,False,False,False,False,False,False,False
 Guns Blazing,False,False,False,False,False,False,False
 Harass,False,False,False,False,False,False,False
 Improved Hard Headed,False,False,False,False,False,False,False
-Hawk Bat Swoop,False,False,False,False,True,False,False
+Hawk Bat Swoop,False,False,True,False,True,False,False
 Headbutt,False,False,False,False,False,False,False
 Improved Healing Trance,False,False,False,False,False,False,False
 Heavy Hitter,False,False,False,False,False,False,False
@@ -207,9 +207,9 @@ Invigorate,False,False,False,False,False,False,False
 Iron Soul,False,False,False,False,False,False,False
 It's Not That Bad,False,False,True,False,False,False,False
 Jetpack Expertise,False,False,False,False,False,False,False
-Jump Up,False,True,True,True,True,False,False
+Jump Up,True,True,True,True,True,False,False
 Just Kidding!,False,False,False,False,False,False,False
-Juyo Savagery,False,False,False,False,False,False,False
+Juyo Savagery,False,True,False,False,False,False,False
 Knockdown,False,True,False,False,True,False,False
 Know The Enemy,False,False,False,False,False,False,False
 Improved Know Their Weakness,False,False,False,False,False,False,False
@@ -302,7 +302,7 @@ Improved Overcharge,False,False,False,False,False,False,False
 Supreme Overcharge,False,False,False,False,False,False,False
 Overwhelm Emotions,False,False,False,False,False,False,False
 Improved Overwhelming Aura,False,False,False,False,False,False,False
-Improved Parry,False,False,True,False,False,False,False
+Improved Parry,False,False,True,False,True,False,False
 Supreme Parry,False,False,False,False,False,False,False
 Persistent Targeting,False,False,False,False,False,False,False
 Pilot Training,False,False,False,False,False,False,False
@@ -450,7 +450,7 @@ Improved Unrelenting Skeptic,False,False,False,False,False,False,False
 Unstoppable,False,True,False,False,False,False,False
 Utility Belt,False,False,False,False,True,False,False
 Improved Utility Belt,False,False,False,False,False,False,False
-Vaapad Control,False,False,False,False,False,False,False
+Vaapad Control,False,True,False,False,False,False,False
 Valuable Facts,False,False,False,False,False,False,False
 Vehicle Combat Training,False,True,False,False,False,False,False
 Walk The Walk,False,False,False,False,False,False,False

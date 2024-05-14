@@ -27,7 +27,7 @@ Battle Meditation,t3.3,False,False,False,False,False,False
 Battle Meditation,t4.1,False,False,False,False,False,False
 Battle Meditation,t4.2,False,False,False,False,False,False
 Battle Meditation,t4.3,False,False,False,False,False,False
-Bind,base,False,False,False,False,False,False
+Bind,base,False,True,False,False,False,False
 Bind,t1.1,False,False,False,False,False,False
 Bind,t1.2,False,False,False,False,False,False
 Bind,t1.3,False,False,False,False,False,False

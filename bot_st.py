@@ -254,6 +254,18 @@ async def gametime(ctx,*args):
         except KeyError:
             await ctx.send(f'Unable to find {game} in session list.')
 
+# #Checks to see if the user has a nickname or not
+##DEPRECATED##
+# def name_check(ctx):
+#     try:
+#         if ctx.message.author.nick == None:
+#             sender = ctx.message.author.name
+#         else:
+#             sender = ctx.message.author.nick
+#     except AttributeError:
+#         sender = ctx.message.author.name
+#     return sender
+
 #Loads titles from shelf file in case of bot interruption
 def load_titles():
     with shelve.open('vars') as f:
@@ -391,6 +403,7 @@ async def refresh(ctx):
 @bot.command()
 async def runoff(ctx):
     sender = ctx.message.author.display_name
+    # sender = name_check(ctx)
     with shelve.open('vars') as f:
         f['vote_hist']=[]
     await ctx.send(f'Vote history purged, Captain {sender}.')
@@ -398,6 +411,7 @@ async def runoff(ctx):
 @bot.command()
 async def s(ctx):
     sender = ctx.message.author.display_name
+    # sender = name_check(ctx)
     title = (ctx.message.content)[3:]
     titles = load_titles()
     titles.append(title)
@@ -417,6 +431,7 @@ async def titles(ctx):
 async def vote(ctx):
     try:
         sender = ctx.message.author.display_name
+        # sender = name_check(ctx)
         voter = ctx.message.author.name
         vote = ctx.message.content[6:]
         entry = f'{voter}-{vote}'
@@ -1086,6 +1101,40 @@ async def on_reaction_add(reaction, user):
         wiki_log.append(f'Search for nonexistent entry: {term}')
         name = user.display_name
         await chan.send(f'{term} added to topic log by {name}.')
+
+# @bot.event
+# async def on_presence_update(before,after):
+#     # guild_filter = [675451203412295779]#399052850488934401
+#     # if after.guild.id in guild_filter:
+#     if after.activity != None:
+#         if after.activity.name == 'Spotify':
+#             print('-----------')
+#             print('Spotify Detected')
+#             print(after.name)
+#             print(after.activity.title)
+#             artists = after.activity.artists
+#             if len(artists)>1:
+#                 if len(artists) == 2:
+#                     artists = f'{artists[0]} and {artists[1]}'
+#                 else:
+#                     end = artists[-1]
+#                     begin = artists[:-1]
+#                     new_artists = ', '.join(begin)
+#                     artists = f'{new_artists}, and {end}' 
+#             else:
+#                 artists = artists[0]
+#             print(artists)
+#             print(after.activities)
+#             print('-----------')
+#             st.write(f'{after.display_name} is listening to {after.activity.title} by {artists}')
+#         else:
+#             print(after.name)
+#             print(after.activity)
+#             print(after.activity.name)
+#             st.write(f'{after.display_name} is doing {after.activity.name}')
+#     else:
+#         print(f'{after.display_name} has halted activity.')
+#         st.write(f'{after.display_name} has halted activity.')
 
 @bot.command()
 async def log_dump(ctx):

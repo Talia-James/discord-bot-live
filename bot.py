@@ -1,10 +1,15 @@
 import discord, random, re, asyncio, shelve,collections,sys, os
 from datetime import datetime as dt
+from datetime import timezone
+from discord import ActivityType
 from datetime import timedelta as td
 from discord.ext import commands#, utils
 import pandas as pd
 from dice import *
 from difflib import SequenceMatcher
+import json
+import streamlit as st
+
 #Bot token saved in a .txt flie in the containing directory, which is not in the repository. This is a security feature--if you publish your bot token on Github, Discord will revoke it immediately
 with open('../tok.txt') as f:
     token = f.readlines()[0]
@@ -1099,6 +1104,40 @@ async def on_reaction_add(reaction, user):
         name = user.display_name
         await chan.send(f'{term} added to topic log by {name}.')
 
+@bot.event
+async def on_presence_update(before,after):
+    # guild_filter = [675451203412295779]#399052850488934401
+    # if after.guild.id in guild_filter:
+    if after.activity != None:
+        if after.activity.name == 'Spotify':
+            print('-----------')
+            print('Spotify Detected')
+            print(after.name)
+            print(after.activity.title)
+            artists = after.activity.artists
+            if len(artists)>1:
+                if len(artists) == 2:
+                    artists = f'{artists[0]} and {artists[1]}'
+                else:
+                    end = artists[-1]
+                    begin = artists[:-1]
+                    new_artists = ', '.join(begin)
+                    artists = f'{new_artists}, and {end}' 
+            else:
+                artists = artists[0]
+            print(artists)
+            print(after.activities)
+            print('-----------')
+            st.write(f'{after.display_name} is listening to {after.activity.title} by {artists}')
+        else:
+            print(after.name)
+            print(after.activity)
+            print(after.activity.name)
+            st.write(f'{after.display_name} is doing {after.activity.name}')
+    else:
+        print(f'{after.display_name} has halted activity.')
+        st.write(f'{after.display_name} has halted activity.')
+
 @bot.command()
 async def log_dump(ctx):
     log_df = pd.DataFrame()
@@ -1110,6 +1149,63 @@ async def log_dump(ctx):
     await ctx.send(f'wiki_log_{time_}.csv dumped to {path}')
     wiki_log = []
 
-
+@bot.command()
+async def server_stats(ctx):
+    members = ctx.message.guild.members
+    # print(members)
+    for member in members:
+        if not member.bot and member.raw_status != 'offline':
+            print('----------')
+            print(f'{member}, going by {member.display_name}')
+            activities = member.activities
+            for activity in activities:
+                if activity.name == 'Spotify':
+                    artists = member.activity.artists
+                    if len(artists)>1:
+                        if len(artists) == 2:
+                            artists = f'{artists[0]} and {artists[1]}'
+                        else:
+                            end = artists[-1]
+                            begin = artists[:-1]
+                            new_artists = ', '.join(begin)
+                            artists = f'{new_artists}, and {end}' 
+                    else:
+                        artists = artists[0]
+                    print(f'{member.display_name} is listening to {member.activity.title} by {artists}')
+                elif activity.type == ActivityType.playing:
+                    game = activity.name
+                    start = activity.start
+                    playtime = (dt.now(tz=timezone.utc)-start)
+                    days,seconds = playtime.days,playtime.seconds ##For datetime module, only days, seconds, and MICROseconds are stored internally--everything is derived
+                    if days>=7:
+                        weeks = int(days/7)
+                        days = days%7
+                    else:
+                        weeks = 0
+                    if seconds>=60 and seconds<3600:
+                        minutes = int(seconds/60)
+                        seconds = seconds%60
+                        hours = 0
+                    else:
+                        hours = int(seconds/3600)
+                        minutes = int((seconds%3600)/60)
+                        seconds = seconds%3600%60
+                    send_message_list = []
+                    for var_,var_name in zip([weeks,days,hours,minutes,seconds],['weeks','days','hours','minutes','seconds']):
+                        if var_ == 0:
+                            continue
+                        else:
+                            send_message_list.append(f'{var_} {var_name}')
+                    if len(send_message_list)==2:
+                        send_message = f'{send_message_list[0]} and {send_message_list[1]}'
+                    elif len(send_message_list)==1:
+                        send_message = send_message_list[0]
+                    else:
+                        send_message_pre = ', '.join(send_message_list[:-1])
+                        send_message = f'{send_message_pre}, and {send_message_list[-1]}'
+                    print(f'{member.display_name} has been playing {game} for {send_message}')
+                else:
+                    print()
+        
 
 bot.run(f'{token}')

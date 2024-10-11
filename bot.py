@@ -1,7 +1,7 @@
 import discord, random, re, asyncio, shelve,collections,sys, os
 from datetime import datetime as dt
 from datetime import timezone
-from discord import ActivityType
+from discord import ActivityType#,Webhook,RequestsWebhookAdapter
 from datetime import timedelta as td
 from discord.ext import commands#, utils
 import pandas as pd
@@ -403,7 +403,7 @@ async def s(ctx):
     titles.append(title)
     with shelve.open('vars') as f:
         f['titles']=titles
-    await ctx.send(f'Title added, Captain {sender}')
+    await ctx.reply(f'Title added, Captain {sender}')
 
 @bot.command()
 async def titles(ctx):
@@ -415,30 +415,31 @@ async def titles(ctx):
 
 @bot.command(pass_context=True)
 async def vote(ctx):
-    try:
         sender = ctx.message.author.display_name
         voter = ctx.message.author.name
-        vote = ctx.message.content[6:]
-        entry = f'{voter}-{vote}'
-        with shelve.open('vars') as f:
-            vote_hist = f['vote_hist']
-            votes = f['votes']
-            titlecount = len(f['titles'])
-        numvote = int(vote)
-        if numvote>titlecount:
-            await ctx.send(f'That number does not correspond to the amount of submitted votes.')
-        else:
-            if entry in vote_hist:
-                await ctx.send(f'You have already voted for that title, Captain {sender}.')
-            else:
-                votes.append(numvote)
-                vote_hist.append(entry)
+        votes = ctx.message.content[6:].split(',')
+        for vote in votes:
+            try:
+                entry = f'{voter}-{vote}'
                 with shelve.open('vars') as f:
-                    f['votes']=votes
-                    f['vote_hist']=vote_hist
-                await ctx.send(f'Vote recorded, Captain {sender}.')
-    except ValueError:
-        await ctx.send(f'That is not a number, Captain {sender}.')
+                    vote_hist = f['vote_hist']
+                    votes = f['votes']
+                    titlecount = len(f['titles'])
+                numvote = int(vote)
+                if numvote>titlecount:
+                    await ctx.send(f'{vote} does not correspond to the amount of submitted votes.')
+                else:
+                    if entry in vote_hist:
+                        await ctx.send(f'You have already voted for {vote}, Captain {sender}.')
+                    else:
+                        votes.append(numvote)
+                        vote_hist.append(entry)
+                        with shelve.open('vars') as f:
+                            f['votes']=votes
+                            f['vote_hist']=vote_hist
+            except ValueError:
+                await ctx.send(f'That is not a number, Captain {sender}.')
+        await ctx.send(f'Vote(s) processed, Captain {sender}.')
 
 @bot.command(pass_context=True)
 async def votecount(ctx):

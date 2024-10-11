@@ -1,4 +1,4 @@
-from random import choice
+from random import choice,randint
 result_types = [['Success','Failure'],['Advantage','Threat'],'Triumph','Despair','Light','Dark']
 def plural(type_):
     if type_ == 'Success':
@@ -102,3 +102,19 @@ boost = die('Boost',[(1,[blank]),(1,[blank]),(1,[advantage]),(1,[success]),(2,[a
 difficulty = die('Difficulty',[(1,[threat]),(1,[threat]),(1,[threat]),(2,[threat]),(1,[blank]),(1,[failure]),(2,[failure]),(1,[failure,threat])])
 challenge = die('Challenge',[(1,[threat]),(1,[threat]),(2,[threat]),(2,[threat]),(2,[failure]),(2,[failure]),(1,[failure]),(1,[failure]),(1,[despair]),(1,[blank]),(1,[failure,threat]),(1,[failure,threat])])
 setback = die('Setback',[(1,[failure]),(1,[failure]),(1,[threat]),(1,[threat]),(1,[blank]),(1,[blank])])
+
+success_thresholds = {
+    'fumble': lambda x: (94 if x<50 else 99,100),
+    'failure':lambda x: (x,94 if x<50 else 100),
+    'success':lambda x: (int(x/2),x),
+    'hard success':lambda x: (int(x/5),int(x/2)),
+    'critical success':lambda x: (0,1)
+    }
+
+def roll(val):
+    die_result = randint(0,100)
+    calc_thresh = {key:success_thresholds[key](val) for key in success_thresholds}
+    for key in calc_thresh:
+        if calc_thresh[key][0]<die_result<=calc_thresh[key][1]:
+            result_desc = key
+    return die_result,result_desc

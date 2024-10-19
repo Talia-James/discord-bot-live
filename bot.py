@@ -1,4 +1,4 @@
-import discord, random, re, asyncio, shelve,collections,sys, os
+import discord, random, re, asyncio, shelve,collections,sys, os, requests
 from datetime import datetime as dt
 from datetime import timezone
 from discord import ActivityType#,Webhook,RequestsWebhookAdapter
@@ -13,6 +13,10 @@ with open('../tok.txt') as f:
     token = f.readlines()[0]
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
+showbot_channel = 'talizorel'
+with open('../talia_showbot_token.txt','r') as f:
+    showbot_token = f.readlines()[0]
+url = 'https://talizorel.showbot.tv/'
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!',intents=intents)
@@ -395,15 +399,38 @@ async def runoff(ctx):
         f['vote_hist']=[]
     await ctx.send(f'Vote history purged, Captain {sender}.')
 
+def html_ify(string):
+    new_string = string.strip()
+    new_string = new_string.replace(' ',r'%20')
+    return new_string
+
 @bot.command()
-async def s(ctx):
-    sender = ctx.message.author.display_name
+async def titletest_s(ctx):
+    author = ctx.message.author.display_name
     title = (ctx.message.content)[3:]
-    titles = load_titles()
-    titles.append(title)
-    with shelve.open('vars') as f:
-        f['titles']=titles
-    await ctx.reply(f'Title added, Captain {sender}')
+    author_html,title_html = html_ify(author),html_ify(title) #Prepare link for submission then submit via Requests module
+    submission_link = f'http://www.showbot.tv/s/add.php?title={title_html}&user={author_html}&channel={showbot_channel}&key={showbot_token}'
+    try:
+        requests.get(submission_link)
+        confirmation_message = f'Title added, Captain {author}.'
+        titles = load_titles()
+        titles.append(title)
+        with shelve.open('vars') as f:
+            f['titles']=titles
+    except TimeoutError:
+        print('Timeout error')
+        confirmation_message = f'There was an error in submitting, Captain {author}.'
+    await ctx.reply(confirmation_message)
+
+# @bot.command()
+# async def s(ctx):
+#     sender = ctx.message.author.display_name
+#     title = (ctx.message.content)[3:]
+#     titles = load_titles()
+#     titles.append(title)
+#     with shelve.open('vars') as f:
+#         f['titles']=titles
+#     await ctx.reply(f'Title added, Captain {sender}')
 
 @bot.command()
 async def titles(ctx):
@@ -412,6 +439,7 @@ async def titles(ctx):
     for i in range(len(titles_)):
         title_list.append(str(i+1)+': '+str(titles_[i]))
     await ctx.send('\n'.join(title_list))
+    await ctx.send(f'Or you can vote on them the new way at: {url}')
 
 @bot.command(pass_context=True)
 async def vote(ctx):

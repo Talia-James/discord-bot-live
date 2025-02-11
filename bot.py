@@ -405,7 +405,7 @@ def html_ify(string):
     return new_string
 
 @bot.command()
-async def titletest_s(ctx):
+async def s(ctx):
     author = ctx.message.author.display_name
     title = (ctx.message.content)[3:]
     author_html,title_html = html_ify(author),html_ify(title) #Prepare link for submission then submit via Requests module

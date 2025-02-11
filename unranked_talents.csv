@@ -203,7 +203,7 @@ Intuitive Improvements,False,False,False,False,False,False,False
 Intuitive Navigation,False,False,False,False,False,False,False
 Intuitive Shot,False,False,False,False,False,False,False
 Intuitive Strike,False,False,False,False,False,False,False
-Invigorate,False,False,False,False,False,False,False
+Invigorate,False,False,False,False,True,False,False
 Iron Soul,False,False,False,False,False,False,False
 It's Not That Bad,False,False,True,False,False,False,False
 Jetpack Expertise,False,False,False,False,False,False,False
@@ -275,7 +275,7 @@ Natural Merchant,False,False,False,False,False,False,False
 Natural Mystic,False,False,False,False,False,False,False
 Natural Negotiator,False,False,False,False,False,False,False
 Natural Operator,False,False,False,False,False,False,False
-Natural Outdoorsman,False,False,False,True,False,False,False
+Natural Outdoorsman,False,True,False,True,False,False,False
 Natural Pilot,False,False,True,False,False,False,False
 Natural Programmer,False,False,False,False,False,False,False
 Natural Rogue,False,False,False,False,True,False,False
@@ -341,7 +341,7 @@ Improved Reflect,False,False,False,True,False,False,False
 Supreme Reflect,False,False,False,False,False,False,False
 Reinforce Item,False,False,False,False,False,False,False
 Reinforced Frame,False,False,False,False,False,False,False
-Renegade Form,False,False,False,False,False,False,False
+Renegade Form,False,True,False,False,False,False,False
 Reroute Processors,False,False,False,False,False,False,False
 Improved Researcher,False,False,False,False,False,False,False
 Resist Disarm,False,False,False,False,False,False,False

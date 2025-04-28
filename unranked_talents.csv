@@ -419,7 +419,7 @@ Survivor's Instincts,False,False,False,False,False,False,False
 Swift,False,False,False,True,False,False,False
 Tactical Advance,False,False,False,False,False,False,False
 Improved Tactical Advance,False,False,False,False,False,False,False
-Tactical Combat Training,False,False,True,False,False,False,False
+Tactical Combat Training,False,True,True,False,False,False,False
 Tactical Evasion,False,False,False,False,False,False,False
 Tactical Planning,False,False,False,False,False,False,False
 Talk The Talk,False,False,False,False,False,False,False

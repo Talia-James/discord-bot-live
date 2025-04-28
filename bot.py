@@ -565,6 +565,8 @@ async def quality(ctx):
         await ctx.send('\n'.join(qualsep))
     elif df.loc[qual]['Activation']=='Passive':
         await ctx.send(df.loc[qual].name + '\n'+df.loc[qual]['Activation']+'\n'+df.loc[qual]['Description'])
+    elif df.loc[qual]['Activation'] not in ['Passive','1']:
+        await ctx.send(df.loc[qual].name + '\n'+df.loc[qual]['Activation']+'\n'+df.loc[qual]['Description'])
     elif df.loc[qual]['Activation']=='1':
         await ctx.send(df.loc[qual].name + '\nActivation: '+df.loc[qual]['Activation']+' Advantage\n'+df.loc[qual]['Description'])
     else:
